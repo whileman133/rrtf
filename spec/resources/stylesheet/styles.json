@@ -1,0 +1,38 @@
+[
+  {
+    "type": "character",
+    "id": "CHAR_1",
+    "name": "Test Char Style 1",
+    "primary": true,
+    "bold": true
+  },
+  {
+    "type": "character",
+    "id": "CHAR_2",
+    "name": "Test Char Style 2",
+    "italic": true
+  },
+  {
+    "type": "paragraph",
+    "id": "PAR_1",
+    "next_style": "PAR_2",
+    "name": "Test Par Style 1",
+    "italic": true,
+    "justification": "RRTF::ParagraphStyle::CENTER_JUSTIFY"
+  },
+  {
+    "type": "paragraph",
+    "id": "PAR_DEF",
+    "name": "Test Par Style Default",
+    "default": true,
+    "italic": true,
+    "justification": "RRTF::ParagraphStyle::CENTER_JUSTIFY"
+  },
+  {
+    "type": "paragraph",
+    "id": "PAR_2",
+    "name": "Test Par Style 2",
+    "italic": true,
+    "justification": "RRTF::ParagraphStyle::RIGHT_JUSTIFY"
+  }
+]

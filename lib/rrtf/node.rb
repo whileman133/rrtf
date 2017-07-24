@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require 'stringio'
 
 module RRTF
@@ -382,7 +380,7 @@ module RRTF
          style.push_fonts(root.fonts)
 
          # Generate the command node.
-         node = CommandNode.new(self, style.prefix(root.fonts, root.colours))
+         node = CommandNode.new(self, style.prefix(root))
          yield node if block_given?
          self.store(node)
       end
@@ -589,7 +587,7 @@ module RRTF
    class ParagraphNode < CommandNode
      def initialize(parent, style=nil)
        prefix = '\pard'
-       prefix << style.prefix(parent.root.fonts, parent.root.colours) if style
+       prefix << style.prefix(parent.root) if style
 
        super(parent, prefix, '\par')
      end
@@ -1143,7 +1141,7 @@ module RRTF
          line      = (separator == " ")
 
          text << "\\pard\\intbl"
-         text << @style.prefix(nil, nil) if @style != nil
+         text << @style.prefix(root) if @style != nil
          text << separator
          self.each do |entry|
             text << "\n" if line
@@ -1695,18 +1693,18 @@ module RRTF
       def initialize(options = {})
         # load default options
         options = {
-           :default_font => "SWISS:Helvetica",
-           :document_style => DocumentStyle.new,
-           :character_set => CS_ANSI,
-           :language => LC_ENGLISH_UK,
-           :suppress_system_styles => false,
-           :stylesheet => nil
+           "default_font" => "SWISS:Helvetica",
+           "document_style" => DocumentStyle.new,
+           "character_set" => CS_ANSI,
+           "language" => LC_ENGLISH_US,
+           "suppress_system_styles" => false,
+           "stylesheet" => nil
         }.merge(options)
 
          super(nil, '\rtf1')
 
          # parse font
-         font = options.delete(:default_font)
+         font = options.delete("default_font")
          case font
          when Font
          when String
@@ -1716,7 +1714,7 @@ module RRTF
          end # case
 
          # parse document style
-         style = options.delete(:document_style)
+         style = options.delete("document_style")
          case style
          when DocumentStyle
          when Hash
@@ -1730,8 +1728,8 @@ module RRTF
          @default_font  = 0
          @colours       = ColourTable.new
          @information   = Information.new
-         @character_set = options.delete(:character_set)
-         @language      = options.delete(:language)
+         @character_set = options.delete("character_set")
+         @language      = options.delete("language")
          @style         = style
          @headers       = [nil, nil, nil, nil]
          @footers       = [nil, nil, nil, nil]
@@ -1740,12 +1738,14 @@ module RRTF
          # parse stylesheet (must be done after font and colour tables are
          # initialized since declared styles may push fonts/colours onto the
          # tables)
-         stylesheet = options.delete(:stylesheet)
+         stylesheet = options.delete("stylesheet")
          case stylesheet
          when Stylesheet
            stylesheet.document = self
          when Array
-           stylesheet = Stylesheet.from_hashmap_array(stylesheet, self)
+           stylesheet = Stylesheet.new(self, "styles" => stylesheet)
+         when Hash
+           stylesheet = Stylesheet.new(self, stylesheet)
          else
            RTFError.fire("Unreconized stylesheet format #{font.class.to_s}")
          end unless stylesheet.nil? # case
@@ -1844,7 +1844,7 @@ module RRTF
       # Loads a stylesheet for the document from an array of hashmaps
       # representing styles
       def load_stylesheet(hashmap_array)
-        @stylesheet = Stylesheet.from_hashmap_array(self, hashmap_array)
+        @stylesheet = Stylesheet.new(self, hashmap_array)
       end
 
       # Attribute mutator.
@@ -1902,8 +1902,8 @@ module RRTF
          text << "\\plain\\fs24\\fet1"
          text << "\n#{@fonts.to_rtf}"
          text << "\n#{@colours.to_rtf}" if @colours.size > 0
-         text << "\n\\noqfpromote" if @options[:suppress_system_styles]
-         text << "\n#{@stylesheet.to_rtf(@fonts, @colours)}" if !@stylesheet.nil?
+         text << "\n\\noqfpromote" if @options["suppress_system_styles"]
+         text << "\n#{@stylesheet.to_rtf}" if !@stylesheet.nil?
          text << "\n#{@information.to_rtf}"
          text << "\n#{@lists.to_rtf}"
          if @headers.compact != []

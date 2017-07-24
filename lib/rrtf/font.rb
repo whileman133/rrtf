@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require 'stringio'
 
 module RRTF
@@ -30,7 +28,7 @@ module RRTF
       def self.from_string(str)
         if str =~ /([a-z]+):(.+)/i
           parts = str.split(':')
-          self.new("RTF::Font::#{parts.first}".constantize, parts.last)
+          self.new(RRTF::Utilities.constantize("RRTF::Font::#{parts.first}"), parts.last)
         else
           RTFError.fire("Unreconized string font format '#{str}'.")
         end

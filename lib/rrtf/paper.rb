@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 module RRTF
    # This class represents a definition for a paper size and provides a set
    # of class constants for common paper sizes. An instance of the Paper class
@@ -7,8 +5,8 @@ module RRTF
    class Paper
       # Attribute accessor.
       attr_reader :name, :width, :height
-      
-      
+
+
       # This is the constructor for the Paper class. All dimension parameters
       # to this method are in twips.
       #

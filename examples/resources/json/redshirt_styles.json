@@ -1,0 +1,49 @@
+[
+  {
+    "type": "paragraph",
+    "id": "TITLE",
+    "name": "Title",
+    "primary": true,
+    "auto_update": true,
+    "next_style": "BODY",
+    "base_style": "BODY",
+    "justification": "CENTER",
+    "space_after": 100,
+    "bold": true,
+    "underline": "DOUBLE",
+    "underline_color": "#ff0000",
+    "uppercase": true,
+    "font_size": 36
+  },
+  {
+    "type": "paragraph",
+    "id": "H1",
+    "name": "Heading 1",
+    "primary": true,
+    "next_style": "BODY",
+    "space_after": 40,
+    "space_before": 200,
+    "underline": "SINGLE",
+    "underline_color": "#ff0000",
+    "bold": true,
+    "font_size": 24
+  },
+  {
+    "type": "paragraph",
+    "id": "BODY",
+    "name": "Body",
+    "primary": true,
+    "justification": "LEFT",
+    "font_size": 24,
+    "hyphenate": true
+  },
+  {
+    "type": "character",
+    "id": "EMPH",
+    "name": "Emphasis",
+    "additive": true,
+    "italic": true,
+    "bold": true,
+    "foreground_color": "#ff0000"
+  }
+]

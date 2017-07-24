@@ -1,7 +1,6 @@
-#!/usr/bin/env ruby
-
 require 'stringio'
 require 'date'
+
 module RRTF
    # This class represents an information group for a RTF document.
    class Information

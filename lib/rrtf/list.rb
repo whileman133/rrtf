@@ -79,7 +79,7 @@ module RRTF
     end
 
     def text_format(n=nil)
-      text = 
+      text =
         if bullet?
           "\\uc0\\u#@codepoint"
         else
@@ -146,7 +146,7 @@ module RRTF
         RTFError.fire("Invalid list level: #{level}")
       end
 
-      @template = template 
+      @template = template
       @level    = level
       @marker   = marker
     end
@@ -169,7 +169,7 @@ module RRTF
           # would look good on every RTF editor :-p
           #
           a,  = tabs.shift(3)
-          a,b = a + 720, a + 1220 
+          a,b = a + 720, a + 1220
           tabs.shift while tabs.first < b
           tabs.unshift a, b
         end
@@ -190,7 +190,7 @@ module RRTF
       prefix = indent > 0 ? ' ' * indent : ''
 
       text  = "#{prefix}{\\listlevel\\levelstartat1"
-      
+
       # Marker type. The first declaration is for Backward Compatibility (BC).
       nfc  = @marker.number_type
       text << "\\levelnfc#{nfc}\\levelnfcn#{nfc}"
