@@ -17,16 +17,15 @@ rtf.paragraph(styles['BODY']) do |p|
 end
 rtf.paragraph(styles['H1']) << "1. The Danger of Away Missions"
 rtf.paragraph(styles['BODY']) do |p|
-  p << "If you're ever assigned an away mission, its almost certian to be your doom. "
-  p << "The optimal stategy is to avoid away missions to begin with..."
+  p << "If you're ever assigned an away mission, it's almost certain to be your doom. "
+  p << "The optimal strategy is to avoid away missions to begin with..."
 end
 rtf.paragraph(styles['H1']) << "2. Avoiding High-Ranking Officers"
 rtf.paragraph(styles['BODY']) do |p|
   p << "You're likely to notice an influx of unfortunate outcomes around "
-  p << "certian high-ranking officers. Its to your advantage to quickly identify and "
+  p << "certain high-ranking officers. Its to your advantage to quickly identify and "
   p << "avoid these officers..."
 end
-
 
 File.open(DIR+'/01.rtf', 'w') do |file|
    file.write(rtf.to_rtf)

@@ -7,9 +7,9 @@ module RRTF
 
      # This is the constructor for the CharacterStyle class.
      #
-     # ==== Exceptions
-     # RTFError::  Generate if the parent style specified is not an instance
-     #             of the CharacterStyle class.
+     # @param [Hash] options the character style options.
+     # @option options (see Style#initialize)
+     # @option options (see CharacterFormatting#initialize_character_formatting)
      def initialize(options = {})
         super(options)
         initialize_character_formatting(options)
@@ -45,6 +45,7 @@ module RRTF
        rtf << "\\snext#{@next_style_handle}#{suffix}" unless @next_style_handle.nil?
        rtf << "\\sqformat#{suffix}" if @primary
        rtf << "\\spriority#{@priority}#{suffix}" unless @priority.nil?
+       rtf << "\\shidden#{suffix}" if @hidden
        rtf << "#{name_prefix}#{name};}"
 
        rtf.string

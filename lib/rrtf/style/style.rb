@@ -1,34 +1,33 @@
 # This is a parent class that all style classes will derive from.
 class RRTF::Style
    attr_accessor :handle, :name, :priority, :primary, :additive,
-                 :next_style_handle, :auto_update, :based_on_style_handle
+                 :next_style_handle, :auto_update, :based_on_style_handle,
+                 :hidden
 
    # Constructor for the style class.
    #
-   # ===== Parameters
-   # options:: A hashmap of options for the style. Used only in stylesheet.
-   #   name::        Human-readable name for the style DEFAULT nil
-   #   id::          ID for the style (for use in code) DEFAULT nil
-   #   handle::      A 16-bit integer that identifies the style in a document
-   #                 DEFAULT nil
-   #   flow::        The character flow (Style::LEFT_TO_RIGHT or Style::RIGHT_TO_LEFT)
-   #                 DEFAULT LEFT_TO_RIGHT
-   #   primary::     A Boolean indicating whether or not this style is a
-   #                 primary or "quick" style
-   #   additive::    A Boolean indicating whether or not this style is
-   #                 additive DEFAULT false
+   # @param [Hash] options
+   # @option options [String] "name" (nil) human-readable name for the style.
+   # @option options [Integer] "handle" (nil) 16-bit integer that identifies the style in a document.
+   # @option options [Integer] "next_style_handle" (nil) 16-bit integer that identifies the next style for this style.
+   # @option options [Integer] "based_on_style_handle" (nil) 16-bit integer that identifies the base style for this style.
+   # @option options [Integer] "priority" (nil) 16-bit integer that indicates the ordering of the style among other styles in a document.
+   # @option options [Boolean] "primary" (false) whether or not this style is a primary or "quick" style.
+   # @option options [Boolean] "additive" (false) whether or not this character style is additive to the current paragraph style.
+   # @option options [Boolean] "auto_update" (false) whether or not this style should be updated when any node to which the style is applied is updated.
+   # @option options [Boolean] "hidden" (false) whether or not the style should be hidden.
    def initialize(options = {})
      # load default options
      options = {
        "name" => nil,
        "handle" => nil,
        "priority" => nil,
-       "flow" => 'LEFT_TO_RIGHT',
        "primary" => false,
        "additive" => false,
        "next_style_handle" => nil,
        "auto_update" => false,
-       "based_on_style_handle" => nil
+       "based_on_style_handle" => nil,
+       "hidden" => false
      }.merge(options)
 
      @handle = options.delete("handle")
@@ -39,6 +38,7 @@ class RRTF::Style
      @additive = options.delete("additive")
      @next_style_handle = options.delete("next_style_handle")
      @auto_update = options.delete("auto_update")
+     @hidden = options.delete("hidden")
    end
 
    # Constructs an RTF identifier for the style.

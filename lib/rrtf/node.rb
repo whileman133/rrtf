@@ -1515,150 +1515,65 @@ module RRTF
    # This class represents an RTF document. In actuality it is just a
    # specialised Node type that cannot be assigned a parent and that holds
    # document font, colour and information tables.
+   # @author Peter Wood
    class Document < CommandNode
-      # A definition for a document character set setting.
-      CS_ANSI                          = :ansi
+     # A hash mapping character set string constants to their RTF counterparts.
+     # @return [Hash<String, Symbol>] the RTF character set dictionary.
+      CS_DICTIONARY = {
+        "ANSI"    => :ansi,
+        "MAC"     => :mac,
+        "PC"      => :pc,
+        "PCA"     => :pca
+      }.freeze
 
-      # A definition for a document character set setting.
-      CS_MAC                           = :mac
-
-      # A definition for a document character set setting.
-      CS_PC                            = :pc
-
-      # A definition for a document character set setting.
-      CS_PCA                           = :pca
-
-      # A definition for a document language setting.
-      LC_AFRIKAANS                     = 1078
-
-      # A definition for a document language setting.
-      LC_ARABIC                        = 1025
-
-      # A definition for a document language setting.
-      LC_CATALAN                       = 1027
-
-      # A definition for a document language setting.
-      LC_CHINESE_TRADITIONAL           = 1028
-
-      # A definition for a document language setting.
-      LC_CHINESE_SIMPLIFIED            = 2052
-
-      # A definition for a document language setting.
-      LC_CZECH                         = 1029
-
-      # A definition for a document language setting.
-      LC_DANISH                        = 1030
-
-      # A definition for a document language setting.
-      LC_DUTCH                         = 1043
-
-      # A definition for a document language setting.
-      LC_DUTCH_BELGIAN                 = 2067
-
-      # A definition for a document language setting.
-      LC_ENGLISH_UK                    = 2057
-
-      # A definition for a document language setting.
-      LC_ENGLISH_US                    = 1033
-
-      # A definition for a document language setting.
-      LC_FINNISH                       = 1035
-
-      # A definition for a document language setting.
-      LC_FRENCH                        = 1036
-
-      # A definition for a document language setting.
-      LC_FRENCH_BELGIAN                = 2060
-
-      # A definition for a document language setting.
-      LC_FRENCH_CANADIAN               = 3084
-
-      # A definition for a document language setting.
-      LC_FRENCH_SWISS                  = 4108
-
-      # A definition for a document language setting.
-      LC_GERMAN                        = 1031
-
-      # A definition for a document language setting.
-      LC_GERMAN_SWISS                  = 2055
-
-      # A definition for a document language setting.
-      LC_GREEK                         = 1032
-
-      # A definition for a document language setting.
-      LC_HEBREW                        = 1037
-
-      # A definition for a document language setting.
-      LC_HUNGARIAN                     = 1038
-
-      # A definition for a document language setting.
-      LC_ICELANDIC                     = 1039
-
-      # A definition for a document language setting.
-      LC_INDONESIAN                    = 1057
-
-      # A definition for a document language setting.
-      LC_ITALIAN                       = 1040
-
-      # A definition for a document language setting.
-      LC_JAPANESE                      = 1041
-
-      # A definition for a document language setting.
-      LC_KOREAN                        = 1042
-
-      # A definition for a document language setting.
-      LC_NORWEGIAN_BOKMAL              = 1044
-
-      # A definition for a document language setting.
-      LC_NORWEGIAN_NYNORSK             = 2068
-
-      # A definition for a document language setting.
-      LC_POLISH                        = 1045
-
-      # A definition for a document language setting.
-      LC_PORTUGUESE                    = 2070
-
-      # A definition for a document language setting.
-      LC_POTUGUESE_BRAZILIAN           = 1046
-
-      # A definition for a document language setting.
-      LC_ROMANIAN                      = 1048
-
-      # A definition for a document language setting.
-      LC_RUSSIAN                       = 1049
-
-      # A definition for a document language setting.
-      LC_SERBO_CROATIAN_CYRILLIC       = 2074
-
-      # A definition for a document language setting.
-      LC_SERBO_CROATIAN_LATIN          = 1050
-
-      # A definition for a document language setting.
-      LC_SLOVAK                        = 1051
-
-      # A definition for a document language setting.
-      LC_SPANISH_CASTILLIAN            = 1034
-
-      # A definition for a document language setting.
-      LC_SPANISH_MEXICAN               = 2058
-
-      # A definition for a document language setting.
-      LC_SWAHILI                       = 1089
-
-      # A definition for a document language setting.
-      LC_SWEDISH                       = 1053
-
-      # A definition for a document language setting.
-      LC_THAI                          = 1054
-
-      # A definition for a document language setting.
-      LC_TURKISH                       = 1055
-
-      # A definition for a document language setting.
-      LC_UNKNOWN                       = 1024
-
-      # A definition for a document language setting.
-      LC_VIETNAMESE                    = 1066
+      # A hash mapping langauge set string constants to their RTF counterparts.
+      # @return [Hash<String, Integer>] the RTF langauge setting dictionary.
+      LS_DICTIONARY = {
+        "AFRIKAANS"                   => 1078,
+        "ARABIC"                      => 1025,
+        "CATALAN"                     => 1027,
+        "CHINESE_TRADITIONAL"         => 1028,
+        "CHINESE_SIMPLIFIED"          => 2052,
+        "CZECH"                       => 1029,
+        "DANISH"                      => 1030,
+        "DUTCH"                       => 1043,
+        "DUTCH_BELGIAN"               => 2067,
+        "ENGLISH_UK"                  => 2057,
+        "ENGLISH_US"                  => 1033,
+        "FINNISH"                     => 1035,
+        "FRENCH"                      => 1036,
+        "FRENCH_BELGIAN"              => 2060,
+        "FRENCH_CANADIAN"             => 3084,
+        "FRENCH_SWISS"                => 4108,
+        "GERMAN"                      => 1031,
+        "GERMAN_SWISS"                => 2055,
+        "GREEK"                       => 1032,
+        "HEBREW"                      => 1037,
+        "HUNGARIAN"                   => 1038,
+        "ICELANDIC"                   => 1039,
+        "INDONESIAN"                  => 1057,
+        "ITALIAN"                     => 1040,
+        "JAPANESE"                    => 1041,
+        "KOREAN"                      => 1042,
+        "NORWEGIAN_BOKMAL"            => 1044,
+        "NORWEGIAN_NYNORSK"           => 2068,
+        "POLISH"                      => 1045,
+        "PORTUGUESE"                  => 2070,
+        "POTUGUESE_BRAZILIAN"         => 1046,
+        "ROMANIAN"                    => 1048,
+        "RUSSIAN"                     => 1049,
+        "SERBO_CROATIAN_CYRILLIC"     => 2074,
+        "SERBO_CROATIAN_LATIN"        => 1050,
+        "SLOVAK"                      => 1051,
+        "SPANISH_CASTILLIAN"          => 1034,
+        "SPANISH_MEXICAN"             => 2058,
+        "SWAHILI"                     => 1089,
+        "SWEDISH"                     => 1053,
+        "THAI"                        => 1054,
+        "TURKISH"                     => 1055,
+        "UNKNOWN"                     => 1024,
+        "VIETNAMESE"                  => 1066
+      }.freeze
 
       # Attribute accessor.
       attr_reader :fonts, :lists, :colours, :information, :character_set,
@@ -1668,35 +1583,25 @@ module RRTF
       attr_writer :character_set, :language, :stylesheet
 
 
-      # This is a constructor for the Document class.
+      # Represents an entire RTF document.
+      # @note The "suppress_system_styles" option is ignored by most RTF platforms including Word and LibreOffice.
+      # @see DocumentStyle#initialize DocumentStyle#initialize for available document style options.
+      # @see Stylesheet#add_style Stylesheet#initialize for available stylesheet options.
       #
-      # ==== Parameters
-      # options::   A hashmap of options to use in initializing the document
-      #   default_font::    A font object OR string encapsulating the default
-      #                     font to be used by the document.
-      #                     STRING FORMAT "<FAMILY>:<Name>"
-      #                     DEFAULT "SWISS:Helvetica".
-      #   document_style::  A DocumentStyle object OR options hash encapsulating
-      #                     the style settings to be applied to the document.
-      #                     DEFAULT DocumentStyle object with default settings.
-      #   character_set::   The character set to be applied to the document.
-      #                     DEFAULT Document::CS_ANSI.
-      #   language::        The language setting to be applied to document.
-      #                     DEFAULT Document::LC_ENGLISH_UK.
-      #   suppress_system_styles:: A Boolean indicating whether or not to add
-      #                     the \noqfpromote control word, which indicates
-      #                     "quick" or default styles should be suppressed.
-      #                     DEFAULT false.
-      #   stylesheet::      A Stylesheet object OR hashmap array encapsulating
-      #                     the styles to make available throughout the document.
-      #                     DEFAULT nil.
+      # @param [Hash<String, Object>] options the options to use in creating the document.
+      # @option options [String, Font] "default_font" ("SWISS:Helvetica") a font object OR string encapsulating the default font to be used by the document (see {Font.from_string} for string format).
+      # @option options [String] "character_set" ("ANSI") the character set to be applied to the document (see {CS_DICTIONARY} for valid values).
+      # @option options [String] "language" ("ENGLISH_US") the language setting to be applied to the document (see {LS_DICTIONARY} for valid values).
+      # @option options [Boolean] "suppress_system_styles" (false) whether or not to suppress styles provided in the host platform (adds the \noqfpromote control word before stylesheet definition).
+      # @option options [DocumentStyle] "document_style" (DocumentStyle.new) a DocumentStyle object OR options hash encapsulating the style settings to be applied to the document.
+      # @option options [Array, Hash, Stylesheet] "stylesheet" (nil) a Stylesheet object OR array of style hashes OR hash of stylesheet options with which to use as or construct the stylesheet for the document.
       def initialize(options = {})
         # load default options
         options = {
            "default_font" => "SWISS:Helvetica",
            "document_style" => DocumentStyle.new,
-           "character_set" => CS_ANSI,
-           "language" => LC_ENGLISH_US,
+           "character_set" => "ANSI",
+           "language" => "ENGLISH_US",
            "suppress_system_styles" => false,
            "stylesheet" => nil
         }.merge(options)
@@ -1723,13 +1628,27 @@ module RRTF
            RTFError.fire("Unreconized document style format #{font.class.to_s}")
          end # case
 
+         # parse character set
+         cs_string = options.delete("character_set")
+         cs_val = CS_DICTIONARY[cs_string]
+         if cs_val.nil?
+           RTFError.fire("Unreconized character set '#{cs_string}'.")
+         end # if
+
+         # parse language setting
+         ls_string = options.delete("language")
+         ls_val = LS_DICTIONARY[ls_string]
+         if ls_val.nil?
+           RTFError.fire("Unreconized language '#{ls_string}'.")
+         end # if
+
          @fonts         = FontTable.new(font)
          @lists         = ListTable.new
          @default_font  = 0
          @colours       = ColourTable.new
          @information   = Information.new
-         @character_set = options.delete("character_set")
-         @language      = options.delete("language")
+         @character_set = cs_val
+         @language      = ls_val
          @style         = style
          @headers       = [nil, nil, nil, nil]
          @footers       = [nil, nil, nil, nil]

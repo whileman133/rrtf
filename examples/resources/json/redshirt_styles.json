@@ -31,8 +31,9 @@
   {
     "type": "paragraph",
     "id": "BODY",
-    "name": "Body",
+    "name": "Normal",
     "primary": true,
+    "default": true,
     "justification": "LEFT",
     "font_size": 24,
     "hyphenate": true
@@ -44,6 +45,7 @@
     "additive": true,
     "italic": true,
     "bold": true,
-    "foreground_color": "#ff0000"
+    "foreground_color": "#ff0000",
+    "locked": true
   }
 ]

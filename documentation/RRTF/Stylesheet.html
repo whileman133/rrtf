@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: RRTF::Stylesheet
+  
+    &mdash; Documentation by YARD 0.9.9
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "RRTF::Stylesheet";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RRTF.html" title="RRTF (module)">RRTF</a></span></span>
+     &raquo; 
+    <span class="title">Stylesheet</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: RRTF::Stylesheet
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RRTF::Stylesheet</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rrtf/stylesheet.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Represents a stylesheet in an RTF document.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Wesley Hileman</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#document-instance_method" title="#document (instance method)">#<strong>document</strong>  &#x21d2; Document </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The document to which the stylesheet belongs.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#styles-instance_method" title="#styles (instance method)">#<strong>styles</strong>  &#x21d2; Hash&lt;String, Style&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stores the Style objects associated with the stylesheet, each of which is
+keyed by its assigned ID.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_style-instance_method" title="#add_style (instance method)">#<strong>add_style</strong>(options)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds a single style to the stylesheet.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_styles-instance_method" title="#add_styles (instance method)">#<strong>add_styles</strong>(hash_array)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds the specified styles to the stylesheet.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(document, options = {})  &#x21d2; Stylesheet </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Builds a Stylesheet object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_rtf-instance_method" title="#to_rtf (instance method)">#<strong>to_rtf</strong>(options = {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts the stylesheet to its RTF representation.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(document, options = {})  &#x21d2; <tt><span class='object_link'><a href="" title="RRTF::Stylesheet (class)">Stylesheet</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Builds a Stylesheet object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>document</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Document.html" title="RRTF::Document (class)">Document</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the document to which the stylesheet belongs.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the stylesheet options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">"styles"</span>
+          <span class="type">(<tt>Array&lt;Hash&gt;</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>[]</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>a hashmap array specifying the styles to include in the stylesheet.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"assign_style_handles"</span>
+          <span class="type">(<tt>Array&lt;Boolean&gt;</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>true</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not to auto-assign handles to included styles.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"assign_style_priorities"</span>
+          <span class="type">(<tt>Array&lt;Boolean&gt;</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>true</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not to auto-assign priority to included styles.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"base_style_handle"</span>
+          <span class="type">(<tt>Array&lt;Integer&gt;</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>1</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the handle number at which to start indexing styles.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"base_style_handle"</span>
+          <span class="type">(<tt>Array&lt;Integer&gt;</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>20</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the priority number at which to start indexing styles.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#add_style-instance_method" title="RRTF::Stylesheet#add_style (method)">#add_style for available style options.</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/stylesheet.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>styles</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>base_style_handle</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>base_style_priority</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>assign_style_handles</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>assign_style_priorities</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='ivar'>@document</span> <span class='op'>=</span> <span class='id identifier rubyid_document'>document</span>
+  <span class='ivar'>@next_styles_hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@base_styles_hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@styles</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_add_styles'>add_styles</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>styles</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="document=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="document-instance_method">
+  
+    #<strong>document</strong>  &#x21d2; <tt><span class='object_link'><a href="Document.html" title="RRTF::Document (class)">Document</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The document to which the stylesheet belongs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Document.html" title="RRTF::Document (class)">Document</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the document object.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/stylesheet.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_document'>document</span>
+  <span class='ivar'>@document</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="styles-instance_method">
+  
+    #<strong>styles</strong>  &#x21d2; <tt>Hash&lt;String, <span class='object_link'><a href="Style.html" title="RRTF::Style (class)">Style</a></span>&gt;</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stores the Style objects associated with the stylesheet, each of which is
+keyed by its assigned ID.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash&lt;String, <span class='object_link'><a href="Style.html" title="RRTF::Style (class)">Style</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the style hash.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/stylesheet.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_styles'>styles</span>
+  <span class='ivar'>@styles</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_style-instance_method">
+  
+    #<strong>add_style</strong>(options)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds a single style to the stylesheet.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the options to use in building the style.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">"style"</span>
+          <span class="type">(<tt><span class='object_link'><a href="Style.html" title="RRTF::Style (class)">Style</a></span></tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the style object to add to the stylesheet (can be specified directly in
+place of “type”).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"type"</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the type of style to build (“character” or “paragraph”).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"id"</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the ID for the style (used in generating code only).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"default"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not this style is the default style for the document.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"next_style"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the ID of the next style (the style to be used in the paragraph created
+after paragraphs with this style applied).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"base_style"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the ID of the base style (the style on which this one is based).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"assign_handle"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not a handle should be auto-assigned to this style.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"assign_priority"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not a priority should be auto-assigned to this style.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"name"</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>human-readable name for the style.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"handle"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>16-bit integer that identifies the style in a document.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"next_style_handle"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>16-bit integer that identifies the next style for this style.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"based_on_style_handle"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>16-bit integer that identifies the base style for this style.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"priority"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>16-bit integer that indicates the ordering of the style among other styles
+in a document.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"primary"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not this style is a primary or “quick” style.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"additive"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not this character style is additive to the current paragraph
+style.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"auto_update"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not this style should be updated when any node to which the
+style is applied is updated.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"hidden"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not the style should be hidden.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"bold"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable bold (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"italic"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable italic (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"underline"</span>
+          <span class="type">(<tt>Boolean</tt>, <tt>String</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable underline (nil to remain same); can also be a string (see
+<span class='object_link'><a href="CharacterFormatting.html#CHARACTER_ATTRIBUTES-constant" title="RRTF::CharacterFormatting::CHARACTER_ATTRIBUTES (constant)">CharacterFormatting::CHARACTER_ATTRIBUTES</a></span>).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"uppercase"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable all caps (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"superscript"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable superscript (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"subscript"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable subscript (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"strike"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable single line-through (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"emboss"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable emboss (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"imprint"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable imprint (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"outline"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable outline (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"text_hidden"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable hidden (nil to remain same).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"kerning"</span>
+          <span class="type">(<tt>Boolean</tt>, <tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable kerning (nil to remain same); to enable specify the font
+size in half-points above which kerining will be applied.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"character_spacing_offset"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>quarter points by which to expand or compress character spacing (negative
+for compress).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"foreground_color"</span>
+          <span class="type">(<tt>String</tt>, <tt><span class='object_link'><a href="Colour.html" title="RRTF::Colour (class)">Colour</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>colour to apply to the foreground (text); see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for
+string format.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"background_color"</span>
+          <span class="type">(<tt>String</tt>, <tt><span class='object_link'><a href="Colour.html" title="RRTF::Colour (class)">Colour</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>colour to apply to the background (highlight); see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for
+string format.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"underline_color"</span>
+          <span class="type">(<tt>String</tt>, <tt><span class='object_link'><a href="Colour.html" title="RRTF::Colour (class)">Colour</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>colour to apply to the underline; see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for string
+format.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"font"</span>
+          <span class="type">(<tt>String</tt>, <tt><span class='object_link'><a href="Font.html" title="RRTF::Font (class)">Font</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>font to apply to text; see <span class='object_link'><a href="Font.html#from_string-class_method" title="RRTF::Font.from_string (method)">Font.from_string</a></span> for string format.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"font_size"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>font size in half-points.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"justification"</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&#39;LEFT&#39;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the paragraph justification (&#39;LEFT&#39;,
+&#39;CENTER&#39;/&#39;CENTRE&#39;, &#39;RIGHT&#39;, or &#39;FULL&#39;).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"left_indent"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the left indent of the paragraph (twentieth points).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"right_indent"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the right indent of the paragraph (twentieth points).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"first_line_indent"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the first line indent of the paragraph (twentieth points).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"space_before"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the space before the paragraph (twentieth points).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"space_after"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the space after the paragraph (twentieth points).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"line_spacing"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the line spacing in the paragraph (twentieth points).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"widow_orphan_ctl"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable widow-and-orphan control.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"no_break"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>when true, tries to keep the paragraph on the same page (i.e. without
+breaking).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"no_break_with_next"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>when true, tries to keep the paragraph with the next paragraph on the same
+page (i.e. without breaking).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"hyphenate"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>enable or disable hyphenation for the paragraph.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"paragraph_flow"</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&#39;LEFT_TO_RIGHT&#39;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the text flow direction in the paragraph (&#39;LEFT_TO_RIGHT&#39; or
+&#39;RIGHT_TO_LEFT&#39;).</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/stylesheet.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_style'>add_style</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_style'>style</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>style</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_add_options'>add_options</span> <span class='op'>=</span> <span class='id identifier rubyid_extract_add_options'>extract_add_options</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='comment'># style object given; add directly
+</span>    <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_add_style_object'>add_style_object</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='comma'>,</span> <span class='id identifier rubyid_add_options'>add_options</span><span class='rparen'>)</span>
+      <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'> could not be added to the stylesheet (hint: make sure it&#39;s a style object).</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span> <span class='comment'># if
+</span>  <span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='comment'># style object not given; create based on type
+</span>    <span class='kw'>case</span> <span class='id identifier rubyid_type'>type</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>paragraph</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_add_style_object'>add_style_object</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="ParagraphStyle.html" title="RRTF::ParagraphStyle (class)">ParagraphStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ParagraphStyle.html#initialize-instance_method" title="RRTF::ParagraphStyle#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_add_options'>add_options</span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>character</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_add_style_object'>add_style_object</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_add_options'>add_options</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unreconized style type &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span> <span class='comment'># case
+</span>  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A style type or style object must be specified for each style in a stylesheet.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span> <span class='comment'># if
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_styles-instance_method">
+  
+    #<strong>add_styles</strong>(hash_array)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds the specified styles to the stylesheet.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>hash_array</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a hashmap array specifying the styles to add to the stylesheet.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#add_style-instance_method" title="RRTF::Stylesheet#add_style (method)">#add_style for available style options.</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/stylesheet.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_styles'>add_styles</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_array'>hash_array</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hash_array'>hash_array</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_hash'>hash</span><span class='op'>|</span> <span class='id identifier rubyid_add_style'>add_style</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_rtf-instance_method">
+  
+    #<strong>to_rtf</strong>(options = {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>calling `to_rtf` causes all next and base styles to be updated (to_rtf
+“commits” the stylesheet); errors might be raised if next or base styles
+are missing (have yet to be added to the stylesheet).</p>
+</div>
+  </div>
+
+
+<p>Converts the stylesheet to its RTF representation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">"uglify"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>removes most line breaks and spaces from RTF output.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"base_indent"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>0</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the base indent (in spaces) for RTF output (ignored if uglify is true).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"child_indent"</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>0</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the amount of spaces by which to indent the component styles (ignored if
+uglify is true).</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/stylesheet.rb', line 93</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># load default options
+</span>  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uglify</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>base_indent</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>child_indent</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='comment'># build line prefixes
+</span>  <span class='id identifier rubyid_newline_prefix'>newline_prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uglify</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_base_prefix'>base_prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uglify</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='op'>*</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>base_indent</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+
+  <span class='comment'># lookup and set next and base style handles on component styles
+</span>  <span class='id identifier rubyid_substitute_next_style_handles'>substitute_next_style_handles</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_substitute_base_style_handles'>substitute_base_style_handles</span><span class='lparen'>(</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_rtf'>rtf</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+
+  <span class='id identifier rubyid_rtf'>rtf</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_base_prefix'>base_prefix</span><span class='embexpr_end'>}</span><span class='tstring_content'>{\\stylesheet</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@styles</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_style'>style</span><span class='op'>|</span>
+    <span class='id identifier rubyid_rtf'>rtf</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_newline_prefix'>newline_prefix</span>
+    <span class='id identifier rubyid_rtf'>rtf</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='lparen'>(</span>
+      <span class='id identifier rubyid_document'>document</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uglify</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uglify</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>base_indent</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>base_indent</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='op'>+</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>child_indent</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_rtf'>rtf</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_newline_prefix'>newline_prefix</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_base_prefix'>base_prefix</span><span class='embexpr_end'>}</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jul 24 15:49:01 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.9 (ruby-2.3.3).
+</div>
+
+    </div>
+  </body>
+</html>

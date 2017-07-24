@@ -2,13 +2,19 @@ require 'stringio'
 
 module RRTF
   # This class represents a styling for a paragraph within an RTF document.
-  # NOTE: Paragraphs can be styled with character commands in addition to
-  # paragraph commands, thus this class includes both paragraph & character
-  # formatting modules
+  # @note paragraphs can be styled with character commands in addition to
+  #   paragraph commands, thus this class includes both paragraph & character
+  #   formatting modules.
   class ParagraphStyle < Style
     include ParagraphFormatting
     include CharacterFormatting
 
+    # This is the constructor for the CharacterStyle class.
+    #
+    # @param [Hash] options the character style options.
+    # @option options (see Style#initialize)
+    # @option options (see CharacterFormatting#initialize_character_formatting)
+    # @option options (see ParagraphFormatting#initialize_paragraph_formatting)
      def initialize(options = {})
         super(options)
         initialize_paragraph_formatting(options)
@@ -50,6 +56,7 @@ module RRTF
        rtf << "\\snext#{@next_style_handle}#{suffix}" unless @next_style_handle.nil?
        rtf << "\\sqformat#{suffix}" if @primary
        rtf << "\\spriority#{@priority}#{suffix}" unless @priority.nil?
+       rtf << "\\shidden#{suffix}" if @hidden
        rtf << "#{name_prefix}#{name};}"
 
        rtf.string
@@ -73,7 +80,15 @@ module RRTF
      end
 
      def rtf_formatting(document)
-       "#{paragraph_formatting_to_rtf(document)} #{character_formatting_to_rtf(document)}"
+       rtf = StringIO.new
+
+       pf = paragraph_formatting_to_rtf(document)
+       cf = character_formatting_to_rtf(document)
+
+       rtf << pf unless pf.nil?
+       rtf << cf unless cf.nil?
+
+       rtf.string
      end
   end # End of the ParagraphStyle class.
 end # module RRTF

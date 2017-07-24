@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: RRTF::TableRowNode
+  
+    &mdash; Documentation by YARD 0.9.9
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "RRTF::TableRowNode";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RRTF.html" title="RRTF (module)">RRTF</a></span></span>
+     &raquo; 
+    <span class="title">TableRowNode</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: RRTF::TableRowNode
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></li>
+          
+            <li class="next">RRTF::TableRowNode</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rrtf/node.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class represents a row within an RTF table. The TableRowNode is a
+specialised container node that can hold only TableCellNodes and, once
+created, cannot be resized. Its also not possible to change the parent of a
+TableRowNode object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ContainerNode.html#children-instance_method" title="RRTF::ContainerNode#children (method)">#children</a></span></p>
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#parent-instance_method" title="RRTF::Node#parent (method)">#parent</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#border_width=-instance_method" title="#border_width= (instance method)">#<strong>border_width=</strong>(width)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method assigns a border width setting to all of the sides on all of
+the cells within a table row.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(table, cells, *widths)  &#x21d2; TableRowNode </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This is the constructor for the TableRowNode class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#length-instance_method" title="#length (instance method)">#<strong>length</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessors.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parent=-instance_method" title="#parent= (instance method)">#<strong>parent=</strong>(parent)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method overloads the parent= method inherited from the Node class to
+forbid the alteration of the cells parent.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#shading_colour=-instance_method" title="#shading_colour= (instance method)">#<strong>shading_colour=</strong>(colour)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method sets the shading colour for a row.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_rtf-instance_method" title="#to_rtf (instance method)">#<strong>to_rtf</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method generates the RTF document text for a TableCellNode object.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ContainerNode.html#[]-instance_method" title="RRTF::ContainerNode#[] (method)">#[]</a></span>, <span class='object_link'><a href="ContainerNode.html#each-instance_method" title="RRTF::ContainerNode#each (method)">#each</a></span>, <span class='object_link'><a href="ContainerNode.html#first-instance_method" title="RRTF::ContainerNode#first (method)">#first</a></span>, <span class='object_link'><a href="ContainerNode.html#last-instance_method" title="RRTF::ContainerNode#last (method)">#last</a></span>, <span class='object_link'><a href="ContainerNode.html#size-instance_method" title="RRTF::ContainerNode#size (method)">#size</a></span>, <span class='object_link'><a href="ContainerNode.html#store-instance_method" title="RRTF::ContainerNode#store (method)">#store</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#is_root%3F-instance_method" title="RRTF::Node#is_root? (method)">#is_root?</a></span>, <span class='object_link'><a href="Node.html#next_node-instance_method" title="RRTF::Node#next_node (method)">#next_node</a></span>, <span class='object_link'><a href="Node.html#previous_node-instance_method" title="RRTF::Node#previous_node (method)">#previous_node</a></span>, <span class='object_link'><a href="Node.html#root-instance_method" title="RRTF::Node#root (method)">#root</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(table, cells, *widths)  &#x21d2; <tt><span class='object_link'><a href="" title="RRTF::TableRowNode (class)">TableRowNode</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This is the constructor for the TableRowNode class.</p>
+
+<h5 id="label-Parameters">Parameters</h5>
+<dl class="rdoc-list note-list"><dt>table
+<dd>
+<p>A reference to table that owns the row.</p>
+</dd><dt>cells
+<dd>
+<p>The number of cells that the row will contain.</p>
+</dd><dt>widths
+<dd>
+<p>One or more integers specifying the widths for the table columns</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+846
+847
+848
+849
+850
+851
+852
+853
+854</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 846</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_table'>table</span><span class='comma'>,</span> <span class='id identifier rubyid_cells'>cells</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_widths'>widths</span><span class='rparen'>)</span>
+   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_table'>table</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_entries'>entries</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_cells'>cells</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_index'>index</span><span class='op'>|</span>
+         <span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="TableCellNode.html" title="RRTF::TableCellNode (class)">TableCellNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TableCellNode.html#initialize-instance_method" title="RRTF::TableCellNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='id identifier rubyid_index'>index</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_entries'>entries</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="border_width=-instance_method">
+  
+    #<strong>border_width=</strong>(width)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method assigns a border width setting to all of the sides on all of
+the cells within a table row.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>width
+<dd>
+<p>The border width setting to apply. Negative values are ignored and zero
+switches the border off.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+867
+868
+869</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 867</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_border_width='>border_width=</span><span class='lparen'>(</span><span class='id identifier rubyid_width'>width</span><span class='rparen'>)</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_cell'>cell</span><span class='op'>|</span> <span class='id identifier rubyid_cell'>cell</span><span class='period'>.</span><span class='id identifier rubyid_border_width'>border_width</span> <span class='op'>=</span> <span class='id identifier rubyid_width'>width</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="length-instance_method">
+  
+    #<strong>length</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessors</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+857
+858
+859</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 857</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_length'>length</span>
+   <span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="parent=-instance_method">
+  
+    #<strong>parent=</strong>(parent)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method overloads the parent= method inherited from the Node class to
+forbid the alteration of the cells parent.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>parent
+<dd>
+<p>A reference to the new node parent.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+876
+877
+878</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 876</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_parent='>parent=</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='rparen'>)</span>
+   <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Table row nodes cannot have their parent changed.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="shading_colour=-instance_method">
+  
+    #<strong>shading_colour=</strong>(colour)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method sets the shading colour for a row.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>colour
+<dd>
+<p>A reference to the Colour object that represents the new shading colour.
+Set to nil to switch shading off.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+885
+886
+887</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 885</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_shading_colour='>shading_colour=</span><span class='lparen'>(</span><span class='id identifier rubyid_colour'>colour</span><span class='rparen'>)</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_cell'>cell</span><span class='op'>|</span> <span class='id identifier rubyid_cell'>cell</span><span class='period'>.</span><span class='id identifier rubyid_shading_colour'>shading_colour</span> <span class='op'>=</span> <span class='id identifier rubyid_colour'>colour</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_rtf-instance_method">
+  
+    #<strong>to_rtf</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method generates the RTF document text for a TableCellNode object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 899</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span>
+   <span class='id identifier rubyid_text'>text</span>   <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+   <span class='id identifier rubyid_temp'>temp</span>   <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+   <span class='id identifier rubyid_offset'>offset</span> <span class='op'>=</span> <span class='int'>0</span>
+
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\trowd\\tgraph</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_cell_margin'>cell_margin</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_entry'>entry</span><span class='op'>|</span>
+      <span class='id identifier rubyid_widths'>widths</span> <span class='op'>=</span> <span class='id identifier rubyid_entry'>entry</span><span class='period'>.</span><span class='id identifier rubyid_border_widths'>border_widths</span>
+      <span class='id identifier rubyid_colour'>colour</span> <span class='op'>=</span> <span class='id identifier rubyid_entry'>entry</span><span class='period'>.</span><span class='id identifier rubyid_shading_colour'>shading_colour</span>
+
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\clbrdrt\\brdrw</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>\\brdrs</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='int'>0</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\clbrdrl\\brdrw</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>\\brdrs</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='int'>0</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\clbrdrb\\brdrw</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>\\brdrs</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='int'>0</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\clbrdrr\\brdrw</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>\\brdrs</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_widths'>widths</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='int'>0</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\clcbpat</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_colours'>colours</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_colour'>colour</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_colour'>colour</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\cellx</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_entry'>entry</span><span class='period'>.</span><span class='id identifier rubyid_width'>width</span> <span class='op'>+</span> <span class='id identifier rubyid_offset'>offset</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_temp'>temp</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_entry'>entry</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_offset'>offset</span> <span class='op'>+=</span> <span class='id identifier rubyid_entry'>entry</span><span class='period'>.</span><span class='id identifier rubyid_width'>width</span>
+   <span class='kw'>end</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_temp'>temp</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n\\row</span><span class='tstring_end'>&quot;</span></span>
+
+   <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jul 24 15:49:00 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.9 (ruby-2.3.3).
+</div>
+
+    </div>
+  </body>
+</html>

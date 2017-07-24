@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: RRTF::ImageNode
+  
+    &mdash; Documentation by YARD 0.9.9
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "RRTF::ImageNode";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (I)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RRTF.html" title="RRTF (module)">RRTF</a></span></span>
+     &raquo; 
+    <span class="title">ImageNode</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: RRTF::ImageNode
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></li>
+          
+            <li class="next">RRTF::ImageNode</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rrtf/node.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class represents an image within a RTF document. Currently only the
+PNG, JPEG and Windows Bitmap formats are supported. Efforts are made to
+identify the file type but these are not guaranteed to work.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="PNG-constant" class="">PNG =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>A definition for an image type constant.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='symbol'>:pngblip</span></pre></dd>
+    
+      <dt id="JPEG-constant" class="">JPEG =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>A definition for an image type constant.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='symbol'>:jpegblip</span></pre></dd>
+    
+      <dt id="BITMAP-constant" class="">BITMAP =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>A definition for an image type constant.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='symbol'>:dibitmap0</span></pre></dd>
+    
+      <dt id="LITTLE_ENDIAN-constant" class="">LITTLE_ENDIAN =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>A definition for an architecture endian constant.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='symbol'>:little</span></pre></dd>
+    
+      <dt id="BIG_ENDIAN-constant" class="">BIG_ENDIAN =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>A definition for an architecture endian constant.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='symbol'>:big</span></pre></dd>
+    
+      <dt id="DIMENSIONS_OFFSET-constant" class="">DIMENSIONS_OFFSET =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Offsets for reading dimension data by filetype</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='const'><span class='object_link'><a href="#JPEG-constant" title="RRTF::ImageNode::JPEG (constant)">JPEG</a></span></span>   <span class='op'>=&gt;</span> <span class='int'>2</span><span class='comma'>,</span>
+  <span class='const'><span class='object_link'><a href="#PNG-constant" title="RRTF::ImageNode::PNG (constant)">PNG</a></span></span>    <span class='op'>=&gt;</span> <span class='int'>8</span><span class='comma'>,</span>
+  <span class='const'><span class='object_link'><a href="#BITMAP-constant" title="RRTF::ImageNode::BITMAP (constant)">BITMAP</a></span></span> <span class='op'>=&gt;</span> <span class='int'>8</span><span class='comma'>,</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+    
+  </dl>
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bottom_crop-instance_method" title="#bottom_crop (instance method)">#<strong>bottom_crop</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#displayed_height-instance_method" title="#displayed_height (instance method)">#<strong>displayed_height</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#displayed_width-instance_method" title="#displayed_width (instance method)">#<strong>displayed_width</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#height-instance_method" title="#height (instance method)">#<strong>height</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#left_crop-instance_method" title="#left_crop (instance method)">#<strong>left_crop</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#right_crop-instance_method" title="#right_crop (instance method)">#<strong>right_crop</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#top_crop-instance_method" title="#top_crop (instance method)">#<strong>top_crop</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#width-instance_method" title="#width (instance method)">#<strong>width</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#x_scaling-instance_method" title="#x_scaling (instance method)">#<strong>x_scaling</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#y_scaling-instance_method" title="#y_scaling (instance method)">#<strong>y_scaling</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#parent-instance_method" title="RRTF::Node#parent (method)">#parent</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(parent, source, id)  &#x21d2; ImageNode </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This is the constructor for the ImageNode class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_source-instance_method" title="#read_source (instance method)">#<strong>read_source</strong>(file, read, size = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method loads the data for an image from its source.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_rtf-instance_method" title="#to_rtf (instance method)">#<strong>to_rtf</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method generates the RTF for an ImageNode object.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#is_root%3F-instance_method" title="RRTF::Node#is_root? (method)">#is_root?</a></span>, <span class='object_link'><a href="Node.html#next_node-instance_method" title="RRTF::Node#next_node (method)">#next_node</a></span>, <span class='object_link'><a href="Node.html#previous_node-instance_method" title="RRTF::Node#previous_node (method)">#previous_node</a></span>, <span class='object_link'><a href="Node.html#root-instance_method" title="RRTF::Node#root (method)">#root</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(parent, source, id)  &#x21d2; <tt><span class='object_link'><a href="" title="RRTF::ImageNode (class)">ImageNode</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This is the constructor for the ImageNode class.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>parent
+<dd>
+<p>A reference to the node that owns the new image node.</p>
+</dd><dt>source
+<dd>
+<p>A reference to the image source. This must be a String or a File.</p>
+</dd><dt>id
+<dd>
+<p>The unique identifier for the image node.</p>
+</dd></dl>
+
+<h4 id="label-Exceptions">Exceptions</h4>
+<dl class="rdoc-list note-list"><dt>RTFError
+<dd>
+<p>Generated whenever the image specified is not recognised as a supported
+image type, something other than a String or File or IO is passed as the
+source parameter or if the specified source does not exist or cannot be
+accessed.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1301
+1302
+1303
+1304
+1305
+1306
+1307
+1308
+1309
+1310
+1311
+1312
+1313
+1314
+1315
+1316
+1317
+1318
+1319
+1320
+1321
+1322
+1323
+1324
+1325
+1326
+1327
+1328
+1329
+1330</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1301</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='rparen'>)</span>
+   <span class='ivar'>@source</span> <span class='op'>=</span> <span class='kw'>nil</span>
+   <span class='ivar'>@id</span>     <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span>
+   <span class='ivar'>@type</span>   <span class='op'>=</span> <span class='kw'>nil</span>
+   <span class='ivar'>@x_scaling</span> <span class='op'>=</span> <span class='ivar'>@y_scaling</span> <span class='op'>=</span> <span class='kw'>nil</span>
+   <span class='ivar'>@top_crop</span> <span class='op'>=</span> <span class='ivar'>@right_crop</span> <span class='op'>=</span> <span class='ivar'>@bottom_crop</span> <span class='op'>=</span> <span class='ivar'>@left_crop</span> <span class='op'>=</span> <span class='kw'>nil</span>
+   <span class='ivar'>@width</span> <span class='op'>=</span> <span class='ivar'>@height</span> <span class='op'>=</span> <span class='kw'>nil</span>
+   <span class='ivar'>@displayed_width</span> <span class='op'>=</span> <span class='ivar'>@displayed_height</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+   <span class='comment'># store path to image
+</span>   <span class='ivar'>@source</span> <span class='op'>=</span> <span class='id identifier rubyid_source'>source</span> <span class='kw'>if</span> <span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_instance_of?'>instance_of?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_instance_of?'>instance_of?</span><span class='lparen'>(</span><span class='const'>Tempfile</span><span class='rparen'>)</span>
+   <span class='ivar'>@source</span> <span class='op'>=</span> <span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span> <span class='kw'>if</span> <span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_instance_of?'>instance_of?</span><span class='lparen'>(</span><span class='const'>File</span><span class='rparen'>)</span>
+
+   <span class='comment'># Check the file&#39;s existence and accessibility.
+</span>   <span class='kw'>if</span> <span class='op'>!</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@source</span><span class='rparen'>)</span>
+      <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unable to find the </span><span class='embexpr_beg'>#{</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='ivar'>@source</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'> file.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+   <span class='kw'>if</span> <span class='op'>!</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_readable?'>readable?</span><span class='lparen'>(</span><span class='ivar'>@source</span><span class='rparen'>)</span>
+      <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Access to the </span><span class='embexpr_beg'>#{</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='ivar'>@source</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'> file denied.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+
+   <span class='ivar'>@type</span> <span class='op'>=</span> <span class='id identifier rubyid_get_file_type'>get_file_type</span>
+   <span class='kw'>if</span> <span class='ivar'>@type</span> <span class='op'>==</span> <span class='kw'>nil</span>
+      <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The </span><span class='embexpr_beg'>#{</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='ivar'>@source</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'> file contains an </span><span class='tstring_end'>&quot;</span></span>\
+                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unknown or unsupported image type.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+
+   <span class='ivar'>@width</span><span class='comma'>,</span> <span class='ivar'>@height</span> <span class='op'>=</span> <span class='id identifier rubyid_get_dimensions'>get_dimensions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="bottom_crop=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="bottom_crop-instance_method">
+  
+    #<strong>bottom_crop</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bottom_crop'>bottom_crop</span>
+  <span class='ivar'>@bottom_crop</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="displayed_height=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="displayed_height-instance_method">
+  
+    #<strong>displayed_height</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_displayed_height'>displayed_height</span>
+  <span class='ivar'>@displayed_height</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="displayed_width=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="displayed_width-instance_method">
+  
+    #<strong>displayed_width</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_displayed_width'>displayed_width</span>
+  <span class='ivar'>@displayed_width</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="height-instance_method">
+  
+    #<strong>height</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_height'>height</span>
+  <span class='ivar'>@height</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="left_crop=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="left_crop-instance_method">
+  
+    #<strong>left_crop</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_left_crop'>left_crop</span>
+  <span class='ivar'>@left_crop</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="right_crop=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="right_crop-instance_method">
+  
+    #<strong>right_crop</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_right_crop'>right_crop</span>
+  <span class='ivar'>@right_crop</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="top_crop=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="top_crop-instance_method">
+  
+    #<strong>top_crop</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_top_crop'>top_crop</span>
+  <span class='ivar'>@top_crop</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="width-instance_method">
+  
+    #<strong>width</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_width'>width</span>
+  <span class='ivar'>@width</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="x_scaling=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="x_scaling-instance_method">
+  
+    #<strong>x_scaling</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_x_scaling'>x_scaling</span>
+  <span class='ivar'>@x_scaling</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="y_scaling=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="y_scaling-instance_method">
+  
+    #<strong>y_scaling</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1280
+1281
+1282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_y_scaling'>y_scaling</span>
+  <span class='ivar'>@y_scaling</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="read_source-instance_method">
+  
+    #<strong>read_source</strong>(file, read, size = nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method loads the data for an image from its source. The method accepts
+two call approaches. If called without a block then the method considers
+the size parameter it is passed. If called with a block the method executes
+until the block returns true.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>size
+<dd>
+<p>The maximum number of bytes to be read from the file. Defaults to nil to
+indicate that the remainder of the file should be read in.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1445
+1446
+1447
+1448
+1449
+1450
+1451
+1452
+1453
+1454
+1455
+1456
+1457
+1458
+1459
+1460
+1461
+1462
+1463
+1464
+1465
+1466</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1445</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_source'>read_source</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='id identifier rubyid_read'>read</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_done'>done</span> <span class='op'>=</span> <span class='kw'>false</span>
+
+      <span class='kw'>while</span> <span class='op'>!</span><span class='id identifier rubyid_done'>done</span> <span class='kw'>and</span> <span class='op'>!</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_eof?'>eof?</span>
+        <span class='id identifier rubyid_read'>read</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_getbyte'>getbyte</span>
+         <span class='id identifier rubyid_done'>done</span> <span class='op'>=</span> <span class='kw'>yield</span> <span class='id identifier rubyid_read'>read</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+      <span class='kw'>end</span>
+   <span class='kw'>else</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_size'>size</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+         <span class='kw'>if</span> <span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+            <span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='int'>0</span>
+            <span class='kw'>while</span> <span class='op'>!</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_eof?'>eof?</span> <span class='kw'>and</span> <span class='id identifier rubyid_total'>total</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_size'>size</span>
+               <span class='id identifier rubyid_read'>read</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_getbyte'>getbyte</span>
+               <span class='id identifier rubyid_total'>total</span> <span class='op'>+=</span> <span class='int'>1</span>
+            <span class='kw'>end</span>
+         <span class='kw'>end</span>
+      <span class='kw'>else</span>
+         <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_each_byte'>each_byte</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_byte'>byte</span><span class='op'>|</span> <span class='id identifier rubyid_read'>read</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_byte'>byte</span><span class='rbrace'>}</span>
+      <span class='kw'>end</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_rtf-instance_method">
+  
+    #<strong>to_rtf</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method generates the RTF for an ImageNode object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1371
+1372
+1373
+1374
+1375
+1376
+1377
+1378
+1379
+1380
+1381
+1382
+1383
+1384
+1385
+1386
+1387
+1388
+1389
+1390
+1391
+1392
+1393
+1394
+1395
+1396
+1397
+1398
+1399
+1400
+1401
+1402
+1403
+1404</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1371</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span>
+  <span class='id identifier rubyid_text'>text</span>  <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='int'>0</span>
+
+  <span class='comment'>#text &lt;&lt; &#39;{\pard{\*\shppict{\pict&#39;
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{\*\shppict{\pict</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\picscalex</span><span class='embexpr_beg'>#{</span><span class='ivar'>@x_scaling</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@x_scaling</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\picscaley</span><span class='embexpr_beg'>#{</span><span class='ivar'>@y_scaling</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@y_scaling</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\piccropl</span><span class='embexpr_beg'>#{</span><span class='ivar'>@left_crop</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@left_crop</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\piccropr</span><span class='embexpr_beg'>#{</span><span class='ivar'>@right_crop</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@right_crop</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\piccropt</span><span class='embexpr_beg'>#{</span><span class='ivar'>@top_crop</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@top_crop</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\piccropb</span><span class='embexpr_beg'>#{</span><span class='ivar'>@bottom_crop</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@bottom_crop</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\picwgoal</span><span class='embexpr_beg'>#{</span><span class='ivar'>@displayed_width</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@displayed_width</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\pichgoal</span><span class='embexpr_beg'>#{</span><span class='ivar'>@displayed_height</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@displayed_height</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\picw</span><span class='embexpr_beg'>#{</span><span class='ivar'>@width</span><span class='embexpr_end'>}</span><span class='tstring_content'>\\pich</span><span class='embexpr_beg'>#{</span><span class='ivar'>@height</span><span class='embexpr_end'>}</span><span class='tstring_content'>\\bliptag</span><span class='embexpr_beg'>#{</span><span class='ivar'>@id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\</span><span class='embexpr_beg'>#{</span><span class='ivar'>@type</span><span class='period'>.</span><span class='id identifier rubyid_id2name'>id2name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_open_file'>open_file</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_each_byte'>each_byte</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_byte'>byte</span><span class='op'>|</span>
+      <span class='id identifier rubyid_hex_str'>hex_str</span> <span class='op'>=</span> <span class='id identifier rubyid_byte'>byte</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_hex_str'>hex_str</span><span class='period'>.</span><span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_hex_str'>hex_str</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>1</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_hex_str'>hex_str</span>
+      <span class='id identifier rubyid_count'>count</span> <span class='op'>+=</span> <span class='int'>1</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_count'>count</span> <span class='op'>==</span> <span class='int'>40</span>
+        <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='int'>0</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='comment'>#text &lt;&lt; &quot;\n}}\\par}&quot;
+</span>  <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n}}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jul 24 15:49:01 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.9 (ruby-2.3.3).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -53,7 +53,7 @@ describe RRTF::ParagraphStyle do
       "subscript" => true,
       "uppercase" => true,
       "strike" => true,
-      "hidden" => true,
+      "text_hidden" => true,
       "foreground_color" => '#ff0000',
       "background_color" => '#0000ff',
       "font" => "SWISS:Helvetica",

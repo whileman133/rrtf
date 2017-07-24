@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: RRTF::Document
+  
+    &mdash; Documentation by YARD 0.9.9
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "RRTF::Document";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RRTF.html" title="RRTF (module)">RRTF</a></span></span>
+     &raquo; 
+    <span class="title">Document</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: RRTF::Document
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></li>
+          
+            <li class="next">RRTF::Document</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rrtf/node.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class represents an RTF document. In actuality it is just a
+specialised Node type that cannot be assigned a parent and that holds
+document font, colour and information tables.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Peter Wood</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="CS_DICTIONARY-constant" class="">CS_DICTIONARY =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>A hash mapping character set string constants to their RTF counterparts.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash&lt;String, Symbol&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the RTF character set dictionary.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ANSI</span><span class='tstring_end'>&quot;</span></span>    <span class='op'>=&gt;</span> <span class='symbol'>:ansi</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MAC</span><span class='tstring_end'>&quot;</span></span>     <span class='op'>=&gt;</span> <span class='symbol'>:mac</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PC</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='symbol'>:pc</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PCA</span><span class='tstring_end'>&quot;</span></span>     <span class='op'>=&gt;</span> <span class='symbol'>:pca</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+    
+      <dt id="LS_DICTIONARY-constant" class="">LS_DICTIONARY =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>A hash mapping langauge set string constants to their RTF counterparts.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash&lt;String, Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the RTF langauge setting dictionary.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>AFRIKAANS</span><span class='tstring_end'>&quot;</span></span>                   <span class='op'>=&gt;</span> <span class='int'>1078</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ARABIC</span><span class='tstring_end'>&quot;</span></span>                      <span class='op'>=&gt;</span> <span class='int'>1025</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CATALAN</span><span class='tstring_end'>&quot;</span></span>                     <span class='op'>=&gt;</span> <span class='int'>1027</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CHINESE_TRADITIONAL</span><span class='tstring_end'>&quot;</span></span>         <span class='op'>=&gt;</span> <span class='int'>1028</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CHINESE_SIMPLIFIED</span><span class='tstring_end'>&quot;</span></span>          <span class='op'>=&gt;</span> <span class='int'>2052</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CZECH</span><span class='tstring_end'>&quot;</span></span>                       <span class='op'>=&gt;</span> <span class='int'>1029</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DANISH</span><span class='tstring_end'>&quot;</span></span>                      <span class='op'>=&gt;</span> <span class='int'>1030</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DUTCH</span><span class='tstring_end'>&quot;</span></span>                       <span class='op'>=&gt;</span> <span class='int'>1043</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DUTCH_BELGIAN</span><span class='tstring_end'>&quot;</span></span>               <span class='op'>=&gt;</span> <span class='int'>2067</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ENGLISH_UK</span><span class='tstring_end'>&quot;</span></span>                  <span class='op'>=&gt;</span> <span class='int'>2057</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ENGLISH_US</span><span class='tstring_end'>&quot;</span></span>                  <span class='op'>=&gt;</span> <span class='int'>1033</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FINNISH</span><span class='tstring_end'>&quot;</span></span>                     <span class='op'>=&gt;</span> <span class='int'>1035</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FRENCH</span><span class='tstring_end'>&quot;</span></span>                      <span class='op'>=&gt;</span> <span class='int'>1036</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FRENCH_BELGIAN</span><span class='tstring_end'>&quot;</span></span>              <span class='op'>=&gt;</span> <span class='int'>2060</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FRENCH_CANADIAN</span><span class='tstring_end'>&quot;</span></span>             <span class='op'>=&gt;</span> <span class='int'>3084</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FRENCH_SWISS</span><span class='tstring_end'>&quot;</span></span>                <span class='op'>=&gt;</span> <span class='int'>4108</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GERMAN</span><span class='tstring_end'>&quot;</span></span>                      <span class='op'>=&gt;</span> <span class='int'>1031</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GERMAN_SWISS</span><span class='tstring_end'>&quot;</span></span>                <span class='op'>=&gt;</span> <span class='int'>2055</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GREEK</span><span class='tstring_end'>&quot;</span></span>                       <span class='op'>=&gt;</span> <span class='int'>1032</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HEBREW</span><span class='tstring_end'>&quot;</span></span>                      <span class='op'>=&gt;</span> <span class='int'>1037</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HUNGARIAN</span><span class='tstring_end'>&quot;</span></span>                   <span class='op'>=&gt;</span> <span class='int'>1038</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ICELANDIC</span><span class='tstring_end'>&quot;</span></span>                   <span class='op'>=&gt;</span> <span class='int'>1039</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INDONESIAN</span><span class='tstring_end'>&quot;</span></span>                  <span class='op'>=&gt;</span> <span class='int'>1057</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ITALIAN</span><span class='tstring_end'>&quot;</span></span>                     <span class='op'>=&gt;</span> <span class='int'>1040</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>JAPANESE</span><span class='tstring_end'>&quot;</span></span>                    <span class='op'>=&gt;</span> <span class='int'>1041</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KOREAN</span><span class='tstring_end'>&quot;</span></span>                      <span class='op'>=&gt;</span> <span class='int'>1042</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NORWEGIAN_BOKMAL</span><span class='tstring_end'>&quot;</span></span>            <span class='op'>=&gt;</span> <span class='int'>1044</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NORWEGIAN_NYNORSK</span><span class='tstring_end'>&quot;</span></span>           <span class='op'>=&gt;</span> <span class='int'>2068</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>POLISH</span><span class='tstring_end'>&quot;</span></span>                      <span class='op'>=&gt;</span> <span class='int'>1045</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PORTUGUESE</span><span class='tstring_end'>&quot;</span></span>                  <span class='op'>=&gt;</span> <span class='int'>2070</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>POTUGUESE_BRAZILIAN</span><span class='tstring_end'>&quot;</span></span>         <span class='op'>=&gt;</span> <span class='int'>1046</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ROMANIAN</span><span class='tstring_end'>&quot;</span></span>                    <span class='op'>=&gt;</span> <span class='int'>1048</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RUSSIAN</span><span class='tstring_end'>&quot;</span></span>                     <span class='op'>=&gt;</span> <span class='int'>1049</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SERBO_CROATIAN_CYRILLIC</span><span class='tstring_end'>&quot;</span></span>     <span class='op'>=&gt;</span> <span class='int'>2074</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SERBO_CROATIAN_LATIN</span><span class='tstring_end'>&quot;</span></span>        <span class='op'>=&gt;</span> <span class='int'>1050</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SLOVAK</span><span class='tstring_end'>&quot;</span></span>                      <span class='op'>=&gt;</span> <span class='int'>1051</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SPANISH_CASTILLIAN</span><span class='tstring_end'>&quot;</span></span>          <span class='op'>=&gt;</span> <span class='int'>1034</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SPANISH_MEXICAN</span><span class='tstring_end'>&quot;</span></span>             <span class='op'>=&gt;</span> <span class='int'>2058</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SWAHILI</span><span class='tstring_end'>&quot;</span></span>                     <span class='op'>=&gt;</span> <span class='int'>1089</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SWEDISH</span><span class='tstring_end'>&quot;</span></span>                     <span class='op'>=&gt;</span> <span class='int'>1053</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>THAI</span><span class='tstring_end'>&quot;</span></span>                        <span class='op'>=&gt;</span> <span class='int'>1054</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TURKISH</span><span class='tstring_end'>&quot;</span></span>                     <span class='op'>=&gt;</span> <span class='int'>1055</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>UNKNOWN</span><span class='tstring_end'>&quot;</span></span>                     <span class='op'>=&gt;</span> <span class='int'>1024</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>VIETNAMESE</span><span class='tstring_end'>&quot;</span></span>                  <span class='op'>=&gt;</span> <span class='int'>1066</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+    
+  </dl>
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#character_set-instance_method" title="#character_set (instance method)">#<strong>character_set</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#colours-instance_method" title="#colours (instance method)">#<strong>colours</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fonts-instance_method" title="#fonts (instance method)">#<strong>fonts</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#information-instance_method" title="#information (instance method)">#<strong>information</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#language-instance_method" title="#language (instance method)">#<strong>language</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lists-instance_method" title="#lists (instance method)">#<strong>lists</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#style-instance_method" title="#style (instance method)">#<strong>style</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stylesheet-instance_method" title="#stylesheet (instance method)">#<strong>stylesheet</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CommandNode.html#prefix-instance_method" title="RRTF::CommandNode#prefix (method)">#prefix</a></span>, <span class='object_link'><a href="CommandNode.html#split-instance_method" title="RRTF::CommandNode#split (method)">#split</a></span>, <span class='object_link'><a href="CommandNode.html#suffix-instance_method" title="RRTF::CommandNode#suffix (method)">#suffix</a></span>, <span class='object_link'><a href="CommandNode.html#wrap-instance_method" title="RRTF::CommandNode#wrap (method)">#wrap</a></span></p>
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ContainerNode.html#children-instance_method" title="RRTF::ContainerNode#children (method)">#children</a></span></p>
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#parent-instance_method" title="RRTF::Node#parent (method)">#parent</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#body_height-instance_method" title="#body_height (instance method)">#<strong>body_height</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method fetches the height of the available work area space for a a
+typical Document object page.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#body_width-instance_method" title="#body_width (instance method)">#<strong>body_width</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method fetches the width of the available work area space for a
+typical Document object page.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_font-instance_method" title="#default_font (instance method)">#<strong>default_font</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute accessor.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_font=-instance_method" title="#default_font= (instance method)">#<strong>default_font=</strong>(font)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute mutator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#footer-instance_method" title="#footer (instance method)">#<strong>footer</strong>(type = FooterNode::UNIVERSAL)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method fetches a footer from a Document object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#footer=-instance_method" title="#footer= (instance method)">#<strong>footer=</strong>(footer)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method assigns a new footer to a document.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_id-instance_method" title="#get_id (instance method)">#<strong>get_id</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a method that can be called to generate an identifier
+that is unique within the document.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#header-instance_method" title="#header (instance method)">#<strong>header</strong>(type = HeaderNode::UNIVERSAL)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method fetches a header from a Document object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#header=-instance_method" title="#header= (instance method)">#<strong>header=</strong>(header)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method assigns a new header to a document.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(options = {})  &#x21d2; Document </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Represents an entire RTF document.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_stylesheet-instance_method" title="#load_stylesheet (instance method)">#<strong>load_stylesheet</strong>(hashmap_array)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Loads a stylesheet for the document from an array of hashmaps representing
+styles.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#page_break-instance_method" title="#page_break (instance method)">#<strong>page_break</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method inserts a page break into a document.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#paper-instance_method" title="#paper (instance method)">#<strong>paper</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut for obtaining the Paper object associated
+with a Document object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parent=-instance_method" title="#parent= (instance method)">#<strong>parent=</strong>(parent)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method overrides the parent=() method inherited from the CommandNode
+class to disallow setting a parent on a Document object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_rtf-instance_method" title="#to_rtf (instance method)">#<strong>to_rtf</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method generates the RTF text for a Document object.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CommandNode.html#<<-instance_method" title="RRTF::CommandNode#&lt;&lt; (method)">#<<</a></span>, <span class='object_link'><a href="CommandNode.html#apply-instance_method" title="RRTF::CommandNode#apply (method)">#apply</a></span>, <span class='object_link'><a href="CommandNode.html#background-instance_method" title="RRTF::CommandNode#background (method)">#background</a></span>, <span class='object_link'><a href="CommandNode.html#bold-instance_method" title="RRTF::CommandNode#bold (method)">#bold</a></span>, <span class='object_link'><a href="CommandNode.html#colour-instance_method" title="RRTF::CommandNode#colour (method)">#colour</a></span>, <span class='object_link'><a href="CommandNode.html#font-instance_method" title="RRTF::CommandNode#font (method)">#font</a></span>, <span class='object_link'><a href="CommandNode.html#footnote-instance_method" title="RRTF::CommandNode#footnote (method)">#footnote</a></span>, <span class='object_link'><a href="CommandNode.html#foreground-instance_method" title="RRTF::CommandNode#foreground (method)">#foreground</a></span>, <span class='object_link'><a href="CommandNode.html#image-instance_method" title="RRTF::CommandNode#image (method)">#image</a></span>, <span class='object_link'><a href="CommandNode.html#italic-instance_method" title="RRTF::CommandNode#italic (method)">#italic</a></span>, <span class='object_link'><a href="CommandNode.html#line_break-instance_method" title="RRTF::CommandNode#line_break (method)">#line_break</a></span>, <span class='object_link'><a href="CommandNode.html#link-instance_method" title="RRTF::CommandNode#link (method)">#link</a></span>, <span class='object_link'><a href="CommandNode.html#list-instance_method" title="RRTF::CommandNode#list (method)">#list</a></span>, <span class='object_link'><a href="CommandNode.html#paragraph-instance_method" title="RRTF::CommandNode#paragraph (method)">#paragraph</a></span>, <span class='object_link'><a href="CommandNode.html#strike-instance_method" title="RRTF::CommandNode#strike (method)">#strike</a></span>, <span class='object_link'><a href="CommandNode.html#subscript-instance_method" title="RRTF::CommandNode#subscript (method)">#subscript</a></span>, <span class='object_link'><a href="CommandNode.html#superscript-instance_method" title="RRTF::CommandNode#superscript (method)">#superscript</a></span>, <span class='object_link'><a href="CommandNode.html#table-instance_method" title="RRTF::CommandNode#table (method)">#table</a></span>, <span class='object_link'><a href="CommandNode.html#underline-instance_method" title="RRTF::CommandNode#underline (method)">#underline</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ContainerNode.html#[]-instance_method" title="RRTF::ContainerNode#[] (method)">#[]</a></span>, <span class='object_link'><a href="ContainerNode.html#each-instance_method" title="RRTF::ContainerNode#each (method)">#each</a></span>, <span class='object_link'><a href="ContainerNode.html#first-instance_method" title="RRTF::ContainerNode#first (method)">#first</a></span>, <span class='object_link'><a href="ContainerNode.html#last-instance_method" title="RRTF::ContainerNode#last (method)">#last</a></span>, <span class='object_link'><a href="ContainerNode.html#size-instance_method" title="RRTF::ContainerNode#size (method)">#size</a></span>, <span class='object_link'><a href="ContainerNode.html#store-instance_method" title="RRTF::ContainerNode#store (method)">#store</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#is_root%3F-instance_method" title="RRTF::Node#is_root? (method)">#is_root?</a></span>, <span class='object_link'><a href="Node.html#next_node-instance_method" title="RRTF::Node#next_node (method)">#next_node</a></span>, <span class='object_link'><a href="Node.html#previous_node-instance_method" title="RRTF::Node#previous_node (method)">#previous_node</a></span>, <span class='object_link'><a href="Node.html#root-instance_method" title="RRTF::Node#root (method)">#root</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(options = {})  &#x21d2; <tt><span class='object_link'><a href="" title="RRTF::Document (class)">Document</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>The “suppress_system_styles” option is ignored by most RTF platforms
+including Word and LibreOffice.</p>
+</div>
+  </div>
+
+
+<p>Represents an entire RTF document.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash&lt;String, Object&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the options to use in creating the document.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">"default_font"</span>
+          <span class="type">(<tt>String</tt>, <tt><span class='object_link'><a href="Font.html" title="RRTF::Font (class)">Font</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;SWISS:Helvetica&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>a font object OR string encapsulating the default font to be used by the
+document (see <span class='object_link'><a href="Font.html#from_string-class_method" title="RRTF::Font.from_string (method)">Font.from_string</a></span> for string format).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"character_set"</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;ANSI&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the character set to be applied to the document (see <span class='object_link'><a href="#CS_DICTIONARY-constant" title="RRTF::Document::CS_DICTIONARY (constant)">CS_DICTIONARY</a></span> for
+valid values).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"language"</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;ENGLISH_US&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the language setting to be applied to the document (see <span class='object_link'><a href="#LS_DICTIONARY-constant" title="RRTF::Document::LS_DICTIONARY (constant)">LS_DICTIONARY</a></span> for
+valid values).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"suppress_system_styles"</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>whether or not to suppress styles provided in the host platform (adds the
+noqfpromote control word before stylesheet definition).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"document_style"</span>
+          <span class="type">(<tt><span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>DocumentStyle.new</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>a DocumentStyle object OR options hash encapsulating the style settings to
+be applied to the document.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"stylesheet"</span>
+          <span class="type">(<tt>Array</tt>, <tt>Hash</tt>, <tt><span class='object_link'><a href="Stylesheet.html" title="RRTF::Stylesheet (class)">Stylesheet</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>a Stylesheet object OR array of style hashes OR hash of stylesheet options
+with which to use as or construct the stylesheet for the document.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="DocumentStyle.html#initialize-instance_method" title="RRTF::DocumentStyle#initialize (method)">DocumentStyle#initialize for available document style options.</a></span></li>
+    
+      <li><span class='object_link'><a href="Stylesheet.html#add_style-instance_method" title="RRTF::Stylesheet#add_style (method)">Stylesheet#initialize for available stylesheet options.</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1598
+1599
+1600
+1601
+1602
+1603
+1604
+1605
+1606
+1607
+1608
+1609
+1610
+1611
+1612
+1613
+1614
+1615
+1616
+1617
+1618
+1619
+1620
+1621
+1622
+1623
+1624
+1625
+1626
+1627
+1628
+1629
+1630
+1631
+1632
+1633
+1634
+1635
+1636
+1637
+1638
+1639
+1640
+1641
+1642
+1643
+1644
+1645
+1646
+1647
+1648
+1649
+1650
+1651
+1652
+1653
+1654
+1655
+1656
+1657
+1658
+1659
+1660
+1661
+1662
+1663
+1664
+1665
+1666
+1667
+1668
+1669
+1670
+1671
+1672
+1673
+1674
+1675</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1598</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># load default options
+</span>  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_font</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SWISS:Helvetica</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>document_style</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DocumentStyle.html#initialize-instance_method" title="RRTF::DocumentStyle#initialize (method)">new</a></span></span><span class='comma'>,</span>
+     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>character_set</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ANSI</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>language</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ENGLISH_US</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>suppress_system_styles</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>
+     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stylesheet</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>nil</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+
+   <span class='kw'>super</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\rtf1</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+   <span class='comment'># parse font
+</span>   <span class='id identifier rubyid_font'>font</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_font</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>case</span> <span class='id identifier rubyid_font'>font</span>
+   <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="Font.html" title="RRTF::Font (class)">Font</a></span></span>
+   <span class='kw'>when</span> <span class='const'>String</span>
+     <span class='id identifier rubyid_font'>font</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Font.html" title="RRTF::Font (class)">Font</a></span></span><span class='period'>.</span><span class='id identifier rubyid_from_string'><span class='object_link'><a href="Font.html#from_string-class_method" title="RRTF::Font.from_string (method)">from_string</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_font'>font</span><span class='rparen'>)</span>
+   <span class='kw'>else</span>
+     <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unreconized font format </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_font'>font</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span> <span class='comment'># case
+</span>
+   <span class='comment'># parse document style
+</span>   <span class='id identifier rubyid_style'>style</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>document_style</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>case</span> <span class='id identifier rubyid_style'>style</span>
+   <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span></span>
+   <span class='kw'>when</span> <span class='const'>Hash</span>
+     <span class='id identifier rubyid_style'>style</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DocumentStyle.html#initialize-instance_method" title="RRTF::DocumentStyle#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>else</span>
+     <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unreconized document style format </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_font'>font</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span> <span class='comment'># case
+</span>
+   <span class='comment'># parse character set
+</span>   <span class='id identifier rubyid_cs_string'>cs_string</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>character_set</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_cs_val'>cs_val</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#CS_DICTIONARY-constant" title="RRTF::Document::CS_DICTIONARY (constant)">CS_DICTIONARY</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_cs_string'>cs_string</span><span class='rbracket'>]</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_cs_val'>cs_val</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+     <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unreconized character set &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cs_string'>cs_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span> <span class='comment'># if
+</span>
+   <span class='comment'># parse language setting
+</span>   <span class='id identifier rubyid_ls_string'>ls_string</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>language</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_ls_val'>ls_val</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#LS_DICTIONARY-constant" title="RRTF::Document::LS_DICTIONARY (constant)">LS_DICTIONARY</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_ls_string'>ls_string</span><span class='rbracket'>]</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_ls_val'>ls_val</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+     <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unreconized language &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ls_string'>ls_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span> <span class='comment'># if
+</span>
+   <span class='ivar'>@fonts</span>         <span class='op'>=</span> <span class='const'><span class='object_link'><a href="FontTable.html" title="RRTF::FontTable (class)">FontTable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="FontTable.html#initialize-instance_method" title="RRTF::FontTable#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_font'>font</span><span class='rparen'>)</span>
+   <span class='ivar'>@lists</span>         <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ListTable.html" title="RRTF::ListTable (class)">ListTable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ListTable.html#initialize-instance_method" title="RRTF::ListTable#initialize (method)">new</a></span></span>
+   <span class='ivar'>@default_font</span>  <span class='op'>=</span> <span class='int'>0</span>
+   <span class='ivar'>@colours</span>       <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ColourTable.html" title="RRTF::ColourTable (class)">ColourTable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ColourTable.html#initialize-instance_method" title="RRTF::ColourTable#initialize (method)">new</a></span></span>
+   <span class='ivar'>@information</span>   <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Information.html" title="RRTF::Information (class)">Information</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Information.html#initialize-instance_method" title="RRTF::Information#initialize (method)">new</a></span></span>
+   <span class='ivar'>@character_set</span> <span class='op'>=</span> <span class='id identifier rubyid_cs_val'>cs_val</span>
+   <span class='ivar'>@language</span>      <span class='op'>=</span> <span class='id identifier rubyid_ls_val'>ls_val</span>
+   <span class='ivar'>@style</span>         <span class='op'>=</span> <span class='id identifier rubyid_style'>style</span>
+   <span class='ivar'>@headers</span>       <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+   <span class='ivar'>@footers</span>       <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+   <span class='ivar'>@id</span>            <span class='op'>=</span> <span class='int'>0</span>
+
+   <span class='comment'># parse stylesheet (must be done after font and colour tables are
+</span>   <span class='comment'># initialized since declared styles may push fonts/colours onto the
+</span>   <span class='comment'># tables)
+</span>   <span class='id identifier rubyid_stylesheet'>stylesheet</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stylesheet</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>case</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span>
+   <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="Stylesheet.html" title="RRTF::Stylesheet (class)">Stylesheet</a></span></span>
+     <span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_document'>document</span> <span class='op'>=</span> <span class='kw'>self</span>
+   <span class='kw'>when</span> <span class='const'>Array</span>
+     <span class='id identifier rubyid_stylesheet'>stylesheet</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Stylesheet.html" title="RRTF::Stylesheet (class)">Stylesheet</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Stylesheet.html#initialize-instance_method" title="RRTF::Stylesheet#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>styles</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='rparen'>)</span>
+   <span class='kw'>when</span> <span class='const'>Hash</span>
+     <span class='id identifier rubyid_stylesheet'>stylesheet</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Stylesheet.html" title="RRTF::Stylesheet (class)">Stylesheet</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Stylesheet.html#initialize-instance_method" title="RRTF::Stylesheet#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='rparen'>)</span>
+   <span class='kw'>else</span>
+     <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unreconized stylesheet format </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_font'>font</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span> <span class='kw'>unless</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='comment'># case
+</span>
+   <span class='ivar'>@stylesheet</span>    <span class='op'>=</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span>
+   <span class='comment'># additional options
+</span>   <span class='ivar'>@options</span>       <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="character_set=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="character_set-instance_method">
+  
+    #<strong>character_set</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1579
+1580
+1581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_character_set'>character_set</span>
+  <span class='ivar'>@character_set</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="colours-instance_method">
+  
+    #<strong>colours</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1579
+1580
+1581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_colours'>colours</span>
+  <span class='ivar'>@colours</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="fonts-instance_method">
+  
+    #<strong>fonts</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1579
+1580
+1581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fonts'>fonts</span>
+  <span class='ivar'>@fonts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="information-instance_method">
+  
+    #<strong>information</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1579
+1580
+1581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_information'>information</span>
+  <span class='ivar'>@information</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="language=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="language-instance_method">
+  
+    #<strong>language</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1579
+1580
+1581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_language'>language</span>
+  <span class='ivar'>@language</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="lists-instance_method">
+  
+    #<strong>lists</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1579
+1580
+1581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_lists'>lists</span>
+  <span class='ivar'>@lists</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="style-instance_method">
+  
+    #<strong>style</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1579
+1580
+1581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_style'>style</span>
+  <span class='ivar'>@style</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="stylesheet=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="stylesheet-instance_method">
+  
+    #<strong>stylesheet</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1579
+1580
+1581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span>
+  <span class='ivar'>@stylesheet</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="body_height-instance_method">
+  
+    #<strong>body_height</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method fetches the height of the available work area space for a a
+typical Document object page.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1810
+1811
+1812</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1810</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_body_height'>body_height</span>
+   <span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_body_height'>body_height</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="body_width-instance_method">
+  
+    #<strong>body_width</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method fetches the width of the available work area space for a
+typical Document object page.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1804
+1805
+1806</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1804</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_body_width'>body_width</span>
+   <span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_body_width'>body_width</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_font-instance_method">
+  
+    #<strong>default_font</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute accessor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1685
+1686
+1687</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1685</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_font'>default_font</span>
+   <span class='ivar'>@fonts</span><span class='lbracket'>[</span><span class='ivar'>@default_font</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_font=-instance_method">
+  
+    #<strong>default_font=</strong>(font)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute mutator.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>font
+<dd>
+<p>The new default font for the Document object.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1773
+1774
+1775
+1776</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1773</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_font='>default_font=</span><span class='lparen'>(</span><span class='id identifier rubyid_font'>font</span><span class='rparen'>)</span>
+   <span class='ivar'>@fonts</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_font'>font</span>
+   <span class='ivar'>@default_font</span> <span class='op'>=</span> <span class='ivar'>@fonts</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_font'>font</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="footer-instance_method">
+  
+    #<strong>footer</strong>(type = FooterNode::UNIVERSAL)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method fetches a footer from a Document object.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>type
+<dd>
+<p>One of the footer types defined in the footer class. Defaults to
+FooterNode::UNIVERSAL.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1751
+1752
+1753
+1754
+1755
+1756
+1757
+1758
+1759
+1760
+1761</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1751</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_footer'>footer</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='op'>=</span><span class='const'>FooterNode</span><span class='op'>::</span><span class='const'>UNIVERSAL</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>0</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FooterNode.html#LEFT_PAGE-constant" title="RRTF::FooterNode::LEFT_PAGE (constant)">LEFT_PAGE</a></span></span>
+      <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>1</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FooterNode.html#RIGHT_PAGE-constant" title="RRTF::FooterNode::RIGHT_PAGE (constant)">RIGHT_PAGE</a></span></span>
+      <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>2</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FooterNode.html#FIRST_PAGE-constant" title="RRTF::FooterNode::FIRST_PAGE (constant)">FIRST_PAGE</a></span></span>
+      <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>3</span>
+   <span class='kw'>end</span>
+   <span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='id identifier rubyid_index'>index</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="footer=-instance_method">
+  
+    #<strong>footer=</strong>(footer)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method assigns a new footer to a document. A Document object can have
+up to four footers - a default footer, a footer for left pages, a footer
+for right pages and a footer for the first page. The method checks the
+footer type and stores it appropriately.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>footer
+<dd>
+<p>A reference to the footer object to be stored. Existing footer objects are
+overwritten.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1717
+1718
+1719
+1720
+1721
+1722
+1723
+1724
+1725
+1726
+1727</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1717</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_footer='>footer=</span><span class='lparen'>(</span><span class='id identifier rubyid_footer'>footer</span><span class='rparen'>)</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_footer'>footer</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FooterNode.html#UNIVERSAL-constant" title="RRTF::FooterNode::UNIVERSAL (constant)">UNIVERSAL</a></span></span>
+      <span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_footer'>footer</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_footer'>footer</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FooterNode.html#LEFT_PAGE-constant" title="RRTF::FooterNode::LEFT_PAGE (constant)">LEFT_PAGE</a></span></span>
+      <span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_footer'>footer</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_footer'>footer</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FooterNode.html#RIGHT_PAGE-constant" title="RRTF::FooterNode::RIGHT_PAGE (constant)">RIGHT_PAGE</a></span></span>
+      <span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_footer'>footer</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_footer'>footer</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FooterNode.html#FIRST_PAGE-constant" title="RRTF::FooterNode::FIRST_PAGE (constant)">FIRST_PAGE</a></span></span>
+      <span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_footer'>footer</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_id-instance_method">
+  
+    #<strong>get_id</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a method that can be called to generate an identifier
+that is unique within the document.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1679
+1680
+1681
+1682</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1679</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_id'>get_id</span>
+   <span class='ivar'>@id</span> <span class='op'>+=</span> <span class='int'>1</span>
+   <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%d%m%y</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="header-instance_method">
+  
+    #<strong>header</strong>(type = HeaderNode::UNIVERSAL)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method fetches a header from a Document object.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>type
+<dd>
+<p>One of the header types defined in the header class. Defaults to
+HeaderNode::UNIVERSAL.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1734
+1735
+1736
+1737
+1738
+1739
+1740
+1741
+1742
+1743
+1744</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1734</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_header'>header</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='op'>=</span><span class='const'>HeaderNode</span><span class='op'>::</span><span class='const'>UNIVERSAL</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>0</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HeaderNode.html#LEFT_PAGE-constant" title="RRTF::HeaderNode::LEFT_PAGE (constant)">LEFT_PAGE</a></span></span>
+      <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>1</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HeaderNode.html#RIGHT_PAGE-constant" title="RRTF::HeaderNode::RIGHT_PAGE (constant)">RIGHT_PAGE</a></span></span>
+      <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>2</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HeaderNode.html#FIRST_PAGE-constant" title="RRTF::HeaderNode::FIRST_PAGE (constant)">FIRST_PAGE</a></span></span>
+      <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>3</span>
+   <span class='kw'>end</span>
+   <span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='id identifier rubyid_index'>index</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="header=-instance_method">
+  
+    #<strong>header=</strong>(header)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method assigns a new header to a document. A Document object can have
+up to four header - a default header, a header for left pages, a header for
+right pages and a header for the first page. The method checks the header
+type and stores it appropriately.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>header
+<dd>
+<p>A reference to the header object to be stored. Existing header objects are
+overwritten.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1697
+1698
+1699
+1700
+1701
+1702
+1703
+1704
+1705
+1706
+1707</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1697</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_header='>header=</span><span class='lparen'>(</span><span class='id identifier rubyid_header'>header</span><span class='rparen'>)</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_header'>header</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HeaderNode.html#UNIVERSAL-constant" title="RRTF::HeaderNode::UNIVERSAL (constant)">UNIVERSAL</a></span></span>
+      <span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_header'>header</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HeaderNode.html#LEFT_PAGE-constant" title="RRTF::HeaderNode::LEFT_PAGE (constant)">LEFT_PAGE</a></span></span>
+      <span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_header'>header</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HeaderNode.html#RIGHT_PAGE-constant" title="RRTF::HeaderNode::RIGHT_PAGE (constant)">RIGHT_PAGE</a></span></span>
+      <span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span>
+   <span class='kw'>elsif</span> <span class='id identifier rubyid_header'>header</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HeaderNode.html#FIRST_PAGE-constant" title="RRTF::HeaderNode::FIRST_PAGE (constant)">FIRST_PAGE</a></span></span>
+      <span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="load_stylesheet-instance_method">
+  
+    #<strong>load_stylesheet</strong>(hashmap_array)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Loads a stylesheet for the document from an array of hashmaps representing
+styles</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1765
+1766
+1767</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1765</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load_stylesheet'>load_stylesheet</span><span class='lparen'>(</span><span class='id identifier rubyid_hashmap_array'>hashmap_array</span><span class='rparen'>)</span>
+  <span class='ivar'>@stylesheet</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Stylesheet.html" title="RRTF::Stylesheet (class)">Stylesheet</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Stylesheet.html#initialize-instance_method" title="RRTF::Stylesheet#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_hashmap_array'>hashmap_array</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="page_break-instance_method">
+  
+    #<strong>page_break</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method inserts a page break into a document.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1797
+1798
+1799
+1800</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1797</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_page_break'>page_break</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CommandNode.html#initialize-instance_method" title="RRTF::CommandNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\page</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='rparen'>)</span>
+   <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="paper-instance_method">
+  
+    #<strong>paper</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut for obtaining the Paper object associated
+with a Document object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1780
+1781
+1782</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1780</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_paper'>paper</span>
+   <span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_paper'>paper</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="parent=-instance_method">
+  
+    #<strong>parent=</strong>(parent)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method overrides the parent=() method inherited from the CommandNode
+class to disallow setting a parent on a Document object.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>parent
+<dd>
+<p>A reference to the new parent node for the Document object.</p>
+</dd></dl>
+
+<h4 id="label-Exceptions">Exceptions</h4>
+<dl class="rdoc-list note-list"><dt>RTFError
+<dd>
+<p>Generated whenever this method is called.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1792
+1793
+1794</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1792</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_parent='>parent=</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='rparen'>)</span>
+   <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Document objects may not have a parent.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_rtf-instance_method">
+  
+    #<strong>to_rtf</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method generates the RTF text for a Document object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1815
+1816
+1817
+1818
+1819
+1820
+1821
+1822
+1823
+1824
+1825
+1826
+1827
+1828
+1829
+1830
+1831
+1832
+1833
+1834
+1835
+1836
+1837
+1838
+1839
+1840
+1841
+1842
+1843
+1844
+1845
+1846
+1847
+1848
+1849</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1815</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prefix'>prefix</span><span class='embexpr_end'>}</span><span class='tstring_content'>\\</span><span class='embexpr_beg'>#{</span><span class='ivar'>@character_set</span><span class='period'>.</span><span class='id identifier rubyid_id2name'>id2name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\deff</span><span class='embexpr_beg'>#{</span><span class='ivar'>@default_font</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\deflang</span><span class='embexpr_beg'>#{</span><span class='ivar'>@language</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@language</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\plain\\fs24\\fet1</span><span class='tstring_end'>&quot;</span></span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@fonts</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@colours</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@colours</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\\noqfpromote</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>suppress_system_styles</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@information</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@lists</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+   <span class='kw'>if</span> <span class='ivar'>@headers</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span> <span class='op'>!=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>if</span> <span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+         <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@headers</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+   <span class='kw'>end</span>
+   <span class='kw'>if</span> <span class='ivar'>@footers</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span> <span class='op'>!=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>if</span> <span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+         <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+   <span class='kw'>end</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_prefix'>prefix</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_entry'>entry</span><span class='op'>|</span> <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_entry'>entry</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n}</span><span class='tstring_end'>&quot;</span></span>
+
+   <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jul 24 15:49:01 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.9 (ruby-2.3.3).
+</div>
+
+    </div>
+  </body>
+</html>

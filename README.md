@@ -36,20 +36,36 @@ a hashmap array or JSON file:
     "id": "TITLE",
     "name": "Title",
     "primary": true,
+    "auto_update": true,
     "next_style": "BODY",
+    "base_style": "BODY",
     "justification": "CENTER",
     "space_after": 100,
     "bold": true,
     "underline": "DOUBLE",
+    "underline_color": "#ff0000",
     "uppercase": true,
-    "font_size": 36,
-    "underline_color": "#ff0000"
+    "font_size": 36
+  },
+  {
+    "type": "paragraph",
+    "id": "H1",
+    "name": "Heading 1",
+    "primary": true,
+    "next_style": "BODY",
+    "space_after": 40,
+    "space_before": 200,
+    "underline": "SINGLE",
+    "underline_color": "#ff0000",
+    "bold": true,
+    "font_size": 24
   },
   {
     "type": "paragraph",
     "id": "BODY",
-    "name": "Body",
+    "name": "Normal",
     "primary": true,
+    "default": true,
     "justification": "LEFT",
     "font_size": 24,
     "hyphenate": true
@@ -61,7 +77,8 @@ a hashmap array or JSON file:
     "additive": true,
     "italic": true,
     "bold": true,
-    "foreground_color": "#ff0000"
+    "foreground_color": "#ff0000",
+    "locked": true
   }
 ]
 ```
@@ -86,9 +103,16 @@ rtf.paragraph(styles['BODY']) do |p|
   p << "shirt, take heed and be on guard, for danger is immanent and you are "
   p << "likely expendable among the crew..."
 end
-
-File.open('01.rtf', 'w') do |file|
-   file.write(rtf.to_rtf)
+rtf.paragraph(styles['H1']) << "1. The Danger of Away Missions"
+rtf.paragraph(styles['BODY']) do |p|
+  p << "If you're ever assigned an away mission, it's almost certain to be your doom. "
+  p << "The optimal strategy is to avoid away missions to begin with..."
+end
+rtf.paragraph(styles['H1']) << "2. Avoiding High-Ranking Officers"
+rtf.paragraph(styles['BODY']) do |p|
+  p << "You're likely to notice an influx of unfortunate outcomes around "
+  p << "certain high-ranking officers. Its to your advantage to quickly identify and "
+  p << "avoid these officers..."
 end
 ```
 

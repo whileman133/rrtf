@@ -2,19 +2,33 @@ require 'stringio'
 
 module RRTF
 
-  # Class that represents a stylesheet in an RTF document
+  # Represents a stylesheet in an RTF document.
+  # @author Wesley Hileman
   class Stylesheet
-    # An array of styles associated with the stylesheet
+    # Stores the Style objects associated with the stylesheet, each of which
+    # is keyed by its assigned ID.
+    # @return [Hash<String, Style>] the style hash.
     attr_reader :styles
 
-    # The document to which the stylesheet belongs
+    # The document to which the stylesheet belongs.
+    # @return [Document] the document object.
     attr_accessor :document
 
+    # Builds a Stylesheet object.
+    # @see #add_style #add_style for available style options.
+    #
+    # @param [Document] document the document to which the stylesheet belongs.
+    # @param [Hash] options the stylesheet options.
+    # @option options [Array<Hash>] "styles" ([]) a hashmap array specifying the styles to include in the stylesheet.
+    # @option options [Array<Boolean>] "assign_style_handles" (true) whether or not to auto-assign handles to included styles.
+    # @option options [Array<Boolean>] "assign_style_priorities" (true) whether or not to auto-assign priority to included styles.
+    # @option options [Array<Integer>] "base_style_handle" (1) the handle number at which to start indexing styles.
+    # @option options [Array<Integer>] "base_style_handle" (20) the priority number at which to start indexing styles.
     def initialize(document, options = {})
       @options = {
         "styles" => [],
         "base_style_handle" => 1,
-        "base_style_priority" => 100,
+        "base_style_priority" => 1,
         "assign_style_handles" => true,
         "assign_style_priorities" => true
       }.merge(options)
@@ -25,10 +39,23 @@ module RRTF
       add_styles(@options["styles"])
     end
 
+    # Adds the specified styles to the stylesheet.
+    # @see #add_style #add_style for available style options.
+    #
+    # @param [Array<Hash>] hash_array a hashmap array specifying the styles to add to the stylesheet.
     def add_styles(hash_array)
       hash_array.each { |hash| add_style(hash) }
     end
 
+    # Adds a single style to the stylesheet.
+    #
+    # @param [Hash] options the options to use in building the style.
+    # @option options [Style] "style" the style object to add to the stylesheet (can be specified directly in place of "type").
+    # @option options [String] "type" the type of style to build ("character" or "paragraph").
+    # @option options (see #extract_add_options)
+    # @option options (see Style#initialize)
+    # @option options (see CharacterFormatting#initialize_character_formatting)
+    # @option options (see ParagraphFormatting#initialize_paragraph_formatting)
     def add_style(options)
       style = options.delete("style")
       type = options.delete("type")
@@ -54,9 +81,15 @@ module RRTF
       end # if
     end # add_style_from_hash()
 
-    # Converts the stylesheet to its RTF representation
-    # NOTE calling to_rtf causes all next styles to be updated (to_rtf "commits"
-    # the stylesheet)
+    # Converts the stylesheet to its RTF representation.
+    # @note calling `to_rtf` causes all next and base styles to be updated
+    #  (to_rtf "commits" the stylesheet); errors might be raised if next or
+    #  base styles are missing (have yet to be added to the stylesheet).
+    #
+    # @param [Hash] options
+    # @option options [Boolean] "uglify" (false) removes most line breaks and spaces from RTF output.
+    # @option options [Integer] "base_indent" (0) the base indent (in spaces) for RTF output (ignored if uglify is true).
+    # @option options [Integer] "child_indent" (0) the amount of spaces by which to indent the component styles (ignored if uglify is true).
     def to_rtf(options = {})
       # load default options
       options = {
@@ -68,7 +101,7 @@ module RRTF
       newline_prefix = options["uglify"] ? '' : "\n"
       base_prefix = options["uglify"] ? '' : " "*options["base_indent"]
 
-      # lookup and set next style handles on component styles
+      # lookup and set next and base style handles on component styles
       substitute_next_style_handles()
       substitute_base_style_handles()
 
@@ -91,15 +124,23 @@ module RRTF
     private
 
     # Strips options used in adding a style to a stylesheet from a hash
-    # and returns a subhash containing those options
-    def extract_add_options(hash)
+    # and returns a subhash containing those options.
+    #
+    # @param [Hash] options the subject hash.
+    # @option options [String] "id" the ID for the style (used in generating code only).
+    # @option options [Boolean] "default" (false) whether or not this style is the default style for the document.
+    # @option options [Integer] "next_style" (nil) the ID of the next style (the style to be used in the paragraph created after paragraphs with this style applied).
+    # @option options [Integer] "base_style" (nil) the ID of the base style (the style on which this one is based).
+    # @option options [Boolean] "assign_handle" whether or not a handle should be auto-assigned to this style.
+    # @option options [Boolean] "assign_priority" whether or not a priority should be auto-assigned to this style.
+    def extract_add_options(options)
       {
-        "id" => hash.delete("id"),
-        "default" => hash.delete("default") || false,
-        "next_style_id" => hash.delete("next_style") || nil,
-        "base_style_id" => hash.delete("base_style") || nil,
-        "assign_handle" => hash.delete("assign_handle") || @options["assign_style_handles"],
-        "assign_priority" => hash.delete("assign_priority") || @options["assign_style_priorities"]
+        "id" => options.delete("id"),
+        "default" => options.delete("default") || false,
+        "next_style_id" => options.delete("next_style") || nil,
+        "base_style_id" => options.delete("base_style") || nil,
+        "assign_handle" => options.delete("assign_handle") || @options["assign_style_handles"],
+        "assign_priority" => options.delete("assign_priority") || @options["assign_style_priorities"]
       }
     end # extract_add_options()
 

@@ -1,0 +1,2372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: RRTF::CommandNode
+  
+    &mdash; Documentation by YARD 0.9.9
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "RRTF::CommandNode";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RRTF.html" title="RRTF (module)">RRTF</a></span></span>
+     &raquo; 
+    <span class="title">CommandNode</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: RRTF::CommandNode
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></li>
+          
+            <li class="next">RRTF::CommandNode</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rrtf/node.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class represents a RTF command element within a document. This class
+is concrete enough to be used on its own but will also be used as the base
+class for some specific command node types.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="Document.html" title="RRTF::Document (class)">Document</a></span>, <span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span>, <span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span>, <span class='object_link'><a href="LinkNode.html" title="RRTF::LinkNode (class)">LinkNode</a></span>, <span class='object_link'><a href="ListLevelNode.html" title="RRTF::ListLevelNode (class)">ListLevelNode</a></span>, <span class='object_link'><a href="ListNode.html" title="RRTF::ListNode (class)">ListNode</a></span>, <span class='object_link'><a href="ListTextNode.html" title="RRTF::ListTextNode (class)">ListTextNode</a></span>, <span class='object_link'><a href="ParagraphNode.html" title="RRTF::ParagraphNode (class)">ParagraphNode</a></span>, <span class='object_link'><a href="TableCellNode.html" title="RRTF::TableCellNode (class)">TableCellNode</a></span></p>
+</div>
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prefix-instance_method" title="#prefix (instance method)">#<strong>prefix</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>String containing the prefix text for the command.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#split-instance_method" title="#split (instance method)">#<strong>split</strong>  &#x21d2; Object </a>
+    
+
+    
+      (also: #split?)
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A boolean to indicate whether the prefix and suffix should be written to
+separate lines whether the node is converted to RTF.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suffix-instance_method" title="#suffix (instance method)">#<strong>suffix</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>String containing the suffix text for the command.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wrap-instance_method" title="#wrap (instance method)">#<strong>wrap</strong>  &#x21d2; Object </a>
+    
+
+    
+      (also: #wrap?)
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A boolean to indicate whether the prefix and suffix should be wrapped in
+curly braces.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ContainerNode.html#children-instance_method" title="RRTF::ContainerNode#children (method)">#children</a></span></p>
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#parent-instance_method" title="RRTF::Node#parent (method)">#parent</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#<<-instance_method" title="#&lt;&lt; (instance method)">#<strong>&lt;&lt;</strong>(text)  &#x21d2; Object </a>
+    
+
+    
+      (also: #write)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method adds text to a command node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply-instance_method" title="#apply (instance method)">#<strong>apply</strong>(style) {|node| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means for applying multiple styles via
+single command node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#background-instance_method" title="#background (instance method)">#<strong>background</strong>(colour)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a background colour
+command node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bold-instance_method" title="#bold (instance method)">#<strong>bold</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a bold command node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#colour-instance_method" title="#colour (instance method)">#<strong>colour</strong>(fore, back)  &#x21d2; Object </a>
+    
+
+    
+      (also: #color)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut menas of creating a colour node that deals
+with foreground and background colours.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#font-instance_method" title="#font (instance method)">#<strong>font</strong>(font, size = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a font command node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#footnote-instance_method" title="#footnote (instance method)">#<strong>footnote</strong>(text)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method inserts a footnote at the current position in a node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#foreground-instance_method" title="#foreground (instance method)">#<strong>foreground</strong>(colour)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a foreground colour
+command node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#image-instance_method" title="#image (instance method)">#<strong>image</strong>(source)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method inserts a new image at the current position in a node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(parent, prefix, suffix = nil, split = true, wrap = true)  &#x21d2; CommandNode </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This is the constructor for the CommandNode class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#italic-instance_method" title="#italic (instance method)">#<strong>italic</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating an italic command node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#line_break-instance_method" title="#line_break (instance method)">#<strong>line_break</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a line break command
+node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#link-instance_method" title="#link (instance method)">#<strong>link</strong>(url, text = nil) {|node| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list-instance_method" title="#list (instance method)">#<strong>list</strong>(kind = :bullets) {|node.list(kind)| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a new ordered or
+unordered list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#paragraph-instance_method" title="#paragraph (instance method)">#<strong>paragraph</strong>(style = nil) {|node| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a paragraph command
+node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#strike-instance_method" title="#strike (instance method)">#<strong>strike</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a strike command node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subscript-instance_method" title="#subscript (instance method)">#<strong>subscript</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a subscript command
+node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#superscript-instance_method" title="#superscript (instance method)">#<strong>superscript</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating a superscript command
+node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#table-instance_method" title="#table (instance method)">#<strong>table</strong>(rows, columns, *widths) {|node| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method creates a new table node and returns it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_rtf-instance_method" title="#to_rtf (instance method)">#<strong>to_rtf</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method generates the RTF text for a CommandNode object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#underline-instance_method" title="#underline (instance method)">#<strong>underline</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides a short cut means of creating an underline command
+node.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ContainerNode.html#[]-instance_method" title="RRTF::ContainerNode#[] (method)">#[]</a></span>, <span class='object_link'><a href="ContainerNode.html#each-instance_method" title="RRTF::ContainerNode#each (method)">#each</a></span>, <span class='object_link'><a href="ContainerNode.html#first-instance_method" title="RRTF::ContainerNode#first (method)">#first</a></span>, <span class='object_link'><a href="ContainerNode.html#last-instance_method" title="RRTF::ContainerNode#last (method)">#last</a></span>, <span class='object_link'><a href="ContainerNode.html#size-instance_method" title="RRTF::ContainerNode#size (method)">#size</a></span>, <span class='object_link'><a href="ContainerNode.html#store-instance_method" title="RRTF::ContainerNode#store (method)">#store</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Node.html" title="RRTF::Node (class)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#is_root%3F-instance_method" title="RRTF::Node#is_root? (method)">#is_root?</a></span>, <span class='object_link'><a href="Node.html#next_node-instance_method" title="RRTF::Node#next_node (method)">#next_node</a></span>, <span class='object_link'><a href="Node.html#previous_node-instance_method" title="RRTF::Node#previous_node (method)">#previous_node</a></span>, <span class='object_link'><a href="Node.html#root-instance_method" title="RRTF::Node#root (method)">#root</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(parent, prefix, suffix = nil, split = true, wrap = true)  &#x21d2; <tt><span class='object_link'><a href="" title="RRTF::CommandNode (class)">CommandNode</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This is the constructor for the CommandNode class.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>parent
+<dd>
+<p>A reference to the node that owns the new node.</p>
+</dd><dt>prefix
+<dd>
+<p>A String containing the prefix text for the command.</p>
+</dd><dt>suffix
+<dd>
+<p>A String containing the suffix text for the command. Defaults to nil.</p>
+</dd><dt>split
+<dd>
+<p>A boolean to indicate whether the prefix and suffix should be written to
+separate lines whether the node is converted to RTF. Defaults to true.</p>
+</dd><dt>wrap
+<dd>
+<p>A boolean to indicate whether the prefix and suffix should be wrapped in
+curly braces. Defaults to true.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236
+237
+238
+239
+240</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 234</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='comma'>,</span> <span class='id identifier rubyid_suffix'>suffix</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_split'>split</span><span class='op'>=</span><span class='kw'>true</span><span class='comma'>,</span> <span class='id identifier rubyid_wrap'>wrap</span><span class='op'>=</span><span class='kw'>true</span><span class='rparen'>)</span>
+   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='rparen'>)</span>
+   <span class='ivar'>@prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_prefix'>prefix</span>
+   <span class='ivar'>@suffix</span> <span class='op'>=</span> <span class='id identifier rubyid_suffix'>suffix</span>
+   <span class='ivar'>@split</span>  <span class='op'>=</span> <span class='id identifier rubyid_split'>split</span>
+   <span class='ivar'>@wrap</span>   <span class='op'>=</span> <span class='id identifier rubyid_wrap'>wrap</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="prefix=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="prefix-instance_method">
+  
+    #<strong>prefix</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>String containing the prefix text for the command</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+211
+212
+213</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 211</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_prefix'>prefix</span>
+  <span class='ivar'>@prefix</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="split=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="split-instance_method">
+  
+    #<strong>split</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='split?-instance_method'>split?</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A boolean to indicate whether the prefix and suffix should be written to
+separate lines whether the node is converted to RTF. Defaults to true</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+217
+218
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 217</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_split'>split</span>
+  <span class='ivar'>@split</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="suffix=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="suffix-instance_method">
+  
+    #<strong>suffix</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>String containing the suffix text for the command</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 213</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_suffix'>suffix</span>
+  <span class='ivar'>@suffix</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="wrap=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="wrap-instance_method">
+  
+    #<strong>wrap</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='wrap?-instance_method'>wrap?</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A boolean to indicate whether the prefix and suffix should be wrapped in
+curly braces. Defaults to true.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220
+221
+222</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 220</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wrap'>wrap</span>
+  <span class='ivar'>@wrap</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="<<-instance_method">
+  
+    #<strong>&lt;&lt;</strong>(text)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='write-instance_method'>write</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method adds text to a command node. If the last child node of the
+target node is a TextNode then the text is appended to that. Otherwise a
+new TextNode is created and append to the node.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>text
+<dd>
+<p>The String of text to be written to the node.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+248
+249
+250
+251
+252
+253
+254</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 248</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
+   <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>and</span> <span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:text=</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_append'>append</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
+   <span class='kw'>else</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="TextNode.html" title="RRTF::TextNode (class)">TextNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TextNode.html#initialize-instance_method" title="RRTF::TextNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply-instance_method">
+  
+    #<strong>apply</strong>(style) {|node| ... } &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means for applying multiple styles via
+single command node. The method accepts a block that will be passed a
+reference to the node created. Once the block is complete the new node will
+be append as the last child of the CommandNode the method is called on.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>style
+<dd>
+<p>A reference to a CharacterStyle object that contains the style settings to
+be applied.</p>
+</dd></dl>
+
+<h4 id="label-Exceptions">Exceptions</h4>
+<dl class="rdoc-list note-list"><dt>RTFError
+<dd>
+<p>Generated whenever a non-character style is specified to the method.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>node</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 371</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='comment'># Check the input style.
+</span>   <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_is_character_style?'>is_character_style?</span>
+      <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Non-character style specified to the </span><span class='tstring_end'>&quot;</span></span>\
+                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CommandNode#apply() method.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+
+   <span class='comment'># Store fonts and colours.
+</span>   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_push_colours'>push_colours</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_colours'>colours</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_push_fonts'>push_fonts</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fonts'>fonts</span><span class='rparen'>)</span>
+
+   <span class='comment'># Generate the command node.
+</span>   <span class='id identifier rubyid_node'>node</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="RRTF::CommandNode (class)">CommandNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="RRTF::CommandNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_prefix'>prefix</span><span class='lparen'>(</span><span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+   <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="background-instance_method">
+  
+    #<strong>background</strong>(colour)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a background colour
+command node. The method accepts a block that will be passed a single
+parameter which will be a reference to the background colour node created.
+After the block is complete the background colour node is appended to the
+end of the child nodes on the object that the method is called against.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>colour
+<dd>
+<p>The background colour to be applied by the command.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 530</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_background'>background</span><span class='lparen'>(</span><span class='id identifier rubyid_colour'>colour</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_style'>style</span>            <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_background'>background</span> <span class='op'>=</span> <span class='id identifier rubyid_colour'>colour</span>
+   <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_colours'>colours</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_colour'>colour</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bold-instance_method">
+  
+    #<strong>bold</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a bold command node. The
+method accepts a block that will be passed a single parameter which will be
+a reference to the bold node created. After the block is complete the bold
+node is appended to the end of the child nodes on the object that the
+method is call against.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+393
+394
+395
+396
+397
+398
+399
+400
+401</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 393</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bold'>bold</span>
+   <span class='id identifier rubyid_style'>style</span>      <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_bold'>bold</span> <span class='op'>=</span> <span class='kw'>true</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="colour-instance_method">
+  
+    #<strong>colour</strong>(fore, back)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='color-instance_method'>color</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut menas of creating a colour node that deals
+with foreground and background colours. The method accepts a block that
+will be passed a single parameter which will be a reference to the colour
+node created. After the block is complete the colour node is append to the
+end of the child nodes on the object that the method is called against.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>fore
+<dd>
+<p>The foreground colour to be applied by the command.</p>
+</dd><dt>back
+<dd>
+<p>The background colour to be applied by the command.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 551</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_colour'>colour</span><span class='lparen'>(</span><span class='id identifier rubyid_fore'>fore</span><span class='comma'>,</span> <span class='id identifier rubyid_back'>back</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_style'>style</span>            <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_foreground'>foreground</span> <span class='op'>=</span> <span class='id identifier rubyid_fore'>fore</span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_background'>background</span> <span class='op'>=</span> <span class='id identifier rubyid_back'>back</span>
+   <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_colours'>colours</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_fore'>fore</span>
+   <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_colours'>colours</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_back'>back</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="font-instance_method">
+  
+    #<strong>font</strong>(font, size = nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a font command node. The
+method accepts a block that will be passed a single parameter which will be
+a reference to the font node created. After the block is complete the font
+node is appended to the end of the child nodes on the object that the
+method is called against.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>font
+<dd>
+<p>A reference to font object that represents the font to be used within the
+node.</p>
+</dd><dt>size
+<dd>
+<p>An integer size setting for the font. Defaults to nil to indicate that the
+current font size should be used.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 489</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_font'>font</span><span class='lparen'>(</span><span class='id identifier rubyid_font'>font</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_style'>style</span>           <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_font'>font</span>      <span class='op'>=</span> <span class='id identifier rubyid_font'>font</span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_font_size'>font_size</span> <span class='op'>=</span> <span class='id identifier rubyid_size'>size</span>
+   <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fonts'>fonts</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_font'>font</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="footnote-instance_method">
+  
+    #<strong>footnote</strong>(text)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method inserts a footnote at the current position in a node.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>text
+<dd>
+<p>A string containing the text for the footnote.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+335
+336
+337
+338
+339
+340
+341
+342
+343</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 335</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_footnote'>footnote</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
+   <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>and</span> <span class='id identifier rubyid_text'>text</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_mark'>mark</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="RRTF::CommandNode (class)">CommandNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="RRTF::CommandNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\fs16\up6\chftn</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_note'>note</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="RRTF::CommandNode (class)">CommandNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="RRTF::CommandNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\footnote {\fs16\up6\chftn}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_note'>note</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_text'>text</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_mark'>mark</span><span class='rparen'>)</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_note'>note</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="foreground-instance_method">
+  
+    #<strong>foreground</strong>(colour)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a foreground colour
+command node. The method accepts a block that will be passed a single
+parameter which will be a reference to the foreground colour node created.
+After the block is complete the foreground colour node is appended to the
+end of the child nodes on the object that the method is called against.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>colour
+<dd>
+<p>The foreground colour to be applied by the command.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 510</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_foreground'>foreground</span><span class='lparen'>(</span><span class='id identifier rubyid_colour'>colour</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_style'>style</span>            <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_foreground'>foreground</span> <span class='op'>=</span> <span class='id identifier rubyid_colour'>colour</span>
+   <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_colours'>colours</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_colour'>colour</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="image-instance_method">
+  
+    #<strong>image</strong>(source)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method inserts a new image at the current position in a node.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>source
+<dd>
+<p>Either a string containing the path and name of a file or a File object for
+the image file to be inserted.</p>
+</dd></dl>
+
+<h4 id="label-Exceptions">Exceptions</h4>
+<dl class="rdoc-list note-list"><dt>RTFError
+<dd>
+<p>Generated whenever an invalid or inaccessible file is specified or the
+image file type is not supported.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+354
+355
+356</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 354</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_image'>image</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='rparen'>)</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="ImageNode.html" title="RRTF::ImageNode (class)">ImageNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ImageNode.html#initialize-instance_method" title="RRTF::ImageNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="../top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='period'>.</span><span class='id identifier rubyid_get_id'>get_id</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="italic-instance_method">
+  
+    #<strong>italic</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating an italic command node.
+The method accepts a block that will be passed a single parameter which
+will be a reference to the italic node created. After the block is complete
+the italic node is appended to the end of the child nodes on the object
+that the method is call against.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+408
+409
+410
+411
+412
+413
+414
+415
+416</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 408</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_italic'>italic</span>
+   <span class='id identifier rubyid_style'>style</span>        <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_italic'>italic</span> <span class='op'>=</span> <span class='kw'>true</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="line_break-instance_method">
+  
+    #<strong>line_break</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a line break command
+node. This command node does not take a block and may possess no other
+content.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+326
+327
+328
+329</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 326</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_line_break'>line_break</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="RRTF::CommandNode (class)">CommandNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="RRTF::CommandNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\line</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='rparen'>)</span>
+   <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="link-instance_method">
+  
+    #<strong>link</strong>(url, text = nil) {|node| ... } &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>node</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+316
+317
+318
+319
+320
+321</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 316</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_link'>link</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_text'>text</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_node'>node</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LinkNode.html" title="RRTF::LinkNode (class)">LinkNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LinkNode.html#initialize-instance_method" title="RRTF::LinkNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_node'>node</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_text'>text</span> <span class='kw'>if</span> <span class='id identifier rubyid_text'>text</span>
+  <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span>   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list-instance_method">
+  
+    #<strong>list</strong>(kind = :bullets) {|node.list(kind)| ... } &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a new ordered or
+unordered list. The method requires a block that will be passed a single
+parameter that&#39;ll be a reference to the first level of the list. See
+the <code>ListLevelNode</code> doc for more information.</p>
+
+<p>Example usage:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_level1'>level1</span><span class='op'>|</span>
+  <span class='id identifier rubyid_level1'>level1</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_li'>li</span><span class='op'>|</span>
+    <span class='id identifier rubyid_li'>li</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>some text</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_li'>li</span><span class='period'>.</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_some_style'>some_style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>some styled text</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_level1'>level1</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='symbol'>:decimal</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_level2'>level2</span><span class='op'>|</span>
+    <span class='id identifier rubyid_level2'>level2</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_li'>li</span><span class='op'>|</span> <span class='id identifier rubyid_li'>li</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>some other text in a decimal list</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_level2'>level2</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_li'>li</span><span class='op'>|</span> <span class='id identifier rubyid_li'>li</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>and here we go</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>node.<span class='object_link'><a href="#list-instance_method" title="RRTF::CommandNode#list (method)">list</a></span>(kind)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+310
+311
+312
+313
+314</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 310</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_kind'>kind</span><span class='op'>=</span><span class='symbol'>:bullets</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_node'>node</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ListNode.html" title="RRTF::ListNode (class)">ListNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ListNode.html#initialize-instance_method" title="RRTF::ListNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_kind'>kind</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="paragraph-instance_method">
+  
+    #<strong>paragraph</strong>(style = nil) {|node| ... } &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a paragraph command
+node. The method accepts a block that will be passed a single parameter
+which will be a reference to the paragraph node created. After the block is
+complete the paragraph node is appended to the end of the child nodes on
+the object that the method is called against.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>style
+<dd>
+<p>A reference to a ParagraphStyle object that defines the style for the new
+paragraph. Defaults to nil to indicate that the currently applied paragraph
+styling should be used.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>node</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+285
+286
+287
+288
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 285</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_node'>node</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ParagraphNode.html" title="RRTF::ParagraphNode (class)">ParagraphNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ParagraphNode.html#initialize-instance_method" title="RRTF::ParagraphNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="strike-instance_method">
+  
+    #<strong>strike</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a strike command node.
+The method accepts a block that will be passed a single parameter which
+will be a reference to the strike node created. After the block is complete
+the strike node is appended to the end of the child nodes on the object
+that the method is call against.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+468
+469
+470
+471
+472
+473
+474
+475
+476</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 468</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_strike'>strike</span>
+   <span class='id identifier rubyid_style'>style</span>        <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_strike'>strike</span> <span class='op'>=</span> <span class='kw'>true</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="subscript-instance_method">
+  
+    #<strong>subscript</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a subscript command
+node. The method accepts a block that will be passed a single parameter
+which will be a reference to the subscript node created. After the block is
+complete the subscript node is appended to the end of the child nodes on
+the object that the method is call against.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+438
+439
+440
+441
+442
+443
+444
+445
+446</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 438</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subscript'>subscript</span>
+   <span class='id identifier rubyid_style'>style</span>           <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_subscript'>subscript</span> <span class='op'>=</span> <span class='kw'>true</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="superscript-instance_method">
+  
+    #<strong>superscript</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating a superscript command
+node. The method accepts a block that will be passed a single parameter
+which will be a reference to the superscript node created. After the block
+is complete the superscript node is appended to the end of the child nodes
+on the object that the method is call against.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+453
+454
+455
+456
+457
+458
+459
+460
+461</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 453</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_superscript'>superscript</span>
+   <span class='id identifier rubyid_style'>style</span>             <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_superscript'>superscript</span> <span class='op'>=</span> <span class='kw'>true</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="table-instance_method">
+  
+    #<strong>table</strong>(rows, columns, *widths) {|node| ... } &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method creates a new table node and returns it. The method accepts a
+block that will be passed the table as a parameter. The node is added to
+the node the method is called upon after the block is complete.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+<dl class="rdoc-list note-list"><dt>rows
+<dd>
+<p>The number of rows that the table contains.</p>
+</dd><dt>columns
+<dd>
+<p>The number of columns that the table contains.</p>
+</dd><dt>*widths
+<dd>
+<p>One or more integers representing the widths for the table columns.</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>node</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+573
+574
+575
+576
+577
+578</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 573</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_table'>table</span><span class='lparen'>(</span><span class='id identifier rubyid_rows'>rows</span><span class='comma'>,</span> <span class='id identifier rubyid_columns'>columns</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_widths'>widths</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_node'>node</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="TableNode.html" title="RRTF::TableNode (class)">TableNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TableNode.html#initialize-instance_method" title="RRTF::TableNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_rows'>rows</span><span class='comma'>,</span> <span class='id identifier rubyid_columns'>columns</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_widths'>widths</span><span class='rparen'>)</span>
+   <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+   <span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_node'>node</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_rtf-instance_method">
+  
+    #<strong>to_rtf</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method generates the RTF text for a CommandNode object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 257</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{</span><span class='tstring_end'>&#39;</span></span>       <span class='kw'>if</span> <span class='id identifier rubyid_wrap?'>wrap?</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@prefix</span>   <span class='kw'>if</span> <span class='ivar'>@prefix</span>
+
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_entry'>entry</span><span class='op'>|</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_split?'>split?</span>
+      <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_entry'>entry</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span>
+   <span class='kw'>end</span>
+
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>    <span class='kw'>if</span> <span class='id identifier rubyid_split?'>split?</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@suffix</span> <span class='kw'>if</span> <span class='ivar'>@suffix</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>}</span><span class='tstring_end'>&#39;</span></span>     <span class='kw'>if</span> <span class='id identifier rubyid_wrap?'>wrap?</span>
+
+   <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="underline-instance_method">
+  
+    #<strong>underline</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides a short cut means of creating an underline command
+node. The method accepts a block that will be passed a single parameter
+which will be a reference to the underline node created. After the block is
+complete the underline node is appended to the end of the child nodes on
+the object that the method is call against.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+423
+424
+425
+426
+427
+428
+429
+430
+431</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 423</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_underline'>underline</span>
+   <span class='id identifier rubyid_style'>style</span>           <span class='op'>=</span> <span class='const'><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CharacterStyle.html#initialize-instance_method" title="RRTF::CharacterStyle#initialize (method)">new</a></span></span>
+   <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_underline'>underline</span> <span class='op'>=</span> <span class='kw'>true</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span><span class='rbrace'>}</span>
+   <span class='kw'>else</span>
+      <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jul 24 15:49:00 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.9 (ruby-2.3.3).
+</div>
+
+    </div>
+  </body>
+</html>
