@@ -23,7 +23,8 @@ rtf.geometry(
   "width" => "3in",
   "height" => "3in",
   "horizontal_reference" => "PAGE",
-  "vertical_reference" => "PAGE"
+  "vertical_reference" => "PAGE",
+  "text_margin" => "0.5in"
 ) do |box|
   box.paragraph("foreground_color" => '#ffffff') do |p|
     p << "Should you ever find yourself on a spacefaring vessel wearing a "

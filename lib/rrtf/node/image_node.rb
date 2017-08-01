@@ -1,4 +1,5 @@
 require 'fastimage'
+require 'open-uri'
 
 module RRTF
   # This class represents an image within a RTF document. Currently only the
@@ -60,7 +61,7 @@ module RRTF
      # This is the constructor for the ImageNode class.
      #
      # @param parent [Node] a reference to the node that owns the new image node.
-     # @param source [String, File] a reference to the image source; this must be a String or a File.
+     # @param source [String, File] a reference to the image source; this must be a String, String URL, or a File.
      # @param id [Integer] a unique 32-bit identifier for the image.
      # @param options [Hash] a hash of options.
      # @option options [String] "width" (nil) the display width of the image in twips (can be a string, see {Utilities.value2twips}).
@@ -72,7 +73,7 @@ module RRTF
      #   specified source does not exist or cannot be accessed.
      def initialize(parent, source, id, options = {})
         super(parent)
-        @source = nil
+        @source = source
         @id     = id
 
         # load default options
@@ -95,16 +96,19 @@ module RRTF
         end
 
         # Store path to image.
-        @source = source if source.instance_of?(String) || source.instance_of?(Tempfile)
-        @source = source.path if source.instance_of?(File)
+        if @source.is_a?(String)
+          begin
+            @source = open(@source)
+          rescue OpenURI::HTTPError => error
+            response = error.io
+            RTFError.fire("Could not open '#{@source}'. Server responded with #{response.status.join(',')}.")
+          rescue Exception => error
+            RTFError.fire("Could not open '#{@source}'. #{error.message}.")
+          end # rescue block
+        elsif !@source.respond_to?(:each_byte)
+          RTFError.fire("A string or object that responds to :each_byte must be supplied - '#{@source}' given.")
+        end # unless
 
-        # Check the file's existence and accessibility.
-        if !File.exist?(@source)
-           RTFError.fire("Unable to find the #{File.basename(@source)} file.")
-        end
-        if !File.readable?(@source)
-           RTFError.fire("Access to the #{File.basename(@source)} file denied.")
-        end
         # Attempt to determine image type and dimensions.
         @type, @width, @height = self.class.inspect(@source)
         if @type.nil?
@@ -128,18 +132,16 @@ module RRTF
        text << "\\picw#{@width}\\pich#{@height}\\bliptag#{@id}"
        text << "\\#{@type}\n"
 
-       open_file do |file|
-         file.each_byte do |byte|
-           hex_str = byte.to_s(16)
-           hex_str.insert(0,'0') if hex_str.length == 1
-           text << hex_str
-           count += 1
-           if count == 40
-             text << "\n"
-             count = 0
-           end # if
-         end # each_byte
-       end # open_file
+       @source.each_byte do |byte|
+         hex_str = byte.to_s(16)
+         hex_str.insert(0,'0') if hex_str.length == 1
+         text << hex_str
+         count += 1
+         if count == 40
+           text << "\n"
+           count = 0
+         end # if
+       end # each_byte
        text << "\n}"
 
        text.string
@@ -162,14 +164,6 @@ module RRTF
            [(@width*scale_factor).to_i, (@height*scale_factor).to_i]
          end
        end # case
-     end
-
-     def open_file(&block)
-       if block
-         File.open(@source, 'rb', &block)
-       else
-         File.open(@source, 'rb')
-       end # if
-     end # open_file()
+     end # size_image()
   end # End of the ImageNode class.
 end # module RRTF

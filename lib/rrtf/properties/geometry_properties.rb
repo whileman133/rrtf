@@ -320,10 +320,10 @@ module RRTF
          next if margin.nil?
 
          margin = Page::Margin.new(margin)
-         left = Utilities.value2emu(margin.left+'twip')
-         right = Utilities.value2emu(margin.right+'twip')
-         top = Utilities.value2emu(margin.top+'twip')
-         bottom = Utilities.value2emu(margin.bottom+'twip')
+         left = Utilities.value2emu("#{margin.left}twip")
+         right = Utilities.value2emu("#{margin.right}twip")
+         top = Utilities.value2emu("#{margin.top}twip")
+         bottom = Utilities.value2emu("#{margin.bottom}twip")
 
          instance_variable_set("@#{margin_attr}", margin)
          instance_variable_set("@#{margin_attr}_left", left)

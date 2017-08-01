@@ -22,3 +22,8 @@ _Version 1.0.0:_
 - Add BorderFormatting module and BorderStyle class to allow border definition on paragraphs and images.
 - Add ShadingFormatting module and ShadingStyle class to allow paragraph shading.
 - Add ShapeNode class to implement basic shapes.
+
+_Version 1.0.1:_
+
+- Allow remote source for images with open-uri.
+- Fix issue with setting "text_margin" for text boxes.
