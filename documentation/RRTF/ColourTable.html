@@ -362,13 +362,13 @@ class.</p>
       <pre class="lines">
 
 
-95
-96
-97
-98</pre>
+103
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_colours'>colours</span><span class='rparen'>)</span>
    <span class='ivar'>@colours</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -420,12 +420,12 @@ this method. An invalid index will return a nil value.</p>
       <pre class="lines">
 
 
-133
-134
-135</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_index'>index</span><span class='rparen'>)</span>
    <span class='ivar'>@colours</span><span class='lbracket'>[</span><span class='id identifier rubyid_index'>index</span><span class='rbracket'>]</span>
@@ -473,15 +473,15 @@ does nothing.</p>
       <pre class="lines">
 
 
-112
-113
-114
-115
-116
-117</pre>
+120
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_colour'>colour</span><span class='rparen'>)</span>
    <span class='kw'>if</span> <span class='id identifier rubyid_colour'>colour</span><span class='period'>.</span><span class='id identifier rubyid_instance_of?'>instance_of?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Colour.html" title="RRTF::Colour (class)">Colour</a></span></span><span class='rparen'>)</span>
@@ -521,14 +521,14 @@ iteration does not include the implicit default colour entry.</p>
       <pre class="lines">
 
 
-121
-122
-123
-124
-125</pre>
+129
+130
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span>
    <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -575,13 +575,13 @@ of entry to account for the implicit default colour entry.</p>
       <pre class="lines">
 
 
-144
-145
-146
-147</pre>
+152
+153
+154
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_colour'>colour</span><span class='rparen'>)</span>
    <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='ivar'>@colours</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_colour'>colour</span><span class='rparen'>)</span>
@@ -618,12 +618,12 @@ of entry to account for the implicit default colour entry.</p>
       <pre class="lines">
 
 
-102
-103
-104</pre>
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_size'>size</span>
    <span class='ivar'>@colours</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -666,19 +666,19 @@ Defaults to zero.</p>
       <pre class="lines">
 
 
-169
-170
-171
-172
-173
-174
-175
-176
 177
-178</pre>
+178
+179
+180
+181
+182
+183
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 177</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='lparen'>(</span><span class='id identifier rubyid_indent'>indent</span><span class='op'>=</span><span class='int'>0</span><span class='rparen'>)</span>
    <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span> <span class='op'>*</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
@@ -728,18 +728,18 @@ Defaults to zero.</p>
       <pre class="lines">
 
 
-154
-155
-156
-157
-158
-159
-160
-161
-162</pre>
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/colour.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='id identifier rubyid_indent'>indent</span><span class='op'>=</span><span class='int'>0</span><span class='rparen'>)</span>
    <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span> <span class='op'>*</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
@@ -760,7 +760,7 @@ Defaults to zero.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 28 18:42:39 2017 by
+  Generated on Mon Jul 31 21:48:58 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

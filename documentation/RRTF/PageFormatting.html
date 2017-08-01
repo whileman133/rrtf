@@ -430,17 +430,17 @@ included in another module or class.</p>
       <pre class="lines">
 
 
-910
-911
 912
 913
 914
 915
 916
-917</pre>
+917
+918
+919</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 910</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 912</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='rparen'>)</span>
   <span class='comment'># define accessors in base for document attributes
@@ -501,16 +501,16 @@ included in another module or class.</p>
       <pre class="lines">
 
 
-979
-980
 981
 982
 983
 984
-985</pre>
+985
+986
+987</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 979</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 981</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_body_height'>body_height</span>
    <span class='kw'>if</span> <span class='id identifier rubyid_orientation'>orientation</span> <span class='op'>==</span> <span class='symbol'>:portrait</span>
@@ -564,16 +564,16 @@ included in another module or class.</p>
       <pre class="lines">
 
 
-971
-972
 973
 974
 975
 976
-977</pre>
+977
+978
+979</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 971</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 973</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_body_width'>body_width</span>
    <span class='kw'>if</span> <span class='id identifier rubyid_orientation'>orientation</span> <span class='op'>==</span> <span class='symbol'>:portrait</span>
@@ -733,17 +733,17 @@ included in another module or class.</p>
       <pre class="lines">
 
 
-928
-929
 930
 931
 932
 933
 934
-935</pre>
+935
+936
+937</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 928</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 930</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize_page_formatting'>initialize_page_formatting</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># load default attribute values
@@ -818,8 +818,6 @@ included in another module or class.</p>
       <pre class="lines">
 
 
-957
-958
 959
 960
 961
@@ -830,10 +828,12 @@ included in another module or class.</p>
 966
 967
 968
-969</pre>
+969
+970
+971</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 957</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 959</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_page_formatting_to_rtf'>page_formatting_to_rtf</span>
   <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -902,8 +902,6 @@ included in another module or class.</p>
       <pre class="lines">
 
 
-939
-940
 941
 942
 943
@@ -915,10 +913,12 @@ included in another module or class.</p>
 949
 950
 951
-952</pre>
+952
+953
+954</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 939</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 941</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_page_formatting_from_hashmap'>set_page_formatting_from_hashmap</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_attribute'>attribute</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
@@ -944,7 +944,7 @@ included in another module or class.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 28 18:42:38 2017 by
+  Generated on Mon Jul 31 21:48:57 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

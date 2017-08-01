@@ -71,10 +71,10 @@ mirror margins, tab width, enable/disable hyphenation, hyphenation width,
 maximum consecutive hyphenations, and enable/disable widow-and-orphan
 control.</p>
 </li><li>
-<p><strong>Text</strong>: Bold*, italic*, underline*, underline color,
-uppercase*, subscript*, superscript*, strike*, emboss*, imprint*,
-foreground color, background color, hidden*, kerning, character spacing,
-highlight, font, font size.</p>
+<p><strong>Text</strong>: Bold, italic, underline, underline color, uppercase,
+subscript, superscript, strike, emboss, imprint, foreground color,
+background color, hidden, kerning, character spacing, highlight, font, font
+size.</p>
 </li><li>
 <p><strong>Paragraphs</strong>: Justification, left indent, right indent,
 first line indent, space before, space after, line spacing, indentation,
@@ -82,22 +82,26 @@ drop caps, keep-on-page, keep-with-next, enable/disable hyphenation,
 enable/disable widow-and-orphan control, absolute positioning (frames),
 borders, and shading.</p>
 </li><li>
-<p><strong>Lists</strong>: Basic unordered (bullet) lists with support for
-nesting.</p>
+<p><strong>Hyperlinks</strong>: Insert hyperlinks in text runs.</p>
+</li><li>
+<p><strong>Lists</strong>: Basic unordered (bullet) lists.</p>
 </li><li>
 <p><strong>Images</strong>: Embed, size, and define borders for PNG, JPEG, and
 BMP images.</p>
 </li><li>
+<p><strong>Shapes</strong>: Draw basic shapes, custom shapes, and text boxes.</p>
+</li><li>
 <p><strong>Stylesheets</strong>: Define paragraph and character styles,
-enabling the end user to easily modify the look larger RTF documents.</p>
+enabling the end user to easily modify the look of RTF documents.</p>
 </li></ul>
-
-<p>(<em>asterisk * indicates properties that can be both applied and removed
-from runs of text</em>).</p>
 
 <p>The gem was created with reference to the <a
 href="https://www.microsoft.com/en-us/download/details.aspx?id=10725">Microsoft
-Office RTF Specification (v1.9.1)</a>.</p>
+Office RTF Specification (v1.9.1)</a>. The syntax for custom shapes was
+determined by reverse engineering the RTF output from Word 2016 and
+reference to <a
+href="https://www.loc.gov/preservation/digital/formats/digformatspecs/OfficeDrawing97-2007BinaryFormatSpecification.pdf">Microsoft’s
+Binary Format Specification (pp. 32-33)</a>.</p>
 
 <h2 id="label-Installation">Installation</h2>
 
@@ -116,111 +120,188 @@ Office RTF Specification (v1.9.1)</a>.</p>
 
 <h2 id="label-Usage">Usage</h2>
 
-<p>Define the paragraph and character styles your document is to leverage in a
-hashmap array or JSON file:</p>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rrtf</span><span class='tstring_end'>&#39;</span></span>
 
-<pre class="code ruby"><code class="ruby"><span class='lbracket'>[</span>
-  <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>paragraph</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TITLE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Title</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>primary</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>auto_update</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>next_style</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>BODY</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>base_style</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>BODY</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>justification</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CENTER</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>space_after</span><span class='label_end'>&quot;:</span> <span class='int'>100</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bold</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underline</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DOUBLE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underline_color</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uppercase</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>font_size</span><span class='label_end'>&quot;:</span> <span class='int'>36</span>
-  <span class='rbrace'>}</span><span class='comma'>,</span>
-  <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>paragraph</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>H1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Heading 1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>primary</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>next_style</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>BODY</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>space_after</span><span class='label_end'>&quot;:</span> <span class='int'>40</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>space_before</span><span class='label_end'>&quot;:</span> <span class='int'>200</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underline</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SINGLE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underline_color</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bold</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>font_size</span><span class='label_end'>&quot;:</span> <span class='int'>24</span>
-  <span class='rbrace'>}</span><span class='comma'>,</span>
-  <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>paragraph</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>BODY</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Normal</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>primary</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>justification</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>LEFT</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>font_size</span><span class='label_end'>&quot;:</span> <span class='int'>24</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hyphenate</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span>
-  <span class='rbrace'>}</span><span class='comma'>,</span>
-  <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>character</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>EMPH</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Emphasis</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>additive</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>italic</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bold</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foreground_color</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>locked</span><span class='label_end'>&quot;:</span> <span class='kw'>true</span>
-  <span class='rbrace'>}</span>
-<span class='rbracket'>]</span>
+<span class='comment'># Construct an object representing the RTF document
+</span><span class='id identifier rubyid_rtf'>rtf</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="RRTF.html" title="RRTF (module)">RRTF</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RRTF/Document.html" title="RRTF::Document (class)">Document</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="RRTF/Document.html#initialize-instance_method" title="RRTF::Document#initialize (method)">new</a></span></span>
+
+<span class='comment'># ...
+</span><span class='comment'># Call methods on `rtf` to generate content
+</span><span class='comment'># ...
+</span>
+<span class='comment'># Convert document into RTF string
+</span><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span>
 </code></pre>
 
-<p>Note that font size is given in <em>half points</em> and spacing in
-<em>twentieth points</em>, or “twips” using the somewhat disagreeable
-abbreviation, in accord with the RTF specification. See the
-<code>#add_style</code> method in <a
-href="documentation/RRTF/Stylesheet.html">the documentation for the
-Stylesheet class</a> for a complete list of supported style options.</p>
+<h4 id="label-Paragraphs">Paragraphs</h4>
+<ul><li>
+<p><strong>Plain paragraph</strong></p>
+</li></ul>
 
-<p>Create a RTF document object using the settings needed for your document,
-then build your document and save it in an RTF file:</p>
+<p><code>ruby     rtf.paragraph &lt;&lt; \       &quot;Should you ever find
+yourself on a spacefaring vessel &quot;\       &quot;wearing RED shirt,
+take heed and be on guard, for danger &quot;\       &quot;is immanent and
+you are likely expendable among the crew.&quot; </code></p>
+<ul><li>
+<p><strong>Paragraph with inline styling</strong></p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rrtf</span><span class='tstring_end'>&#39;</span></span>
-<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>JSON</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>justification</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RIGHT</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foreground_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>font</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ROMAN:Times</span><span class='tstring_end'>&quot;</span></span>
+<span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> \
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Should you ever find yourself on a spacefaring vessel </span><span class='tstring_end'>&quot;</span></span>\
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wearing RED shirt, take heed and be on guard, for danger </span><span class='tstring_end'>&quot;</span></span>\
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is immanent and you are likely expendable among the crew.</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+</li><li>
+<p><strong>Paragraph with inline character styling</strong></p>
 
-<span class='id identifier rubyid_raw_styles'>raw_styles</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>styles.json</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Should you ever find yourself on a spacefaring vessel wearing a </span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foreground_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underline_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>italic</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bold</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underline</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SINGLE</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>red</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> shirt, take heed and be on guard, for danger </span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is immanent and you are likely expendable among the crew.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+</li></ul>
 
+<h4 id="label-Hyperlinks">Hyperlinks</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Should you ever find yourself on a spacefaring vessel wearing a </span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foreground_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underline_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>italic</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bold</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underline</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SINGLE</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_emphasis'>emphasis</span><span class='op'>|</span>
+    <span class='id identifier rubyid_emphasis'>emphasis</span><span class='period'>.</span><span class='id identifier rubyid_link'>link</span><span class='lparen'>(</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://en.wikipedia.org/wiki/Redshirt_(character)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>red shirt</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, take heed and be on guard, for danger </span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is immanent and you are likely expendable among the crew.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h4 id="label-Lists">Lists</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span>
+  <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_li'>li</span><span class='op'>|</span>
+    <span class='id identifier rubyid_li'>li</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Never venture into an ominous setting.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_li'>li</span><span class='op'>|</span>
+    <span class='id identifier rubyid_li'>li</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Never attempt to disable an unknown entity. </span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_li'>li</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Get away quickly.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_li'>li</span><span class='op'>|</span>
+    <span class='id identifier rubyid_li'>li</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Never stand guard alone. Make certain at least three </span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_li'>li</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>other redshirts are present.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h4 id="label-Images">Images</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_image'>image</span><span class='lparen'>(</span><span class='const'>DIR</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/resources/images/redshirt.png</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>width</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                     <span class='comment'># can also set &quot;height&quot;
+</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sizing_mode</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FIX_ASPECT_RATIO</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='comment'># can also be &quot;ABSOLUTE&quot;
+</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>border</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sides</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ALL</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#ff0000</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>line_type</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DOT</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>width</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>5pt</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>spacing</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>12pt</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rbrace'>}</span>
+<span class='rparen'>)</span>
+</code></pre>
+
+<h4 id="label-Shapes">Shapes</h4>
+<ul><li>
+<p><strong>Basic shapes</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_geometry'>geometry</span><span class='lparen'>(</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RECTANGLE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fill_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#cccccc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>top</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>left</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>width</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>height</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>horizontal_reference</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PAGE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>vertical_reference</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PAGE</span><span class='tstring_end'>&quot;</span></span>
+<span class='rparen'>)</span>
+</code></pre>
+</li><li>
+<p><strong>Text boxes</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_geometry'>geometry</span><span class='lparen'>(</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TEXT_BOX</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>line_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#000000</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>line_width</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3pt</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>top</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>5in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>left</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2.5in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>width</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>height</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>horizontal_reference</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PAGE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>vertical_reference</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PAGE</span><span class='tstring_end'>&quot;</span></span>
+<span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_box'>box</span><span class='op'>|</span>
+  <span class='id identifier rubyid_box'>box</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+    <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Should you ever find yourself on a spacefaring vessel wearing a </span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RED</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> shirt, take heed and be on guard, for danger </span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is immanent and you are likely expendable among the crew.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+</li><li>
+<p><strong>Custom shapes</strong></p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_geometry'>geometry</span><span class='lparen'>(</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CUSTOM</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>top</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>left</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>width</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>height</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>path</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span>
+    <span class='comment'># points are relative to the upper left corner of the shape as
+</span>    <span class='comment'># determined by &quot;top&quot;/&quot;left&quot;/&quot;bottom&quot;/&quot;right&quot;/&quot;width&quot;/&quot;height&quot;
+</span>    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>START_AT</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>        <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='rbracket'>]</span>                                           <span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>LINE_TO</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>         <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>2in</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>                                      <span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CUBIC_BEZIER_TO</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3in</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3in</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.5in</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3in</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3in</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>    <span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>LINE_TO</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>         <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>                                          <span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CLOSE_PATH</span><span class='tstring_end'>&quot;</span></span>                                                       <span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>END</span><span class='tstring_end'>&quot;</span></span>                                                              <span class='rbracket'>]</span>
+  <span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fill_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#00cc00</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>line_color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#000099</span><span class='tstring_end'>&#39;</span></span>
+<span class='rparen'>)</span>
+</code></pre>
+</li></ul>
+
+<h4 id="label-Stylesheet">Stylesheet</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_raw_styles'>raw_styles</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='const'>DIR</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/resources/json/redshirt_styles.json</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_rtf'>rtf</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="RRTF.html" title="RRTF (module)">RRTF</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RRTF/Document.html" title="RRTF::Document (class)">Document</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="RRTF/Document.html#initialize-instance_method" title="RRTF::Document#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stylesheet</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_raw_styles'>raw_styles</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_styles'>styles</span> <span class='op'>=</span> <span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_styles'>styles</span>
 
-<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TITLE</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RedShirts 101</span><span class='tstring_end'>&quot;</span></span>
-<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>BODY</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
-  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Should you ever find yourself on a spacefaring vessel wearing a</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>EMPH</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> red </span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shirt, take heed and be on guard, for danger is immanent and you are </span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>likely expendable among the crew...</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span>
-<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>H1</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1. The Danger of Away Missions</span><span class='tstring_end'>&quot;</span></span>
-<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>BODY</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
-  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>If you&#39;re ever assigned an away mission, it&#39;s almost certain to be your doom. </span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The optimal strategy is to avoid away missions to begin with...</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span>
-<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>H1</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2. Avoiding High-Ranking Officers</span><span class='tstring_end'>&quot;</span></span>
-<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>BODY</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
-  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You&#39;re likely to notice an influx of unfortunate outcomes around </span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>certain high-ranking officers. Its to your advantage to quickly identify and </span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>avoid these officers...</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span>
-
-<span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>01.rtf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
-   <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TITLE</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Redshirt Pocket Guide</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='id identifier rubyid_styles'>styles</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUBTITLE</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>superscript</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rd</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> Edition</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span>
 </code></pre>
 
-<p>Below is the resulting RTF file viewed in Word 2016:</p>
-
-<p><img src="examples/01_mac_word15_36.png"></p>
-
 <h2 id="label-TODO">TODO</h2>
-
-<p>The following items have yet to be addressed:</p>
 <ul><li>
 <p>Develop rspec examples to replace the unit tests for the classes in the
 original ifad-rtf gem.</p>
@@ -231,6 +312,10 @@ original ifad-rtf gem.</p>
 AnonymousStyle defines push_colours and push_fonts methods that are called
 by CommandNode#paragraph, CommandNode#apply, and ImageNode#initialize
 (these actions should rather be taken when a style is created or updated).</p>
+</li><li>
+<p>Fix list and nested list formatting issues (alignment).</p>
+</li><li>
+<p>Add support for tables.</p>
 </li></ul>
 
 <h2 id="label-Development">Development</h2>
@@ -259,7 +344,7 @@ the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Jul 28 18:42:38 2017 by
+  Generated on Mon Jul 31 21:48:56 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

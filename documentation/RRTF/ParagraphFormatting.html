@@ -481,17 +481,17 @@ is included in another module or class.</p>
       <pre class="lines">
 
 
-338
-339
 340
 341
 342
 343
 344
-345</pre>
+345
+346
+347</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 338</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 340</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='rparen'>)</span>
   <span class='comment'># define accessors in base for paragraph attributes
@@ -798,17 +798,17 @@ page (i.e. without breaking).</p>
       <pre class="lines">
 
 
-363
-364
 365
 366
 367
 368
 369
-370</pre>
+370
+371
+372</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 363</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 365</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize_paragraph_formatting'>initialize_paragraph_formatting</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># load default attribute values
@@ -895,8 +895,6 @@ be found in the document&#39;s colour and font tables, respectively.</p>
       <pre class="lines">
 
 
-395
-396
 397
 398
 399
@@ -907,10 +905,12 @@ be found in the document&#39;s colour and font tables, respectively.</p>
 404
 405
 406
-407</pre>
+407
+408
+409</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 395</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 397</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_paragraph_formatting_to_rtf'>paragraph_formatting_to_rtf</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -979,8 +979,6 @@ be found in the document&#39;s colour and font tables, respectively.</p>
       <pre class="lines">
 
 
-374
-375
 376
 377
 378
@@ -992,10 +990,12 @@ be found in the document&#39;s colour and font tables, respectively.</p>
 384
 385
 386
-387</pre>
+387
+388
+389</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 374</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/formatting.rb', line 376</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_paragraph_formatting_from_hashmap'>set_paragraph_formatting_from_hashmap</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_attribute'>attribute</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
@@ -1021,7 +1021,7 @@ be found in the document&#39;s colour and font tables, respectively.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 28 18:42:38 2017 by
+  Generated on Mon Jul 31 21:48:57 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>
