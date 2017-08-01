@@ -1,8 +1,7 @@
-require 'rrtf/style/formatting'
+require 'rrtf/style/anonymous_style'
+require 'rrtf/style/border_style'
+require 'rrtf/style/position_style'
+require 'rrtf/style/shading_style'
 require 'rrtf/style/style'
 require 'rrtf/style/paragraph_style'
 require 'rrtf/style/character_style'
-require 'rrtf/style/document_style'
-
-module RRTF
-end

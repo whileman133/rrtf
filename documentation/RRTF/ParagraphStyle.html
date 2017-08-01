@@ -74,6 +74,8 @@
         <ul class="fullTree">
           <li>Object</li>
           
+            <li class="next"><span class='object_link'><a href="AnonymousStyle.html" title="RRTF::AnonymousStyle (class)">AnonymousStyle</a></span></li>
+          
             <li class="next"><span class='object_link'><a href="Style.html" title="RRTF::Style (class)">Style</a></span></li>
           
             <li class="next">RRTF::ParagraphStyle</li>
@@ -188,31 +190,6 @@ formatting modules.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#is_paragraph_style%3F-instance_method" title="#is_paragraph_style? (instance method)">#<strong>is_paragraph_style?</strong>  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>This method overrides the is_paragraph_style? method inherited from the
-Style class to always return true.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#prefix-instance_method" title="#prefix (instance method)">#<strong>prefix</strong>(document)  &#x21d2; Object </a>
     
 
@@ -294,7 +271,7 @@ style object.</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="CharacterFormatting.html" title="RRTF::CharacterFormatting (module)">CharacterFormatting</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="CharacterFormatting.html#character_formatting_to_rtf-instance_method" title="RRTF::CharacterFormatting#character_formatting_to_rtf (method)">#character_formatting_to_rtf</a></span>, <span class='object_link'><a href="CharacterFormatting.html#included-class_method" title="RRTF::CharacterFormatting.included (method)">included</a></span>, <span class='object_link'><a href="CharacterFormatting.html#initialize_character_formatting-instance_method" title="RRTF::CharacterFormatting#initialize_character_formatting (method)">#initialize_character_formatting</a></span>, <span class='object_link'><a href="CharacterFormatting.html#push_colours-instance_method" title="RRTF::CharacterFormatting#push_colours (method)">#push_colours</a></span>, <span class='object_link'><a href="CharacterFormatting.html#push_fonts-instance_method" title="RRTF::CharacterFormatting#push_fonts (method)">#push_fonts</a></span>, <span class='object_link'><a href="CharacterFormatting.html#set_character_formatting_from_hashmap-instance_method" title="RRTF::CharacterFormatting#set_character_formatting_from_hashmap (method)">#set_character_formatting_from_hashmap</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="CharacterFormatting.html#character_formatting_to_rtf-instance_method" title="RRTF::CharacterFormatting#character_formatting_to_rtf (method)">#character_formatting_to_rtf</a></span>, <span class='object_link'><a href="CharacterFormatting.html#included-class_method" title="RRTF::CharacterFormatting.included (method)">included</a></span>, <span class='object_link'><a href="CharacterFormatting.html#initialize_character_formatting-instance_method" title="RRTF::CharacterFormatting#initialize_character_formatting (method)">#initialize_character_formatting</a></span>, <span class='object_link'><a href="CharacterFormatting.html#set_character_formatting_from_hashmap-instance_method" title="RRTF::CharacterFormatting#set_character_formatting_from_hashmap (method)">#set_character_formatting_from_hashmap</a></span></p>
 
   
   
@@ -315,8 +292,14 @@ style object.</p>
   
   
   
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Style.html" title="RRTF::Style (class)">Style</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Style.html#is_character_style%3F-instance_method" title="RRTF::Style#is_character_style? (method)">#is_character_style?</a></span>, <span class='object_link'><a href="Style.html#is_document_style%3F-instance_method" title="RRTF::Style#is_document_style? (method)">#is_document_style?</a></span>, <span class='object_link'><a href="Style.html#is_table_style%3F-instance_method" title="RRTF::Style#is_table_style? (method)">#is_table_style?</a></span>, <span class='object_link'><a href="Style.html#styledef-instance_method" title="RRTF::Style#styledef (method)">#styledef</a></span>, <span class='object_link'><a href="Style.html#stylename-instance_method" title="RRTF::Style#stylename (method)">#stylename</a></span>, <span class='object_link'><a href="Style.html#suffix-instance_method" title="RRTF::Style#suffix (method)">#suffix</a></span></p>
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="AnonymousStyle.html" title="RRTF::AnonymousStyle (class)">AnonymousStyle</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="AnonymousStyle.html#push_colours-instance_method" title="RRTF::AnonymousStyle#push_colours (method)">#push_colours</a></span>, <span class='object_link'><a href="AnonymousStyle.html#push_fonts-instance_method" title="RRTF::AnonymousStyle#push_fonts (method)">#push_fonts</a></span>, <span class='object_link'><a href="AnonymousStyle.html#suffix-instance_method" title="RRTF::AnonymousStyle#suffix (method)">#suffix</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -753,8 +736,8 @@ string format.</p>
           </span>
           
             &mdash; <div class='inline'>
-<p>colour to apply to the background (highlight); see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for
-string format.</p>
+<p>colour to apply to the background; see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for string
+format.</p>
 </div>
           
         </li>
@@ -772,6 +755,22 @@ string format.</p>
             &mdash; <div class='inline'>
 <p>colour to apply to the underline; see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for string
 format.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"highlight_color"</span>
+          <span class="type">(<tt>String</tt>, <tt><span class='object_link'><a href="Colour.html" title="RRTF::Colour (class)">Colour</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>colour with which to highlight text.</p>
 </div>
           
         </li>
@@ -1004,6 +1003,23 @@ page (i.e. without breaking).</p>
           
         </li>
       
+        <li>
+          <span class="name">"border"</span>
+          <span class="type">(<tt>Array&lt;Hash, <span class='object_link'><a href="BorderStyle.html" title="RRTF::BorderStyle (class)">BorderStyle</a></span>&gt;</tt>, <tt>Hash</tt>, <tt><span class='object_link'><a href="BorderStyle.html" title="RRTF::BorderStyle (class)">BorderStyle</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the border style(s) to be applied to the paragraph (see
+<span class='object_link'><a href="BorderFormatting.html#initialize_border_formatting-instance_method" title="RRTF::BorderFormatting#initialize_border_formatting (method)">BorderFormatting#initialize_border_formatting</a></span>).</p>
+</div>
+          
+        </li>
+      
     </ul>
   
 
@@ -1041,62 +1057,7 @@ page (i.e. without breaking).</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="is_paragraph_style?-instance_method">
-  
-    #<strong>is_paragraph_style?</strong>  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>This method overrides the is_paragraph_style? method inherited from the
-Style class to always return true.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-26
-27
-28</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/paragraph_style.rb', line 26</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_is_paragraph_style?'>is_paragraph_style?</span>
-   <span class='kw'>true</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="prefix-instance_method">
+  <h3 class="signature first" id="prefix-instance_method">
   
     #<strong>prefix</strong>(document)  &#x21d2; <tt>Object</tt> 
   
@@ -1133,17 +1094,17 @@ be nil if no colours used).</p>
       <pre class="lines">
 
 
+67
+68
+69
+70
+71
+72
 73
-74
-75
-76
-77
-78
-79
-80</pre>
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/paragraph_style.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/paragraph_style.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1173,20 +1134,20 @@ be nil if no colours used).</p>
       <pre class="lines">
 
 
+76
+77
+78
+79
+80
+81
 82
 83
 84
 85
-86
-87
-88
-89
-90
-91
-92</pre>
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/paragraph_style.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/paragraph_style.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rtf_formatting'>rtf_formatting</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rtf'>rtf</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1241,6 +1202,12 @@ be nil if no colours used).</p>
       <pre class="lines">
 
 
+31
+32
+33
+34
+35
+36
 37
 38
 39
@@ -1261,16 +1228,10 @@ be nil if no colours used).</p>
 54
 55
 56
-57
-58
-59
-60
-61
-62
-63</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/paragraph_style.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/paragraph_style.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># load default options
@@ -1309,7 +1270,7 @@ be nil if no colours used).</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 24 15:49:02 2017 by
+  Generated on Fri Jul 28 18:42:42 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

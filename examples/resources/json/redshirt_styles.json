@@ -1,6 +1,22 @@
 [
   {
     "type": "paragraph",
+    "id": "PRIMARY_BACKGROUND",
+    "name": "Emphasis Background",
+    "foreground_color": "#ffffff",
+    "position": {
+      "size": "3.5in,5in",
+      "horizontal_position": 0,
+      "vertical_position": 0,
+      "horizontal_reference": "PAGE",
+      "vertical_reference": "PAGE"
+    },
+    "shading": {
+      "background_color": "#ff0000"
+    }
+  },
+  {
+    "type": "paragraph",
     "id": "TITLE",
     "name": "Title",
     "primary": true,
@@ -8,12 +24,37 @@
     "next_style": "BODY",
     "base_style": "BODY",
     "justification": "CENTER",
-    "space_after": 100,
     "bold": true,
-    "underline": "DOUBLE",
-    "underline_color": "#ff0000",
     "uppercase": true,
-    "font_size": 36
+    "font_size": "15pt",
+    "foreground_color": "#ffffff",
+    "border": [
+      {
+        "sides": "BOTTOM",
+        "line_type": "THICK",
+        "width": "3pt",
+        "spacing": 0,
+        "color": "#ffffff"
+      },
+      {
+        "sides": "TOP",
+        "line_type": "THICK",
+        "width": "3pt",
+        "spacing": 0,
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "id": "SUBTITLE",
+    "name": "Subtitle",
+    "primary": true,
+    "justification": "CENTER",
+    "font_size": "12pt",
+    "foreground_color": "#ffffff",
+    "character_spacing_offset": "5pt",
+    "uppercase": true
   },
   {
     "type": "paragraph",
@@ -21,12 +62,13 @@
     "name": "Heading 1",
     "primary": true,
     "next_style": "BODY",
-    "space_after": 40,
-    "space_before": 200,
+    "space_after": "2pt",
+    "space_before": "10pt",
+    "no_break_with_next": true,
     "underline": "SINGLE",
     "underline_color": "#ff0000",
     "bold": true,
-    "font_size": 24
+    "font_size": "12pt"
   },
   {
     "type": "paragraph",
@@ -35,8 +77,30 @@
     "primary": true,
     "default": true,
     "justification": "LEFT",
-    "font_size": 24,
+    "font_size": "12pt",
+    "space_after": "10pt",
     "hyphenate": true
+  },
+  {
+    "type": "paragraph",
+    "id": "DROP_CAPS",
+    "name": "Drop Caps",
+    "primary": true,
+    "font_size": "28pt",
+    "line_spacing": "-27pt",
+    "position": {
+      "drop_cap_lines": 2,
+      "drop_cap_type": "IN_TEXT",
+      "text_wrap": "AROUND",
+      "vertical_reference": "PARAGRAPH",
+      "size": "0pt,-28.8pt"
+    },
+    "border": {
+      "sides": "ALL",
+      "line_type": "DOT",
+      "width": "1pt",
+      "color": "#ff0000"
+    }
   },
   {
     "type": "character",

@@ -98,7 +98,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rrtf/node.rb</dd>
+    <dd>lib/rrtf/node/table_row_node.rb</dd>
   </dl>
   
 </div>
@@ -357,18 +357,18 @@ forbid the alteration of the cells parent.</p>
       <pre class="lines">
 
 
-846
-847
-848
-849
-850
-851
-852
-853
-854</pre>
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 846</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/table_row_node.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_table'>table</span><span class='comma'>,</span> <span class='id identifier rubyid_cells'>cells</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_widths'>widths</span><span class='rparen'>)</span>
    <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_table'>table</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -425,12 +425,12 @@ switches the border off.</p>
       <pre class="lines">
 
 
-867
-868
-869</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 867</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/table_row_node.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_border_width='>border_width=</span><span class='lparen'>(</span><span class='id identifier rubyid_width'>width</span><span class='rparen'>)</span>
    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_cell'>cell</span><span class='op'>|</span> <span class='id identifier rubyid_cell'>cell</span><span class='period'>.</span><span class='id identifier rubyid_border_width'>border_width</span> <span class='op'>=</span> <span class='id identifier rubyid_width'>width</span><span class='rbrace'>}</span>
@@ -466,12 +466,12 @@ switches the border off.</p>
       <pre class="lines">
 
 
-857
-858
-859</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 857</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/table_row_node.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_length'>length</span>
    <span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -514,12 +514,12 @@ forbid the alteration of the cells parent.</p>
       <pre class="lines">
 
 
-876
-877
-878</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 876</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/table_row_node.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parent='>parent=</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='rparen'>)</span>
    <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Table row nodes cannot have their parent changed.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -562,12 +562,12 @@ Set to nil to switch shading off.</p>
       <pre class="lines">
 
 
-885
-886
-887</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 885</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/table_row_node.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_shading_colour='>shading_colour=</span><span class='lparen'>(</span><span class='id identifier rubyid_colour'>colour</span><span class='rparen'>)</span>
    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_cell'>cell</span><span class='op'>|</span> <span class='id identifier rubyid_cell'>cell</span><span class='period'>.</span><span class='id identifier rubyid_shading_colour'>shading_colour</span> <span class='op'>=</span> <span class='id identifier rubyid_colour'>colour</span><span class='rbrace'>}</span>
@@ -603,33 +603,33 @@ Set to nil to switch shading off.</p>
       <pre class="lines">
 
 
-899
-900
-901
-902
-903
-904
-905
-906
-907
-908
-909
-910
-911
-912
-913
-914
-915
-916
-917
-918
-919
-920
-921
-922</pre>
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 899</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/table_row_node.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span>
    <span class='id identifier rubyid_text'>text</span>   <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -665,7 +665,7 @@ Set to nil to switch shading off.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 24 15:49:00 2017 by
+  Generated on Fri Jul 28 18:42:41 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

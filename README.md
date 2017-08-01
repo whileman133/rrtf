@@ -1,12 +1,17 @@
 # RRTF: Ruby Rich-Text-Format Document Generator
 
-RRTF enables programatic creation of Rich Text Format (RTF) documents in Ruby, focusing on simplifying RTF document assembly and generating clean RTF source code. This gem is founded on the [ifad-rtf gem](https://github.com/clbustos/rtf), but differs in several respects:
+RRTF enables programatic creation of Rich Text Format (RTF) documents in Ruby, focusing on simplifying RTF document assembly and generating clean RTF source code. This gem is founded on the [ifad-rtf gem](https://github.com/clbustos/rtf), but has simpler syntax and supports more RTF constructs.
 
-- The syntax for creating documents and styles is simpler.
-- Paragraph styles can take on character formatting attributes (in accord to the RTF specification).
-- Document stylesheets can be defined, enabling the end user to easily modify the look larger RTF documents.
+- __Document__: Page orientation, size, margin, and gutter; mirror margins, tab width, enable/disable hyphenation, hyphenation width, maximum consecutive hyphenations, and enable/disable widow-and-orphan control.
+- __Text__: Bold, italic, underline, underline color, uppercase, subscript, superscript, strike, emboss, imprint, foreground color, background color, hidden, kerning, character spacing, highlight, font, font size.
+- __Paragraphs__: Justification, left indent, right indent, first line indent, space before, space after, line spacing, indentation, drop caps, keep-on-page, keep-with-next, enable/disable hyphenation, enable/disable widow-and-orphan control, absolute positioning (frames), borders, and shading.
+- __Hyperlinks__: Insert hyperlinks in text runs.
+- __Lists__: Basic unordered (bullet) lists.
+- __Images__: Embed, size, and define borders for PNG, JPEG, and BMP images.
+- __Shapes__: Draw basic shapes, custom shapes, and text boxes.
+- __Stylesheets__: Define paragraph and character styles, enabling the end user to easily modify the look of RTF documents.
 
-The gem was created with reference to the [Microsoft Office RTF Specification (v1.9.1)](https://www.microsoft.com/en-us/download/details.aspx?id=10725).
+The gem was created with reference to the [Microsoft Office RTF Specification (v1.9.1)](https://www.microsoft.com/en-us/download/details.aspx?id=10725). The syntax for custom shapes was determined by reverse engineering the RTF output from Word 2016 and reference to [Microsoft's Binary Format Specification (pp. 32-33)](https://www.loc.gov/preservation/digital/formats/digformatspecs/OfficeDrawing97-2007BinaryFormatSpecification.pdf).
 
 ## Installation
 
@@ -26,97 +31,203 @@ Or install it yourself as:
 
 ## Usage
 
-Define the paragraph and character styles your document is to leverage in
-a hashmap array or JSON file:
-
-```json
-[
-  {
-    "type": "paragraph",
-    "id": "TITLE",
-    "name": "Title",
-    "primary": true,
-    "auto_update": true,
-    "next_style": "BODY",
-    "base_style": "BODY",
-    "justification": "CENTER",
-    "space_after": 100,
-    "bold": true,
-    "underline": "DOUBLE",
-    "underline_color": "#ff0000",
-    "uppercase": true,
-    "font_size": 36
-  },
-  {
-    "type": "paragraph",
-    "id": "H1",
-    "name": "Heading 1",
-    "primary": true,
-    "next_style": "BODY",
-    "space_after": 40,
-    "space_before": 200,
-    "underline": "SINGLE",
-    "underline_color": "#ff0000",
-    "bold": true,
-    "font_size": 24
-  },
-  {
-    "type": "paragraph",
-    "id": "BODY",
-    "name": "Normal",
-    "primary": true,
-    "default": true,
-    "justification": "LEFT",
-    "font_size": 24,
-    "hyphenate": true
-  },
-  {
-    "type": "character",
-    "id": "EMPH",
-    "name": "Emphasis",
-    "additive": true,
-    "italic": true,
-    "bold": true,
-    "foreground_color": "#ff0000",
-    "locked": true
-  }
-]
-```
-
-(Note that font size is given in _half points_ and spacing in _twentieth points_, or "twips" using the somewhat disagreeable abbreviation, in accord with the RTF specification.)
-
-Create a RTF document object using the settings needed for your document, then build your document and save it in an RTF file:
-
 ```ruby
 require 'rrtf'
-require 'JSON'
 
-raw_styles = JSON.parse File.read('styles.json')
+# Construct an object representing the RTF document
+rtf = RRTF::Document.new
 
+# ...
+# Call methods on `rtf` to generate content
+# ...
+
+# Convert document into RTF string
+rtf.to_rtf
+```
+
+#### Paragraphs
+
+- __Plain paragraph__
+
+   ```ruby
+    rtf.paragraph << \
+      "Should you ever find yourself on a spacefaring vessel "\
+      "wearing RED shirt, take heed and be on guard, for danger "\
+      "is immanent and you are likely expendable among the crew."
+    ```
+
+- __Paragraph with inline styling__
+
+    ```ruby
+    rtf.paragraph(
+      "justification" => "RIGHT",
+      "foreground_color" => '#ff0000',
+      "font" => "ROMAN:Times"
+    ) << \
+      "Should you ever find yourself on a spacefaring vessel "\
+      "wearing RED shirt, take heed and be on guard, for danger "\
+      "is immanent and you are likely expendable among the crew."
+    ```
+
+- __Paragraph with inline character styling__
+
+    ```ruby
+    rtf.paragraph do |p|
+      p << "Should you ever find yourself on a spacefaring vessel wearing a "
+      p.apply(
+        "foreground_color" => '#ff0000',
+        "underline_color" => '#ff0000',
+        "italic" => true,
+        "bold" => true,
+        "underline" => "SINGLE"
+      ) << "red"
+      p << " shirt, take heed and be on guard, for danger "
+      p << "is immanent and you are likely expendable among the crew."
+    end
+    ```
+
+#### Hyperlinks
+
+```ruby
+rtf.paragraph do |p|
+  p << "Should you ever find yourself on a spacefaring vessel wearing a "
+  p.apply(
+    "foreground_color" => '#ff0000',
+    "underline_color" => '#ff0000',
+    "italic" => true,
+    "bold" => true,
+    "underline" => "SINGLE"
+  ) do |emphasis|
+    emphasis.link(
+      "https://en.wikipedia.org/wiki/Redshirt_(character)", "red shirt")
+  end
+  p << ", take heed and be on guard, for danger "
+  p << "is immanent and you are likely expendable among the crew."
+end
+```
+
+#### Lists
+
+```ruby
+rtf.list do |l|
+  l.item do |li|
+    li << "Never venture into an ominous setting."
+  end
+
+  l.item do |li|
+    li << "Never attempt to disable an unknown entity. "
+    li << "Get away quickly."
+  end
+
+  l.item do |li|
+    li << "Never stand guard alone. Make certain at least three "
+    li << "other redshirts are present."
+  end
+end
+```
+
+#### Images
+
+```ruby
+rtf.image(DIR+'/resources/images/redshirt.png',
+  "width" => "2in",                     # can also set "height"
+  "sizing_mode" => "FIX_ASPECT_RATIO",  # can also be "ABSOLUTE"
+  "border" => {
+    "sides" => "ALL",
+    "color" => '#ff0000',
+    "line_type" => "DOT",
+    "width" => "5pt",
+    "spacing" => "12pt"
+  }
+)
+```
+
+#### Shapes
+
+- __Basic shapes__
+
+    ```ruby
+    rtf.geometry(
+      "type" => "RECTANGLE",
+      "fill_color" => '#cccccc',
+      "top" => 0,
+      "left" => 0,
+      "width" => "2in",
+      "height" => "2in",
+      "horizontal_reference" => "PAGE",
+      "vertical_reference" => "PAGE"
+    )
+    ```
+
+- __Text boxes__
+
+    ```ruby
+    rtf.geometry(
+      "type" => "TEXT_BOX",
+      "line_color" => '#000000',
+      "line_width" => '3pt',
+      "top" => "5in",
+      "left" => "2.5in",
+      "width" => "3in",
+      "height" => "3in",
+      "horizontal_reference" => "PAGE",
+      "vertical_reference" => "PAGE"
+    ) do |box|
+      box.paragraph do |p|
+        p << "Should you ever find yourself on a spacefaring vessel wearing a "
+        p << "RED"
+        p << " shirt, take heed and be on guard, for danger "
+        p << "is immanent and you are likely expendable among the crew."
+      end
+    end
+    ```
+
+- __Custom shapes__
+
+    ```ruby
+    rtf.geometry(
+      "type" => "CUSTOM",
+      "top" => 0,
+      "left" => "4in",
+      "width" => "3in",
+      "height" => "3in",
+      "path" => [
+        # points are relative to the upper left corner of the shape as
+        # determined by "top"/"left"/"bottom"/"right"/"width"/"height"
+        ["START_AT",        [0,0]                                           ],
+        ["LINE_TO",         ['2in', 0]                                      ],
+        ["CUBIC_BEZIER_TO", ['3in', 0], ['3in', '1.5in'], ['3in', '3in']    ],
+        ["LINE_TO",         [0, 0]                                          ],
+        ["CLOSE_PATH"                                                       ],
+        ["END"                                                              ]
+      ],
+      "fill_color" => '#00cc00',
+      "line_color" => '#000099'
+    )
+    ```
+
+#### Stylesheet
+
+```ruby
+raw_styles = JSON.parse File.read(DIR+'/resources/json/redshirt_styles.json')
 rtf = RRTF::Document.new("stylesheet" => raw_styles)
 styles = rtf.stylesheet.styles
 
-rtf.paragraph(styles['TITLE']) << "RedShirts 101"
-rtf.paragraph(styles['BODY']) do |p|
-  p << "Should you ever find yourself on a spacefaring vessel wearing a"
-  p.apply(styles['EMPH']) << " red "
-  p << "shirt, take heed and be on guard, for danger is immanent and you are "
-  p << "likely expendable among the crew..."
-end
-rtf.paragraph(styles['H1']) << "1. The Danger of Away Missions"
-rtf.paragraph(styles['BODY']) do |p|
-  p << "If you're ever assigned an away mission, it's almost certain to be your doom. "
-  p << "The optimal strategy is to avoid away missions to begin with..."
-end
-rtf.paragraph(styles['H1']) << "2. Avoiding High-Ranking Officers"
-rtf.paragraph(styles['BODY']) do |p|
-  p << "You're likely to notice an influx of unfortunate outcomes around "
-  p << "certain high-ranking officers. Its to your advantage to quickly identify and "
-  p << "avoid these officers..."
+rtf.paragraph(styles['TITLE']) << "Redshirt Pocket Guide"
+rtf.paragraph(styles['SUBTITLE']) do |p|
+  p << "3"
+  p.apply("superscript" => true) << "rd"
+  p << " Edition"
 end
 ```
 
-![Opened in Word 2016](examples/01_mac_word15_36.png "Opened in Word 2016")
+## TODO
+
+- Develop rspec examples to replace the unit tests for the classes in the original ifad-rtf gem.
+- Make existing comments yard friendly.
+- Refactor interface between styles and colour/font tables: right now AnonymousStyle defines push_colours and push_fonts methods that are called by CommandNode#paragraph, CommandNode#apply, and ImageNode#initialize (these actions should rather be taken when a style is created or updated).
+- Fix list and nested list formatting issues (alignment).
+- Add support for tables.
 
 ## Development
 
@@ -127,7 +238,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/whileman133/rrtf.
-
 
 ## License
 

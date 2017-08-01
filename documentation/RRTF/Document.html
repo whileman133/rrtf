@@ -100,7 +100,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rrtf/node.rb</dd>
+    <dd>lib/rrtf/node/document.rb</dd>
   </dl>
   
 </div>
@@ -128,6 +128,18 @@ document font, colour and information tables.</p>
         
         <div class='inline'>
 <p>Peter Wood</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Wesley Hileman</p>
 </div>
       
     </li>
@@ -437,7 +449,7 @@ document font, colour and information tables.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#style-instance_method" title="#style (instance method)">#<strong>style</strong>  &#x21d2; Object </a>
+      <a href="#properties-instance_method" title="#properties (instance method)">#<strong>properties</strong>  &#x21d2; Object </a>
     
 
     
@@ -899,7 +911,7 @@ class to disallow setting a parent on a Document object.</p>
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="CommandNode.html#<<-instance_method" title="RRTF::CommandNode#&lt;&lt; (method)">#<<</a></span>, <span class='object_link'><a href="CommandNode.html#apply-instance_method" title="RRTF::CommandNode#apply (method)">#apply</a></span>, <span class='object_link'><a href="CommandNode.html#background-instance_method" title="RRTF::CommandNode#background (method)">#background</a></span>, <span class='object_link'><a href="CommandNode.html#bold-instance_method" title="RRTF::CommandNode#bold (method)">#bold</a></span>, <span class='object_link'><a href="CommandNode.html#colour-instance_method" title="RRTF::CommandNode#colour (method)">#colour</a></span>, <span class='object_link'><a href="CommandNode.html#font-instance_method" title="RRTF::CommandNode#font (method)">#font</a></span>, <span class='object_link'><a href="CommandNode.html#footnote-instance_method" title="RRTF::CommandNode#footnote (method)">#footnote</a></span>, <span class='object_link'><a href="CommandNode.html#foreground-instance_method" title="RRTF::CommandNode#foreground (method)">#foreground</a></span>, <span class='object_link'><a href="CommandNode.html#image-instance_method" title="RRTF::CommandNode#image (method)">#image</a></span>, <span class='object_link'><a href="CommandNode.html#italic-instance_method" title="RRTF::CommandNode#italic (method)">#italic</a></span>, <span class='object_link'><a href="CommandNode.html#line_break-instance_method" title="RRTF::CommandNode#line_break (method)">#line_break</a></span>, <span class='object_link'><a href="CommandNode.html#link-instance_method" title="RRTF::CommandNode#link (method)">#link</a></span>, <span class='object_link'><a href="CommandNode.html#list-instance_method" title="RRTF::CommandNode#list (method)">#list</a></span>, <span class='object_link'><a href="CommandNode.html#paragraph-instance_method" title="RRTF::CommandNode#paragraph (method)">#paragraph</a></span>, <span class='object_link'><a href="CommandNode.html#strike-instance_method" title="RRTF::CommandNode#strike (method)">#strike</a></span>, <span class='object_link'><a href="CommandNode.html#subscript-instance_method" title="RRTF::CommandNode#subscript (method)">#subscript</a></span>, <span class='object_link'><a href="CommandNode.html#superscript-instance_method" title="RRTF::CommandNode#superscript (method)">#superscript</a></span>, <span class='object_link'><a href="CommandNode.html#table-instance_method" title="RRTF::CommandNode#table (method)">#table</a></span>, <span class='object_link'><a href="CommandNode.html#underline-instance_method" title="RRTF::CommandNode#underline (method)">#underline</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="CommandNode.html#<<-instance_method" title="RRTF::CommandNode#&lt;&lt; (method)">#<<</a></span>, <span class='object_link'><a href="CommandNode.html#apply-instance_method" title="RRTF::CommandNode#apply (method)">#apply</a></span>, <span class='object_link'><a href="CommandNode.html#footnote-instance_method" title="RRTF::CommandNode#footnote (method)">#footnote</a></span>, <span class='object_link'><a href="CommandNode.html#image-instance_method" title="RRTF::CommandNode#image (method)">#image</a></span>, <span class='object_link'><a href="CommandNode.html#line_break-instance_method" title="RRTF::CommandNode#line_break (method)">#line_break</a></span>, <span class='object_link'><a href="CommandNode.html#link-instance_method" title="RRTF::CommandNode#link (method)">#link</a></span>, <span class='object_link'><a href="CommandNode.html#list-instance_method" title="RRTF::CommandNode#list (method)">#list</a></span>, <span class='object_link'><a href="CommandNode.html#paragraph-instance_method" title="RRTF::CommandNode#paragraph (method)">#paragraph</a></span>, <span class='object_link'><a href="CommandNode.html#table-instance_method" title="RRTF::CommandNode#table (method)">#table</a></span></p>
 
   
   
@@ -1051,17 +1063,17 @@ noqfpromote control word before stylesheet definition).</p>
         </li>
       
         <li>
-          <span class="name">"document_style"</span>
-          <span class="type">(<tt><span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span></tt>)</span>
+          <span class="name">"document_properties"</span>
+          <span class="type">(<tt><span class='object_link'><a href="DocumentProperties.html" title="RRTF::DocumentProperties (class)">DocumentProperties</a></span></tt>)</span>
           <span class="default">
             
               &mdash; default:
-              <tt>DocumentStyle.new</tt>
+              <tt>DocumentProperties.new</tt>
             
           </span>
           
             &mdash; <div class='inline'>
-<p>a DocumentStyle object OR options hash encapsulating the style settings to
+<p>a DocumentProperties object OR options hash encapsulating the properties to
 be applied to the document.</p>
 </div>
           
@@ -1091,7 +1103,7 @@ with which to use as or construct the stylesheet for the document.</p>
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="DocumentStyle.html#initialize-instance_method" title="RRTF::DocumentStyle#initialize (method)">DocumentStyle#initialize for available document style options.</a></span></li>
+      <li><span class='object_link'><a href="DocumentProperties.html#initialize-instance_method" title="RRTF::DocumentProperties#initialize (method)">DocumentProperties#initialize for available document properties.</a></span></li>
     
       <li><span class='object_link'><a href="Stylesheet.html#add_style-instance_method" title="RRTF::Stylesheet#add_style (method)">Stylesheet#initialize for available stylesheet options.</a></span></li>
     
@@ -1103,93 +1115,93 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1598
-1599
-1600
-1601
-1602
-1603
-1604
-1605
-1606
-1607
-1608
-1609
-1610
-1611
-1612
-1613
-1614
-1615
-1616
-1617
-1618
-1619
-1620
-1621
-1622
-1623
-1624
-1625
-1626
-1627
-1628
-1629
-1630
-1631
-1632
-1633
-1634
-1635
-1636
-1637
-1638
-1639
-1640
-1641
-1642
-1643
-1644
-1645
-1646
-1647
-1648
-1649
-1650
-1651
-1652
-1653
-1654
-1655
-1656
-1657
-1658
-1659
-1660
-1661
-1662
-1663
-1664
-1665
-1666
-1667
-1668
-1669
-1670
-1671
-1672
-1673
-1674
-1675</pre>
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1598</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># load default options
 </span>  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_font</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SWISS:Helvetica</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>document_style</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DocumentStyle.html#initialize-instance_method" title="RRTF::DocumentStyle#initialize (method)">new</a></span></span><span class='comma'>,</span>
+     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>document_properties</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="DocumentProperties.html" title="RRTF::DocumentProperties (class)">DocumentProperties</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DocumentProperties.html#initialize-instance_method" title="RRTF::DocumentProperties#initialize (method)">new</a></span></span><span class='comma'>,</span>
      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>character_set</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ANSI</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>language</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ENGLISH_US</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>suppress_system_styles</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>
@@ -1208,12 +1220,12 @@ with which to use as or construct the stylesheet for the document.</p>
      <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unreconized font format </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_font'>font</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
    <span class='kw'>end</span> <span class='comment'># case
 </span>
-   <span class='comment'># parse document style
-</span>   <span class='id identifier rubyid_style'>style</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>document_style</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-   <span class='kw'>case</span> <span class='id identifier rubyid_style'>style</span>
-   <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span></span>
+   <span class='comment'># parse document properties
+</span>   <span class='id identifier rubyid_properties'>properties</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>document_properties</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+   <span class='kw'>case</span> <span class='id identifier rubyid_properties'>properties</span>
+   <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="DocumentProperties.html" title="RRTF::DocumentProperties (class)">DocumentProperties</a></span></span>
    <span class='kw'>when</span> <span class='const'>Hash</span>
-     <span class='id identifier rubyid_style'>style</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DocumentStyle.html#initialize-instance_method" title="RRTF::DocumentStyle#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_style'>style</span><span class='rparen'>)</span>
+     <span class='id identifier rubyid_properties'>properties</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="DocumentProperties.html" title="RRTF::DocumentProperties (class)">DocumentProperties</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DocumentProperties.html#initialize-instance_method" title="RRTF::DocumentProperties#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_properties'>properties</span><span class='rparen'>)</span>
    <span class='kw'>else</span>
      <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unreconized document style format </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_font'>font</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
    <span class='kw'>end</span> <span class='comment'># case
@@ -1239,7 +1251,7 @@ with which to use as or construct the stylesheet for the document.</p>
    <span class='ivar'>@information</span>   <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Information.html" title="RRTF::Information (class)">Information</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Information.html#initialize-instance_method" title="RRTF::Information#initialize (method)">new</a></span></span>
    <span class='ivar'>@character_set</span> <span class='op'>=</span> <span class='id identifier rubyid_cs_val'>cs_val</span>
    <span class='ivar'>@language</span>      <span class='op'>=</span> <span class='id identifier rubyid_ls_val'>ls_val</span>
-   <span class='ivar'>@style</span>         <span class='op'>=</span> <span class='id identifier rubyid_style'>style</span>
+   <span class='ivar'>@properties</span>    <span class='op'>=</span> <span class='id identifier rubyid_properties'>properties</span>
    <span class='ivar'>@headers</span>       <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
    <span class='ivar'>@footers</span>       <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
    <span class='ivar'>@id</span>            <span class='op'>=</span> <span class='int'>0</span>
@@ -1301,12 +1313,12 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1579
-1580
-1581</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_character_set'>character_set</span>
   <span class='ivar'>@character_set</span>
@@ -1344,12 +1356,12 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1579
-1580
-1581</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_colours'>colours</span>
   <span class='ivar'>@colours</span>
@@ -1387,12 +1399,12 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1579
-1580
-1581</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fonts'>fonts</span>
   <span class='ivar'>@fonts</span>
@@ -1430,12 +1442,12 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1579
-1580
-1581</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_information'>information</span>
   <span class='ivar'>@information</span>
@@ -1473,12 +1485,12 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1579
-1580
-1581</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_language'>language</span>
   <span class='ivar'>@language</span>
@@ -1516,12 +1528,12 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1579
-1580
-1581</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lists'>lists</span>
   <span class='ivar'>@lists</span>
@@ -1534,9 +1546,9 @@ with which to use as or construct the stylesheet for the document.</p>
       
       <span id=""></span>
       <div class="method_details ">
-  <h3 class="signature " id="style-instance_method">
+  <h3 class="signature " id="properties-instance_method">
   
-    #<strong>style</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>properties</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -1559,15 +1571,15 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1579
-1580
-1581</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 67</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_style'>style</span>
-  <span class='ivar'>@style</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_properties'>properties</span>
+  <span class='ivar'>@properties</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1602,12 +1614,12 @@ with which to use as or construct the stylesheet for the document.</p>
       <pre class="lines">
 
 
-1579
-1580
-1581</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1579</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span>
   <span class='ivar'>@stylesheet</span>
@@ -1651,12 +1663,12 @@ typical Document object page.</p>
       <pre class="lines">
 
 
-1810
-1811
-1812</pre>
+298
+299
+300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1810</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 298</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_body_height'>body_height</span>
    <span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_body_height'>body_height</span>
@@ -1693,12 +1705,12 @@ typical Document object page.</p>
       <pre class="lines">
 
 
-1804
-1805
-1806</pre>
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1804</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_body_width'>body_width</span>
    <span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_body_width'>body_width</span>
@@ -1734,12 +1746,12 @@ typical Document object page.</p>
       <pre class="lines">
 
 
-1685
-1686
-1687</pre>
+173
+174
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1685</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 173</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_font'>default_font</span>
    <span class='ivar'>@fonts</span><span class='lbracket'>[</span><span class='ivar'>@default_font</span><span class='rbracket'>]</span>
@@ -1781,13 +1793,13 @@ typical Document object page.</p>
       <pre class="lines">
 
 
-1773
-1774
-1775
-1776</pre>
+261
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1773</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 261</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_font='>default_font=</span><span class='lparen'>(</span><span class='id identifier rubyid_font'>font</span><span class='rparen'>)</span>
    <span class='ivar'>@fonts</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_font'>font</span>
@@ -1831,20 +1843,20 @@ FooterNode::UNIVERSAL.</p>
       <pre class="lines">
 
 
-1751
-1752
-1753
-1754
-1755
-1756
-1757
-1758
-1759
-1760
-1761</pre>
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1751</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 239</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_footer'>footer</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='op'>=</span><span class='const'>FooterNode</span><span class='op'>::</span><span class='const'>UNIVERSAL</span><span class='rparen'>)</span>
    <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1898,20 +1910,20 @@ overwritten.</p>
       <pre class="lines">
 
 
-1717
-1718
-1719
-1720
-1721
-1722
-1723
-1724
-1725
-1726
-1727</pre>
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1717</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 205</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_footer='>footer=</span><span class='lparen'>(</span><span class='id identifier rubyid_footer'>footer</span><span class='rparen'>)</span>
    <span class='kw'>if</span> <span class='id identifier rubyid_footer'>footer</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="FooterNode.html" title="RRTF::FooterNode (class)">FooterNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FooterNode.html#UNIVERSAL-constant" title="RRTF::FooterNode::UNIVERSAL (constant)">UNIVERSAL</a></span></span>
@@ -1956,13 +1968,13 @@ that is unique within the document.</p>
       <pre class="lines">
 
 
-1679
-1680
-1681
-1682</pre>
+167
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1679</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_id'>get_id</span>
    <span class='ivar'>@id</span> <span class='op'>+=</span> <span class='int'>1</span>
@@ -2006,20 +2018,20 @@ HeaderNode::UNIVERSAL.</p>
       <pre class="lines">
 
 
-1734
-1735
-1736
-1737
-1738
-1739
-1740
-1741
-1742
-1743
-1744</pre>
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1734</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 222</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_header'>header</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='op'>=</span><span class='const'>HeaderNode</span><span class='op'>::</span><span class='const'>UNIVERSAL</span><span class='rparen'>)</span>
    <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -2073,20 +2085,20 @@ overwritten.</p>
       <pre class="lines">
 
 
-1697
-1698
-1699
-1700
-1701
-1702
-1703
-1704
-1705
-1706
-1707</pre>
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1697</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_header='>header=</span><span class='lparen'>(</span><span class='id identifier rubyid_header'>header</span><span class='rparen'>)</span>
    <span class='kw'>if</span> <span class='id identifier rubyid_header'>header</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="HeaderNode.html" title="RRTF::HeaderNode (class)">HeaderNode</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HeaderNode.html#UNIVERSAL-constant" title="RRTF::HeaderNode::UNIVERSAL (constant)">UNIVERSAL</a></span></span>
@@ -2131,12 +2143,12 @@ styles</p>
       <pre class="lines">
 
 
-1765
-1766
-1767</pre>
+253
+254
+255</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1765</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 253</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_stylesheet'>load_stylesheet</span><span class='lparen'>(</span><span class='id identifier rubyid_hashmap_array'>hashmap_array</span><span class='rparen'>)</span>
   <span class='ivar'>@stylesheet</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Stylesheet.html" title="RRTF::Stylesheet (class)">Stylesheet</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Stylesheet.html#initialize-instance_method" title="RRTF::Stylesheet#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_hashmap_array'>hashmap_array</span><span class='rparen'>)</span>
@@ -2172,13 +2184,13 @@ styles</p>
       <pre class="lines">
 
 
-1797
-1798
-1799
-1800</pre>
+285
+286
+287
+288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1797</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 285</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_page_break'>page_break</span>
    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CommandNode.html#initialize-instance_method" title="RRTF::CommandNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\page</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -2216,12 +2228,12 @@ with a Document object.</p>
       <pre class="lines">
 
 
-1780
-1781
-1782</pre>
+268
+269
+270</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1780</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 268</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_paper'>paper</span>
    <span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_paper'>paper</span>
@@ -2270,12 +2282,12 @@ class to disallow setting a parent on a Document object.</p>
       <pre class="lines">
 
 
-1792
-1793
-1794</pre>
+280
+281
+282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1792</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parent='>parent=</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='rparen'>)</span>
    <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Document objects may not have a parent.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -2311,44 +2323,44 @@ class to disallow setting a parent on a Document object.</p>
       <pre class="lines">
 
 
-1815
-1816
-1817
-1818
-1819
-1820
-1821
-1822
-1823
-1824
-1825
-1826
-1827
-1828
-1829
-1830
-1831
-1832
-1833
-1834
-1835
-1836
-1837
-1838
-1839
-1840
-1841
-1842
-1843
-1844
-1845
-1846
-1847
-1848
-1849</pre>
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1815</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/document.rb', line 303</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_rtf'>to_rtf</span>
    <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -2379,7 +2391,7 @@ class to disallow setting a parent on a Document object.</p>
          <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@footers</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
       <span class='kw'>end</span>
    <span class='kw'>end</span>
-   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_prefix'>prefix</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@style</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+   <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='ivar'>@properties</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@properties</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_entry'>entry</span><span class='op'>|</span> <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_entry'>entry</span><span class='period'>.</span><span class='id identifier rubyid_to_rtf'>to_rtf</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
    <span class='id identifier rubyid_text'>text</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n}</span><span class='tstring_end'>&quot;</span></span>
 
@@ -2395,7 +2407,7 @@ class to disallow setting a parent on a Document object.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 24 15:49:01 2017 by
+  Generated on Fri Jul 28 18:42:40 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

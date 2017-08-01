@@ -100,7 +100,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rrtf/node.rb</dd>
+    <dd>lib/rrtf/node/header_node.rb</dd>
   </dl>
   
 </div>
@@ -311,7 +311,7 @@ class to prevent footnotes being added to headers.</p>
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="CommandNode.html#<<-instance_method" title="RRTF::CommandNode#&lt;&lt; (method)">#<<</a></span>, <span class='object_link'><a href="CommandNode.html#apply-instance_method" title="RRTF::CommandNode#apply (method)">#apply</a></span>, <span class='object_link'><a href="CommandNode.html#background-instance_method" title="RRTF::CommandNode#background (method)">#background</a></span>, <span class='object_link'><a href="CommandNode.html#bold-instance_method" title="RRTF::CommandNode#bold (method)">#bold</a></span>, <span class='object_link'><a href="CommandNode.html#colour-instance_method" title="RRTF::CommandNode#colour (method)">#colour</a></span>, <span class='object_link'><a href="CommandNode.html#font-instance_method" title="RRTF::CommandNode#font (method)">#font</a></span>, <span class='object_link'><a href="CommandNode.html#foreground-instance_method" title="RRTF::CommandNode#foreground (method)">#foreground</a></span>, <span class='object_link'><a href="CommandNode.html#image-instance_method" title="RRTF::CommandNode#image (method)">#image</a></span>, <span class='object_link'><a href="CommandNode.html#italic-instance_method" title="RRTF::CommandNode#italic (method)">#italic</a></span>, <span class='object_link'><a href="CommandNode.html#line_break-instance_method" title="RRTF::CommandNode#line_break (method)">#line_break</a></span>, <span class='object_link'><a href="CommandNode.html#link-instance_method" title="RRTF::CommandNode#link (method)">#link</a></span>, <span class='object_link'><a href="CommandNode.html#list-instance_method" title="RRTF::CommandNode#list (method)">#list</a></span>, <span class='object_link'><a href="CommandNode.html#paragraph-instance_method" title="RRTF::CommandNode#paragraph (method)">#paragraph</a></span>, <span class='object_link'><a href="CommandNode.html#strike-instance_method" title="RRTF::CommandNode#strike (method)">#strike</a></span>, <span class='object_link'><a href="CommandNode.html#subscript-instance_method" title="RRTF::CommandNode#subscript (method)">#subscript</a></span>, <span class='object_link'><a href="CommandNode.html#superscript-instance_method" title="RRTF::CommandNode#superscript (method)">#superscript</a></span>, <span class='object_link'><a href="CommandNode.html#table-instance_method" title="RRTF::CommandNode#table (method)">#table</a></span>, <span class='object_link'><a href="CommandNode.html#to_rtf-instance_method" title="RRTF::CommandNode#to_rtf (method)">#to_rtf</a></span>, <span class='object_link'><a href="CommandNode.html#underline-instance_method" title="RRTF::CommandNode#underline (method)">#underline</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="CommandNode.html#<<-instance_method" title="RRTF::CommandNode#&lt;&lt; (method)">#<<</a></span>, <span class='object_link'><a href="CommandNode.html#apply-instance_method" title="RRTF::CommandNode#apply (method)">#apply</a></span>, <span class='object_link'><a href="CommandNode.html#image-instance_method" title="RRTF::CommandNode#image (method)">#image</a></span>, <span class='object_link'><a href="CommandNode.html#line_break-instance_method" title="RRTF::CommandNode#line_break (method)">#line_break</a></span>, <span class='object_link'><a href="CommandNode.html#link-instance_method" title="RRTF::CommandNode#link (method)">#link</a></span>, <span class='object_link'><a href="CommandNode.html#list-instance_method" title="RRTF::CommandNode#list (method)">#list</a></span>, <span class='object_link'><a href="CommandNode.html#paragraph-instance_method" title="RRTF::CommandNode#paragraph (method)">#paragraph</a></span>, <span class='object_link'><a href="CommandNode.html#table-instance_method" title="RRTF::CommandNode#table (method)">#table</a></span>, <span class='object_link'><a href="CommandNode.html#to_rtf-instance_method" title="RRTF::CommandNode#to_rtf (method)">#to_rtf</a></span></p>
 
   
   
@@ -374,13 +374,13 @@ HeaderNode::UNIVERSAL.</p>
       <pre class="lines">
 
 
-1187
-1188
-1189
-1190</pre>
+30
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1187</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/header_node.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='op'>=</span><span class='const'>UNIVERSAL</span><span class='rparen'>)</span>
    <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_id2name'>id2name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
@@ -424,12 +424,12 @@ HeaderNode::UNIVERSAL.</p>
       <pre class="lines">
 
 
-1174
-1175
-1176</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1174</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/header_node.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -485,12 +485,12 @@ class to prevent footnotes being added to headers.</p>
       <pre class="lines">
 
 
-1200
-1201
-1202</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 1200</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/header_node.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_footnote'>footnote</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
    <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Footnotes are not permitted in page headers.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -505,7 +505,7 @@ class to prevent footnotes being added to headers.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 24 15:49:01 2017 by
+  Generated on Fri Jul 28 18:42:40 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

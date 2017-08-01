@@ -15,12 +15,6 @@ module RRTF
         initialize_character_formatting(options)
      end
 
-     # This method overrides the is_character_style? method inherited from the
-     # Style class to always return true.
-     def is_character_style?
-        true
-     end
-
      # Converts the stylesheet character style into its RTF representation
      # (for stylesheet)
      def to_rtf(document, options = {})
@@ -51,7 +45,7 @@ module RRTF
        rtf.string
      end
 
-     # This method generates a string containing the prefix associated with a
+     # This method generates a string containing the prefix associated with the
      # style object.
      def prefix(document)
        text = StringIO.new

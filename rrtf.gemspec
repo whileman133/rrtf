@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   # Required for HTML converter functionality
   spec.add_dependency "nokogiri"
   spec.add_dependency "tidy"
+  spec.add_dependency "fastimage"
 end

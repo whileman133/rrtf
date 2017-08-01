@@ -100,7 +100,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rrtf/node.rb</dd>
+    <dd>lib/rrtf/node/list_level_node.rb</dd>
   </dl>
   
 </div>
@@ -297,7 +297,7 @@ provides the <code>item</code> method to add a new list item, the
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="CommandNode.html#<<-instance_method" title="RRTF::CommandNode#&lt;&lt; (method)">#<<</a></span>, <span class='object_link'><a href="CommandNode.html#apply-instance_method" title="RRTF::CommandNode#apply (method)">#apply</a></span>, <span class='object_link'><a href="CommandNode.html#background-instance_method" title="RRTF::CommandNode#background (method)">#background</a></span>, <span class='object_link'><a href="CommandNode.html#bold-instance_method" title="RRTF::CommandNode#bold (method)">#bold</a></span>, <span class='object_link'><a href="CommandNode.html#colour-instance_method" title="RRTF::CommandNode#colour (method)">#colour</a></span>, <span class='object_link'><a href="CommandNode.html#font-instance_method" title="RRTF::CommandNode#font (method)">#font</a></span>, <span class='object_link'><a href="CommandNode.html#footnote-instance_method" title="RRTF::CommandNode#footnote (method)">#footnote</a></span>, <span class='object_link'><a href="CommandNode.html#foreground-instance_method" title="RRTF::CommandNode#foreground (method)">#foreground</a></span>, <span class='object_link'><a href="CommandNode.html#image-instance_method" title="RRTF::CommandNode#image (method)">#image</a></span>, <span class='object_link'><a href="CommandNode.html#italic-instance_method" title="RRTF::CommandNode#italic (method)">#italic</a></span>, <span class='object_link'><a href="CommandNode.html#line_break-instance_method" title="RRTF::CommandNode#line_break (method)">#line_break</a></span>, <span class='object_link'><a href="CommandNode.html#link-instance_method" title="RRTF::CommandNode#link (method)">#link</a></span>, <span class='object_link'><a href="CommandNode.html#paragraph-instance_method" title="RRTF::CommandNode#paragraph (method)">#paragraph</a></span>, <span class='object_link'><a href="CommandNode.html#strike-instance_method" title="RRTF::CommandNode#strike (method)">#strike</a></span>, <span class='object_link'><a href="CommandNode.html#subscript-instance_method" title="RRTF::CommandNode#subscript (method)">#subscript</a></span>, <span class='object_link'><a href="CommandNode.html#superscript-instance_method" title="RRTF::CommandNode#superscript (method)">#superscript</a></span>, <span class='object_link'><a href="CommandNode.html#table-instance_method" title="RRTF::CommandNode#table (method)">#table</a></span>, <span class='object_link'><a href="CommandNode.html#to_rtf-instance_method" title="RRTF::CommandNode#to_rtf (method)">#to_rtf</a></span>, <span class='object_link'><a href="CommandNode.html#underline-instance_method" title="RRTF::CommandNode#underline (method)">#underline</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="CommandNode.html#<<-instance_method" title="RRTF::CommandNode#&lt;&lt; (method)">#<<</a></span>, <span class='object_link'><a href="CommandNode.html#apply-instance_method" title="RRTF::CommandNode#apply (method)">#apply</a></span>, <span class='object_link'><a href="CommandNode.html#footnote-instance_method" title="RRTF::CommandNode#footnote (method)">#footnote</a></span>, <span class='object_link'><a href="CommandNode.html#image-instance_method" title="RRTF::CommandNode#image (method)">#image</a></span>, <span class='object_link'><a href="CommandNode.html#line_break-instance_method" title="RRTF::CommandNode#line_break (method)">#line_break</a></span>, <span class='object_link'><a href="CommandNode.html#link-instance_method" title="RRTF::CommandNode#link (method)">#link</a></span>, <span class='object_link'><a href="CommandNode.html#paragraph-instance_method" title="RRTF::CommandNode#paragraph (method)">#paragraph</a></span>, <span class='object_link'><a href="CommandNode.html#table-instance_method" title="RRTF::CommandNode#table (method)">#table</a></span>, <span class='object_link'><a href="CommandNode.html#to_rtf-instance_method" title="RRTF::CommandNode#to_rtf (method)">#to_rtf</a></span></p>
 
   
   
@@ -350,22 +350,22 @@ provides the <code>item</code> method to add a new list item, the
       <pre class="lines">
 
 
-631
-632
-633
-634
-635
-636
-637
-638
-639
-640
-641
-642
-643</pre>
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 631</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/list_level_node.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_template'>template</span><span class='comma'>,</span> <span class='id identifier rubyid_kind'>kind</span><span class='comma'>,</span> <span class='id identifier rubyid_level'>level</span><span class='op'>=</span><span class='int'>1</span><span class='rparen'>)</span>
   <span class='ivar'>@template</span> <span class='op'>=</span> <span class='id identifier rubyid_template'>template</span>
@@ -418,12 +418,12 @@ provides the <code>item</code> method to add a new list item, the
       <pre class="lines">
 
 
-646
-647
-648</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 646</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/list_level_node.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kind'>kind</span>
   <span class='ivar'>@kind</span>
@@ -479,14 +479,14 @@ provides the <code>item</code> method to add a new list item, the
       <pre class="lines">
 
 
-654
-655
-656
-657
-658</pre>
+31
+32
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 654</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/list_level_node.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_item'>item</span>
   <span class='id identifier rubyid_node'>node</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ListTextNode.html" title="RRTF::ListTextNode (class)">ListTextNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ListTextNode.html#initialize-instance_method" title="RRTF::ListTextNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='ivar'>@level</span><span class='rparen'>)</span>
@@ -524,12 +524,12 @@ provides the <code>item</code> method to add a new list item, the
       <pre class="lines">
 
 
-649
-650
-651</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 649</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/list_level_node.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_level'>level</span>
   <span class='ivar'>@level</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span>
@@ -578,14 +578,14 @@ provides the <code>item</code> method to add a new list item, the
       <pre class="lines">
 
 
-661
-662
-663
-664
-665</pre>
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node.rb', line 661</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/list_level_node.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_kind'>kind</span><span class='op'>=</span><span class='ivar'>@kind</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_node'>node</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="RRTF::ListLevelNode (class)">ListLevelNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="RRTF::ListLevelNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='ivar'>@template</span><span class='comma'>,</span> <span class='id identifier rubyid_kind'>kind</span><span class='comma'>,</span> <span class='ivar'>@level</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
@@ -602,7 +602,7 @@ provides the <code>item</code> method to add a new list item, the
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 24 15:49:00 2017 by
+  Generated on Fri Jul 28 18:42:41 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

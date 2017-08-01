@@ -21,12 +21,6 @@ module RRTF
         initialize_character_formatting(options)
      end
 
-     # This method overrides the is_paragraph_style? method inherited from the
-     # Style class to always return true.
-     def is_paragraph_style?
-        true
-     end
-
      # Converts the stylesheet paragraph style into its RTF representation
      #
      # ==== Parameters

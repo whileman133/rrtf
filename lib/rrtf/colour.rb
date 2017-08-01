@@ -80,6 +80,14 @@ module RRTF
          prefix = indent > 0 ? ' ' * indent : ''
          "#{prefix}\\red#{@red}\\green#{@green}\\blue#{@blue};"
       end
+
+      def to_decimal(options = {})
+        if options["reverse_bytes"]
+          (@blue * 65536) + (@green * 256) + @red
+        else
+          (@red * 65536) + (@green * 256) + @blue
+        end # if
+      end
    end # End of the Colour class.
 
 

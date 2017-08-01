@@ -60,7 +60,7 @@
       </div>
 
       <div id="content"><h1>Class: RRTF::Style
-  
+  <span class="abstract note title">Abstract</span>
   
   
 </h1>
@@ -69,10 +69,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">Object</span>
+      <span class="inheritName"><span class='object_link'><a href="AnonymousStyle.html" title="RRTF::AnonymousStyle (class)">AnonymousStyle</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="AnonymousStyle.html" title="RRTF::AnonymousStyle (class)">AnonymousStyle</a></span></li>
           
             <li class="next">RRTF::Style</li>
           
@@ -101,18 +103,68 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>This is a parent class that all style classes will derive from.</p>
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+<p>Represents an abstract style that can be applied to elements within a
+document AND appear in a document&#39;s stylesheet (i.e. paragraph,
+character, table, &amp; section styles).</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Wesley Hileman</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Peter Wood</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span>, <span class='object_link'><a href="DocumentStyle.html" title="RRTF::DocumentStyle (class)">DocumentStyle</a></span>, <span class='object_link'><a href="ParagraphStyle.html" title="RRTF::ParagraphStyle (class)">ParagraphStyle</a></span></p>
+  <p class="children"><span class='object_link'><a href="CharacterStyle.html" title="RRTF::CharacterStyle (class)">CharacterStyle</a></span>, <span class='object_link'><a href="ParagraphStyle.html" title="RRTF::ParagraphStyle (class)">ParagraphStyle</a></span></p>
 </div>
 
 
@@ -141,9 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute additive.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -168,9 +218,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute auto_update.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -195,9 +243,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute based_on_style_handle.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -222,9 +268,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute handle.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -249,9 +293,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute hidden.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -276,9 +318,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute name.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -303,9 +343,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute next_style_handle.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -330,9 +368,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute primary.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -357,9 +393,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute priority.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -406,220 +440,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#is_character_style%3F-instance_method" title="#is_character_style? (instance method)">#<strong>is_character_style?</strong>  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to determine if the style applies to characters.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#is_document_style%3F-instance_method" title="#is_document_style? (instance method)">#<strong>is_document_style?</strong>  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to determine if the style applies to documents.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#is_paragraph_style%3F-instance_method" title="#is_paragraph_style? (instance method)">#<strong>is_paragraph_style?</strong>  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to determine if the style applies to paragraphs.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#is_table_style%3F-instance_method" title="#is_table_style? (instance method)">#<strong>is_table_style?</strong>  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to determine if the style applies to tables.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#prefix-instance_method" title="#prefix (instance method)">#<strong>prefix</strong>(document)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>This method retrieves the command prefix text associated with a Style
-object.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#rtf_formatting-instance_method" title="#rtf_formatting (instance method)">#<strong>rtf_formatting</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#styledef-instance_method" title="#styledef (instance method)">#<strong>styledef</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Constructs an RTF identifier for the style.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#stylename-instance_method" title="#stylename (instance method)">#<strong>stylename</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#suffix-instance_method" title="#suffix (instance method)">#<strong>suffix</strong>(document)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>This method retrieves the command suffix text associated with a Style
-object.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#to_rtf-instance_method" title="#to_rtf (instance method)">#<strong>to_rtf</strong>(document)  &#x21d2; Object </a>
     
 
@@ -629,13 +449,13 @@ object.</p>
   
   
   
-  
+  <span class="abstract note title">abstract</span>
   
   
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Constructs the RTF formatting representing the style.</p>
+<p>Constructs the RTF formatting representing the style in a Stylesheet.</p>
 </div></span>
   
 </li>
@@ -644,6 +464,17 @@ object.</p>
     </ul>
   
 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="AnonymousStyle.html" title="RRTF::AnonymousStyle (class)">AnonymousStyle</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="AnonymousStyle.html#prefix-instance_method" title="RRTF::AnonymousStyle#prefix (method)">#prefix</a></span>, <span class='object_link'><a href="AnonymousStyle.html#push_colours-instance_method" title="RRTF::AnonymousStyle#push_colours (method)">#push_colours</a></span>, <span class='object_link'><a href="AnonymousStyle.html#push_fonts-instance_method" title="RRTF::AnonymousStyle#push_fonts (method)">#push_fonts</a></span>, <span class='object_link'><a href="AnonymousStyle.html#rtf_formatting-instance_method" title="RRTF::AnonymousStyle#rtf_formatting (method)">#rtf_formatting</a></span>, <span class='object_link'><a href="AnonymousStyle.html#suffix-instance_method" title="RRTF::AnonymousStyle#suffix (method)">#suffix</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -839,6 +670,22 @@ style is applied is updated.</p>
     </ul>
   
 
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -846,13 +693,6 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-19
-20
-21
-22
-23
-24
-25
 26
 27
 28
@@ -869,10 +709,18 @@ style is applied is updated.</p>
 39
 40
 41
-42</pre>
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># load default options
@@ -887,6 +735,7 @@ style is applied is updated.</p>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>based_on_style_handle</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hidden</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>false</span>
   <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
 
   <span class='ivar'>@handle</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>handle</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -922,13 +771,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute additive</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -936,12 +799,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_additive'>additive</span>
   <span class='ivar'>@additive</span>
@@ -965,13 +828,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute auto_update</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -979,12 +856,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auto_update'>auto_update</span>
   <span class='ivar'>@auto_update</span>
@@ -1008,13 +885,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute based_on_style_handle</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1022,12 +913,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_based_on_style_handle'>based_on_style_handle</span>
   <span class='ivar'>@based_on_style_handle</span>
@@ -1051,13 +942,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute handle</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1065,12 +970,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle'>handle</span>
   <span class='ivar'>@handle</span>
@@ -1094,13 +999,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute hidden</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1108,12 +1027,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hidden'>hidden</span>
   <span class='ivar'>@hidden</span>
@@ -1137,13 +1056,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute name</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1151,12 +1084,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -1180,13 +1113,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute next_style_handle</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1194,12 +1141,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_next_style_handle'>next_style_handle</span>
   <span class='ivar'>@next_style_handle</span>
@@ -1223,13 +1170,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute primary</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1237,12 +1198,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_primary'>primary</span>
   <span class='ivar'>@primary</span>
@@ -1266,13 +1227,27 @@ style is applied is updated.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute priority</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>legacy</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1280,12 +1255,12 @@ style is applied is updated.</p>
       <pre class="lines">
 
 
-3
-4
-5</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_priority'>priority</span>
   <span class='ivar'>@priority</span>
@@ -1303,415 +1278,7 @@ style is applied is updated.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="is_character_style?-instance_method">
-  
-    #<strong>is_character_style?</strong>  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Used to determine if the style applies to characters. This method always
-returns false and should be overridden by derived classes as needed.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-80
-81
-82</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 80</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_is_character_style?'>is_character_style?</span>
-   <span class='kw'>false</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="is_document_style?-instance_method">
-  
-    #<strong>is_document_style?</strong>  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Used to determine if the style applies to documents. This method always
-returns false and should be overridden by derived classes as needed.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-92
-93
-94</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 92</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_is_document_style?'>is_document_style?</span>
-   <span class='kw'>false</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="is_paragraph_style?-instance_method">
-  
-    #<strong>is_paragraph_style?</strong>  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Used to determine if the style applies to paragraphs. This method always
-returns false and should be overridden by derived classes as needed.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-86
-87
-88</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 86</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_is_paragraph_style?'>is_paragraph_style?</span>
-   <span class='kw'>false</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="is_table_style?-instance_method">
-  
-    #<strong>is_table_style?</strong>  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Used to determine if the style applies to tables. This method always
-returns false and should be overridden by derived classes as needed.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-98
-99
-100</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 98</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_is_table_style?'>is_table_style?</span>
-   <span class='kw'>false</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="prefix-instance_method">
-  
-    #<strong>prefix</strong>(document)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>This method retrieves the command prefix text associated with a Style
-object. This method always returns nil and should be overridden by derived
-classes as needed.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-63
-64
-65</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 63</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='rparen'>)</span>
-   <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="rtf_formatting-instance_method">
-  
-    #<strong>rtf_formatting</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-67
-68
-69</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 67</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_rtf_formatting'>rtf_formatting</span>
-  <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="styledef-instance_method">
-  
-    #<strong>styledef</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Constructs an RTF identifier for the style. (override in derived classes as
-needed)</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-46
-47
-48</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 46</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_styledef'>styledef</span>
-  <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="stylename-instance_method">
-  
-    #<strong>stylename</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-50
-51
-52</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 50</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_stylename'>stylename</span>
-  <span class='id identifier rubyid_name'>name</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="suffix-instance_method">
-  
-    #<strong>suffix</strong>(document)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>This method retrieves the command suffix text associated with a Style
-object. This method always returns nil and should be overridden by derived
-classes as needed.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-74
-75
-76</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/style/style.rb', line 74</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_suffix'>suffix</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='rparen'>)</span>
-   <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="to_rtf-instance_method">
+  <h3 class="signature first" id="to_rtf-instance_method">
   
     #<strong>to_rtf</strong>(document)  &#x21d2; <tt>Object</tt> 
   
@@ -1721,15 +1288,35 @@ classes as needed.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Constructs the RTF formatting representing the style. (override in derived
-classes as needed)</p>
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+<p>Constructs the RTF formatting representing the style in a Stylesheet.
+(override in derived classes as needed).</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1757,7 +1344,7 @@ classes as needed)</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 24 15:49:02 2017 by
+  Generated on Fri Jul 28 18:42:39 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

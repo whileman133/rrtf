@@ -1187,8 +1187,8 @@ string format.</p>
           </span>
           
             &mdash; <div class='inline'>
-<p>colour to apply to the background (highlight); see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for
-string format.</p>
+<p>colour to apply to the background; see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for string
+format.</p>
 </div>
           
         </li>
@@ -1206,6 +1206,22 @@ string format.</p>
             &mdash; <div class='inline'>
 <p>colour to apply to the underline; see <span class='object_link'><a href="Colour.html#from_string-class_method" title="RRTF::Colour.from_string (method)">Colour.from_string</a></span> for string
 format.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"highlight_color"</span>
+          <span class="type">(<tt>String</tt>, <tt><span class='object_link'><a href="Colour.html" title="RRTF::Colour (class)">Colour</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>colour with which to highlight text.</p>
 </div>
           
         </li>
@@ -1434,6 +1450,23 @@ page (i.e. without breaking).</p>
             &mdash; <div class='inline'>
 <p>the text flow direction in the paragraph (&#39;LEFT_TO_RIGHT&#39; or
 &#39;RIGHT_TO_LEFT&#39;).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">"border"</span>
+          <span class="type">(<tt>Array&lt;Hash, <span class='object_link'><a href="BorderStyle.html" title="RRTF::BorderStyle (class)">BorderStyle</a></span>&gt;</tt>, <tt>Hash</tt>, <tt><span class='object_link'><a href="BorderStyle.html" title="RRTF::BorderStyle (class)">BorderStyle</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>the border style(s) to be applied to the paragraph (see
+<span class='object_link'><a href="BorderFormatting.html#initialize_border_formatting-instance_method" title="RRTF::BorderFormatting#initialize_border_formatting (method)">BorderFormatting#initialize_border_formatting</a></span>).</p>
 </div>
           
         </li>
@@ -1758,7 +1791,7 @@ uglify is true).</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 24 15:49:01 2017 by
+  Generated on Fri Jul 28 18:42:39 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>
