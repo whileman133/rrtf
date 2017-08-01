@@ -167,7 +167,7 @@ module RRTF
        @flip_vertical               = Utilities.value2geombool(options.delete("flip_vertical"))
        @path                        = options.delete("path")
        @path_coordinate_origin      = options.delete("path_coordinate_origin") || [0, 0]
-       @path_coordinate_limits      = options.delete("path_coordinate_limits") || [30000, 30000]
+       @path_coordinate_limits      = options.delete("path_coordinate_limits") || [21600, 21600]
 
        parse_dimensions!
        parse_color! :fill_color, :line_color
@@ -233,13 +233,13 @@ module RRTF
        rtf << build_property("fFitTextToShape", @fit_text_to_shape)       unless @fit_text_to_shape.nil?
        rtf << build_property("fFlipH", @flip_horizontal)                  unless @flip_horizontal.nil?
        rtf << build_property("fFlipV", @flip_vertical)                    unless @flip_vertical.nil?
-       rtf << build_property("geoLeft", @path_coordinate_origin[0])       unless @path_coordinate_origin.nil?
-       rtf << build_property("geoTop", @path_coordinate_origin[1])        unless @path_coordinate_origin.nil?
-       rtf << build_property("geoRight", @path_coordinate_limits[0])      unless @path_coordinate_limits.nil?
-       rtf << build_property("geoBottom", @path_coordinate_limits[1])     unless @path_coordinate_limits.nil?
-       rtf << build_property("pVerticies", @path_verticies)               unless @path_verticies.nil?
-       rtf << build_property("pSegmentInfo", @path_segment_info)          unless @path_segment_info.nil?
-       rtf << build_property("pConnectionSites", @path_connection_sites)  unless @path_connection_sites.nil?
+       rtf << build_property("geoLeft", @path_coordinate_origin[0])       unless @path.nil? || @path_coordinate_origin.nil?
+       rtf << build_property("geoTop", @path_coordinate_origin[1])        unless @path.nil? || @path_coordinate_origin.nil?
+       rtf << build_property("geoRight", @path_coordinate_limits[0])      unless @path.nil? || @path_coordinate_limits.nil?
+       rtf << build_property("geoBottom", @path_coordinate_limits[1])     unless @path.nil? || @path_coordinate_limits.nil?
+       rtf << build_property("pVerticies", @path_verticies)               unless @path.nil? || @path_verticies.nil?
+       rtf << build_property("pSegmentInfo", @path_segment_info)          unless @path.nil? || @path_segment_info.nil?
+       rtf << build_property("pConnectionSites", @path_connection_sites)  unless @path.nil? || @path_connection_sites.nil?
        rtf << build_property("fLineOK", 1)
        rtf << build_property("fFillOK", 1)
        rtf << build_property("f3DOK", 1)
