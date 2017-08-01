@@ -1,14 +1,6 @@
 require "spec_helper"
 
 describe RRTF::CharacterStyle do
-  it "is a character style" do
-    ps = RRTF::CharacterStyle.new
-    expect(ps.is_paragraph_style?).to be false
-    expect(ps.is_character_style?).to be true
-    expect(ps.is_document_style?).to be false
-    expect(ps.is_table_style?).to be false
-  end
-
   it "liquifies to RTF" do
     doc = RRTF::Document.new
     style = RRTF::CharacterStyle.new(
