@@ -872,6 +872,91 @@ module RRTF::DocumentFormatting
   end
 end # module DocumentFormatting
 
+# Section formatting attributes and methods.
+# @author Wesley Hileman
+# @since 1.0.0
+module RRTF::SectionFormatting
+  # Formatting attributes that can be applied to an RTF document section.
+  # @return [Hash<String, Hash>] a hash mapping each attribute to a hash that
+  #  describes (1) the attribute's default value, (2) how to parse the attribute
+  #  from the user, and (3) how to convert the attribute to an RTF sequence.
+  SECTION_ATTRIBUTES = {
+    "columns" => {
+      "default" => nil,
+      "to_rtf" => lambda{ |value| "\\cols#{value}" unless value.nil? }
+    },
+    "column_spacing" => {
+      "default" => nil,
+      "from_user" => lambda{ |value| RRTF::Utilities.value2twips(value) },
+      "to_rtf" => lambda{ |value| "\\colsx#{value}" unless value.nil? }
+    },
+    "mirror_margins" => {
+      "default" => nil,
+      "to_rtf" => lambda{ |value| "\\margmirrorsxn" if value }
+    }
+  }.freeze
+
+  # Generates attribute accessors for all section attributes when the module
+  # is included in another module or class.
+  def self.included(base)
+    # define accessors in base for document attributes
+    base.class_eval do
+      SECTION_ATTRIBUTES.each do |key, options|
+        attr_accessor :"#{key}"
+      end # each
+    end # class_eval
+  end
+
+  # Initializes section formatting attributes.
+  #
+  # @param [Hash] options the section formatting options.
+  # @option options [Integer] "columns" (nil) the number of columns in the section.
+  # @option options [String, Integer] "column_spacing" (nil) the column spacing in twips (can also be a string, see {Utilities.value2twips}).
+  # @option options [Boolean] "mirror_margins" (nil) whether or not to enable mirrored margins (when facing pages is enabled) in the document.
+  def initialize_section_formatting(options = {})
+    # load default attribute values
+    SECTION_ATTRIBUTES.each do |key, options|
+      send("#{key}=", options["default"])
+    end # each
+    # overwrite default attribute values with given values
+    set_section_formatting_from_hashmap(options)
+  end
+
+  # Sets section formatting attributes according to the supplied hashmap.
+  # @see #initialize_section_formatting
+  def set_section_formatting_from_hashmap(hash)
+    hash.each do |attribute, value|
+      # skip unreconized attributes
+      next unless(SECTION_ATTRIBUTES.keys.include?(attribute))
+      # preprocess value if nessesary
+      if SECTION_ATTRIBUTES[attribute].has_key?("from_user")
+        value = SECTION_ATTRIBUTES[attribute]["from_user"].call(value)
+      elsif SECTION_ATTRIBUTES[attribute].has_key?("dictionary") && value.is_a?(String)
+        value = SECTION_ATTRIBUTES[attribute]["dictionary"][value]
+      end # if
+      # set attribute value
+      send("#{attribute}=", value)
+    end # each
+  end
+
+  # Generates an RTF string representing all applied section formatting.
+  #
+  # @return [String] RTF string.
+  def section_formatting_to_rtf
+    text = StringIO.new
+
+    # accumulate RTF representations of section attributes
+    SECTION_ATTRIBUTES.each do |key, options|
+      if options.has_key?("to_rtf")
+        rtf = options["to_rtf"].call(send(key))
+        text << rtf unless rtf.nil?
+      end # if
+    end # each
+
+    text.string
+  end
+end # module SectionFormatting
+
 # Page formatting attributes and methods.
 # @author Wesley Hileman
 # @since 1.0.0
@@ -888,24 +973,59 @@ module RRTF::PageFormatting
         "PORTRAIT" => :portrait,
         "LANDSCAPE" => :landscape
       },
-      "to_rtf" => lambda{ |value| "\\landscape" if value == :landscape }
+      "to_rtf" => lambda do |value, targ|
+        case targ
+        when :document
+          "\\landscape" if value == :landscape
+        when :section
+          "\\lndscpsxn" if value == :landscape
+        end # case
+      end
     },
     "size" => {
       "default" => RRTF::Page::Size.new,
       "from_user" => lambda{ |value| RRTF::Page::Size.new(value) },
-      "to_rtf" => lambda{ |value| "\\paperw#{value.width}\\paperh#{value.height}" }
+      "to_rtf" => lambda do |value, targ|
+        case targ
+        when :document
+          "\\paperw#{value.width}\\paperh#{value.height}"
+        when :section
+          "\\pgwsxn#{value.width}\\pghsxn#{value.height}"
+        end # case
+      end
     },
     "margin" => {
       "default" => RRTF::Page::Margin.new,
       "from_user" => lambda{ |value| RRTF::Page::Margin.new(value) },
-      "to_rtf" => lambda{ |value| "\\margl#{value.left}\\margr#{value.right}\\margt#{value.top}\\margb#{value.bottom}" }
+      "to_rtf" => lambda do |value, targ|
+        case targ
+        when :document
+          "\\margl#{value.left}\\margr#{value.right}\\margt#{value.top}\\margb#{value.bottom}"
+        when :section
+          "\\marglsxn#{value.left}\\margrsnx#{value.right}\\margtsxn#{value.top}\\margbsnx#{value.bottom}"
+        end # case
+      end
     },
     "gutter" => {
       "default" => nil,
       "from_user" => lambda{ |value| RRTF::Utilities.value2twips(value) },
-      "to_rtf" => lambda{ |value| "\\gutter#{value}" unless value.nil? }
+      "to_rtf" => lambda do |value, targ|
+        case targ
+        when :document
+          "\\gutter#{value}" unless value.nil?
+        when :section
+          "\\guttersxn#{value}" unless value.nil?
+        end # case
+      end
     }
   }.freeze
+
+  PAGE_FORMATTING_TARGET_DICTIONARY = {
+    "DOCUMENT"      => :document,
+    "SECTION"       => :section
+  }.freeze
+
+  attr_accessor :target
 
   # Generates attribute accessors for all page attributes when the module
   # is included in another module or class.
@@ -927,7 +1047,9 @@ module RRTF::PageFormatting
   # @option options [String, Page::Size] "size" (Page::Size.new) the size of the paper (object or string; see {Page::Size#initialize}).
   # @option options [String, Page::Margin] "margin" (Page::Margin.new) the paper margin (object or string; see {Page::Margin#initialize}).
   # @option options [String] "gutter" (nil) the page gutter width (specify a string, see {Utilities.value2twips}).
-  def initialize_page_formatting(options = {})
+  def initialize_page_formatting(options = {}, target = "DOCUMENT")
+    @target = PAGE_FORMATTING_TARGET_DICTIONARY[target]
+
     # load default attribute values
     PAGE_ATTRIBUTES.each do |key, options|
       send("#{key}=", options["default"])
@@ -962,27 +1084,11 @@ module RRTF::PageFormatting
     # accumulate RTF representations of page attributes
     PAGE_ATTRIBUTES.each do |key, options|
       if options.has_key?("to_rtf")
-        rtf = options["to_rtf"].call(send(key))
+        rtf = options["to_rtf"].call(send(key), @target)
         text << rtf unless rtf.nil?
       end # if
     end # each
 
     text.string
-  end
-
-  def body_width
-     if orientation == :portrait
-        size.width - (margin.left + margin.right)
-     else
-        size.height - (margin.top + margin.bottom)
-     end
-  end
-
-  def body_height
-     if orientation == :portrait
-        size.height - (margin.top + margin.bottom)
-     else
-        size.width - (margin.left + margin.right)
-     end
   end
 end

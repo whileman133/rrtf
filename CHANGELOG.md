@@ -27,3 +27,7 @@ _Version 1.0.1:_
 
 - Allow remote source for images with open-uri.
 - Fix issue with setting "text_margin" for text boxes.
+
+_Version 1.1.0:_
+
+- Add support for sections.

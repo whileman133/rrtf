@@ -68,6 +68,24 @@ module RRTF
         text.string
      end
 
+     def section(style = nil)
+       # parse style
+       case style
+       when Hash
+         style = SectionStyle.new(style)
+       when SectionStyle
+         # use without modification
+       when nil
+         # allow nil style
+       else
+         RTFError.fire("Invalid section style '#{style}'.")
+       end # case
+
+       node = SectionNode.new(self, style)
+       yield node if block_given?
+       self.store(node)
+     end
+
      # This method provides a short cut means of creating a paragraph command
      # node. The method accepts a block that will be passed a single parameter
      # which will be a reference to the paragraph node created. After the
@@ -84,7 +102,7 @@ module RRTF
      #   rtf.paragraph("bold" => true, "font" => "SWISS:Arial") do |p|
      #     p << "Paragraph formatted with an anonymous style."
      #   end
-     def paragraph(style=nil)
+     def paragraph(style = nil)
        # parse style
        case style
        when Hash
@@ -101,9 +119,9 @@ module RRTF
        style.push_colours(root.colours) unless style.nil?
        style.push_fonts(root.fonts) unless style.nil?
 
-        node = ParagraphNode.new(self, style)
-        yield node if block_given?
-        self.store(node)
+       node = ParagraphNode.new(self, style)
+       yield node if block_given?
+       self.store(node)
      end
 
      # This method provides a short cut means of creating a new ordered or
