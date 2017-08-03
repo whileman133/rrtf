@@ -35,3 +35,7 @@ _Version 1.1.0:_
 _Version 1.2.0:_
 
 - Add support for column breaks.
+
+_Version 1.3.0:_
+
+- Add support for tab stops (`tab` method in `CommandNode` class, "tabs" option for paragraph formatting, and `TabStyle` class).
