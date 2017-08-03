@@ -332,6 +332,33 @@ module RRTF::ParagraphFormatting
         end # case
       end,
       "to_rtf" => lambda{ |value, document| value.rtf_formatting(document) unless value.nil? }
+    },
+    "tabs" => {
+      "default" => nil,
+      "from_user" => lambda do |value|
+        case value
+        when Array
+          value.collect do |t|
+            case t
+            when Hash
+              RRTF::TabStyle.new(t)
+            when RRTF::TabStyle
+              t
+            else
+              RRTF::RTFError.fire("Invalid tab '#{t}'.")
+            end # case
+          end # collect
+        when Hash
+          [RRTF::TabStyle.new(value)]
+        when RRTF::TabStyle
+          [value]
+        else
+          RRTF::RTFError.fire("Invalid border '#{value}'.")
+        end # case
+      end,
+      "to_rtf" => lambda do |value, document|
+        value.collect{ |tab| tab.rtf_formatting }.join(' ') unless value.nil?
+      end
     }
   }.freeze
 

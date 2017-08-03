@@ -31,3 +31,7 @@ _Version 1.0.1:_
 _Version 1.1.0:_
 
 - Add support for sections.
+
+_Version 1.2.0:_
+
+- Add support for column breaks.

@@ -93,6 +93,12 @@ BMP images.</p>
 </li><li>
 <p><strong>Stylesheets</strong>: Define paragraph and character styles,
 enabling the end user to easily modify the look of RTF documents.</p>
+</li><li>
+<p><strong>Sections</strong>: Add sections to a document with custom page and
+column formatting.</p>
+</li><li>
+<p><strong>Tabs</strong>: Define tab stops with optional leaders for
+paragraphs.</p>
 </li></ul>
 
 <p>The gem was created with reference to the <a
@@ -301,6 +307,31 @@ you are likely expendable among the crew.&quot; </code></p>
 <span class='kw'>end</span>
 </code></pre>
 
+<h4 id="label-Sections">Sections</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Redshirt Pocket Guide</span><span class='tstring_end'>&quot;</span></span>
+<span class='comment'># start a new section with the prescribed styling
+</span><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_section'>section</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>columns</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Section Text</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<h4 id="label-Tabs">Tabs</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rtf'>rtf</span><span class='period'>.</span><span class='id identifier rubyid_paragraph'>paragraph</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tabs</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>leader</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DOT</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FLUSH_RIGHT</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>position</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2in</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Engineers</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_tab'>tab</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>10</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_line_break'>line_break</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Redshirts</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_tab'>tab</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>100</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
 <h2 id="label-TODO">TODO</h2>
 <ul><li>
 <p>Develop rspec examples to replace the unit tests for the classes in the
@@ -344,7 +375,7 @@ the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Jul 31 21:48:56 2017 by
+  Generated on Wed Aug  2 23:05:14 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

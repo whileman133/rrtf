@@ -172,6 +172,14 @@ module RRTF
         nil
      end
 
+     # This method provides a short cut means of creating a tab command
+     # node. This command node does not take a block and may possess no other
+     # content.
+     def tab
+        self.store(CommandNode.new(self, '\tab', nil, false))
+        nil
+     end
+
      # This method inserts a footnote at the current position in a node.
      #
      # ==== Parameters

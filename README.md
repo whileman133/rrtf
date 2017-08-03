@@ -11,6 +11,7 @@ RRTF enables programatic creation of Rich Text Format (RTF) documents in Ruby, f
 - __Shapes__: Draw basic shapes, custom shapes, and text boxes.
 - __Stylesheets__: Define paragraph and character styles, enabling the end user to easily modify the look of RTF documents.
 - __Sections__: Add sections to a document with custom page and column formatting.
+- __Tabs__: Define tab stops with optional leaders for paragraphs.
 
 The gem was created with reference to the [Microsoft Office RTF Specification (v1.9.1)](https://www.microsoft.com/en-us/download/details.aspx?id=10725). The syntax for custom shapes was determined by reverse engineering the RTF output from Word 2016 and reference to [Microsoft's Binary Format Specification (pp. 32-33)](https://www.loc.gov/preservation/digital/formats/digformatspecs/OfficeDrawing97-2007BinaryFormatSpecification.pdf).
 
@@ -229,6 +230,24 @@ rtf.paragraph << "Redshirt Pocket Guide"
 # start a new section with the prescribed styling
 rtf.section("columns" => 2)
 rtf.paragraph << "Section Text"
+```
+
+#### Tabs
+
+```ruby
+rtf.paragraph("tabs" => {
+    "leader" => "DOT",
+    "type" => "FLUSH_RIGHT",
+    "position" => "2in"
+}) do |p|
+  p << "Engineers"
+  p.tab
+  p << "10"
+  p.line_break
+  p << "Redshirts"
+  p.tab
+  p << "100"
+end
 ```
 
 ## TODO

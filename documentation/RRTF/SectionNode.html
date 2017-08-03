@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: RRTF::ParagraphNode
+  Class: RRTF::SectionNode
   
     &mdash; Documentation by YARD 0.9.9
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  pathId = "RRTF::ParagraphNode";
+  pathId = "RRTF::SectionNode";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (P)</a> &raquo;
+    <a href="../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../RRTF.html" title="RRTF (module)">RRTF</a></span></span>
      &raquo; 
-    <span class="title">ParagraphNode</span>
+    <span class="title">SectionNode</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: RRTF::ParagraphNode
+      <div id="content"><h1>Class: RRTF::SectionNode
   
   
   
@@ -80,7 +80,7 @@
           
             <li class="next"><span class='object_link'><a href="CommandNode.html" title="RRTF::CommandNode (class)">CommandNode</a></span></li>
           
-            <li class="next">RRTF::ParagraphNode</li>
+            <li class="next">RRTF::SectionNode</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -100,7 +100,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rrtf/node/paragraph_node.rb</dd>
+    <dd>lib/rrtf/node/section_node.rb</dd>
   </dl>
   
 </div>
@@ -108,13 +108,30 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>This class represents a paragraph within an RTF document.</p>
+<p>This class represents a section within an RTF document. Section nodes do
+not contain other nodes; instead, they mark the start of a new section.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Wesley Hileman</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div>
 
@@ -149,7 +166,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(parent, style = nil)  &#x21d2; ParagraphNode </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(parent, style = nil)  &#x21d2; SectionNode </a>
     
 
     
@@ -166,7 +183,32 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of ParagraphNode.</p>
+<p>A new instance of SectionNode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#store-instance_method" title="#store (instance method)">#<strong>store</strong>(node)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Overrides <span class='object_link'><a href="ContainerNode.html#store-instance_method" title="RRTF::ContainerNode#store (method)">ContainerNode#store</a></span> to prevent child nodes from being added to
+sections.</p>
 </div></span>
   
 </li>
@@ -196,7 +238,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ContainerNode.html" title="RRTF::ContainerNode (class)">ContainerNode</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ContainerNode.html#[]-instance_method" title="RRTF::ContainerNode#[] (method)">#[]</a></span>, <span class='object_link'><a href="ContainerNode.html#each-instance_method" title="RRTF::ContainerNode#each (method)">#each</a></span>, <span class='object_link'><a href="ContainerNode.html#first-instance_method" title="RRTF::ContainerNode#first (method)">#first</a></span>, <span class='object_link'><a href="ContainerNode.html#last-instance_method" title="RRTF::ContainerNode#last (method)">#last</a></span>, <span class='object_link'><a href="ContainerNode.html#size-instance_method" title="RRTF::ContainerNode#size (method)">#size</a></span>, <span class='object_link'><a href="ContainerNode.html#store-instance_method" title="RRTF::ContainerNode#store (method)">#store</a></span>, <span class='object_link'><a href="ContainerNode.html#to_rtf-instance_method" title="RRTF::ContainerNode#to_rtf (method)">#to_rtf</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="ContainerNode.html#[]-instance_method" title="RRTF::ContainerNode#[] (method)">#[]</a></span>, <span class='object_link'><a href="ContainerNode.html#each-instance_method" title="RRTF::ContainerNode#each (method)">#each</a></span>, <span class='object_link'><a href="ContainerNode.html#first-instance_method" title="RRTF::ContainerNode#first (method)">#first</a></span>, <span class='object_link'><a href="ContainerNode.html#last-instance_method" title="RRTF::ContainerNode#last (method)">#last</a></span>, <span class='object_link'><a href="ContainerNode.html#size-instance_method" title="RRTF::ContainerNode#size (method)">#size</a></span>, <span class='object_link'><a href="ContainerNode.html#to_rtf-instance_method" title="RRTF::ContainerNode#to_rtf (method)">#to_rtf</a></span></p>
 
   
   
@@ -215,7 +257,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(parent, style = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="RRTF::ParagraphNode (class)">ParagraphNode</a></span></tt> 
+    #<strong>initialize</strong>(parent, style = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="RRTF::SectionNode (class)">SectionNode</a></span></tt> 
   
 
   
@@ -224,7 +266,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of ParagraphNode</p>
+<p>Returns a new instance of SectionNode</p>
 
 
   </div>
@@ -238,21 +280,21 @@
       <pre class="lines">
 
 
-4
-5
 6
 7
 8
-9</pre>
+9
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rrtf/node/paragraph_node.rb', line 4</span>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/section_node.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_style'>style</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\pard</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_prefix'>prefix</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_root'>root</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_style'>style</span>
+  <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\sect\sectd</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_prefix'>prefix</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_root'>root</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_style'>style</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\par</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -261,6 +303,72 @@
   
 </div>
 
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="store-instance_method">
+  
+    #<strong>store</strong>(node)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Overrides <span class='object_link'><a href="ContainerNode.html#store-instance_method" title="RRTF::ContainerNode#store (method)">ContainerNode#store</a></span> to prevent child nodes from being added to
+sections.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>whenever called.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rrtf/node/section_node.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="RTFError.html" title="RRTF::RTFError (class)">RTFError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fire'><span class='object_link'><a href="RTFError.html#fire-class_method" title="RRTF::RTFError.fire (method)">fire</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot add child nodes to section nodes: tried to add </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_node'>node</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
